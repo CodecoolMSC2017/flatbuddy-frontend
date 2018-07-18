@@ -12,16 +12,31 @@ export class LoginComponent implements OnInit {
 
   loginDetails: LoginDetails = new LoginDetails();
 
+  showError: boolean = false;
+
   constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit() : void {
   }
 
-  getAuth() {
-    this.authService.getAuth(this.loginDetails).subscribe(user => {
-      sessionStorage.setItem('user', JSON.stringify(user));
-      this.authService.loggedInUser = user;
-      this.router.navigate(['advertisements']);
-    }, error => alert(error.message));
+  getAuth() : void {
+    const fieldsComplete = this.checkLoginFields();
+    
+    if (!fieldsComplete) {
+      this.authService.getAuth(this.loginDetails).subscribe(user => {
+        sessionStorage.setItem('user', JSON.stringify(user));
+        this.authService.loggedInUser = user;
+        this.router.navigate(['advertisements']);
+      }, error => alert(error.message));
+
+    }
+  }
+
+  private checkLoginFields() : boolean {
+    const result = !this.loginDetails.email || !this.loginDetails.password;
+    if (result) {
+      this.showError = true;
+      return result;
+    }
   }
 }
