@@ -17,7 +17,7 @@ import { RentAdsComponent } from './rent-ads/rent-ads.component';
     MatchesComponent,
     NavigationComponent,
     MatchDetailsComponent,
-    LoginComponent
+    LoginComponent,
     MatchDetailsComponent,
     RentAdsComponent
   ],

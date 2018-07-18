@@ -5,8 +5,6 @@ import {MatchesComponent} from './matches/matches.component'
 import {MatchDetailsComponent} from './match-details/match-details.component'
 import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './login.guard';
-import {MatchesComponent} from './matches/matches.component';
-import {MatchDetailsComponent} from './match-details/match-details.component';
 import {RentAdsComponent} from './rent-ads/rent-ads.component';
 
 const routes: Routes = [
@@ -24,7 +22,8 @@ const routes: Routes = [
   },
   {
     path: 'advertisements',
-    component: RentAdsComponent
+    component: RentAdsComponent,
+    canActivate: [LoginGuard]
   }
 ];
 
