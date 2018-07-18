@@ -10,6 +10,7 @@ import { MatchDetailsComponent } from './match-details/match-details.component';
 import { HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RentAdsComponent } from './rent-ads/rent-ads.component';
+import { RentAdDetailsComponent } from './rent-ad-details/rent-ad-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RentAdsComponent } from './rent-ads/rent-ads.component';
     MatchDetailsComponent,
     LoginComponent,
     MatchDetailsComponent,
-    RentAdsComponent
+    RentAdsComponent,
+    RentAdDetailsComponent
   ],
   imports: [
     BrowserModule,

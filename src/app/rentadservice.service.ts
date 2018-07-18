@@ -12,4 +12,7 @@ export class RentadserviceService {
   getAds(){
     return this.http.get('/api/user/advertisements');
   }
+  getAdById(rentAdId){
+    return this.http.get('/api/user/advertisement/'+rentAdId);
+  }
 }
