@@ -1,0 +1,8 @@
+<h1>Matches</h1>
+<ul>
+  <li *ngFor="let match of matches$">
+    <a routerLink = "/match/{{match.id}}"><span>Match ID:</span>{{ match.id }}
+      <span>Match request from: </span>{{ match.userB }}
+      <span>Match status: </span>{{ match.status }}</a>
+  </li>
+</ul>
