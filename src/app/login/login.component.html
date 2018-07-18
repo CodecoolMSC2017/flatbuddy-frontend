@@ -1,0 +1,10 @@
+<h1>Login</h1>
+<label>Username (email): </label>
+<input [(ngModel)]="loginDetails.email">
+<br>
+<label>Password: </label>
+<input [(ngModel)]="loginDetails.password">
+<br>
+<button (click)="getAuth()">Login</button>
+<br>
+<br><a routerLink="/register" routerLinkActive="active">Click here to register</a>
