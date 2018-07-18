@@ -11,6 +11,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RentAdsComponent } from './rent-ads/rent-ads.component';
 import { RentAdDetailsComponent } from './rent-ad-details/rent-ad-details.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { RentAdDetailsComponent } from './rent-ad-details/rent-ad-details.compon
     MatchDetailsComponent,
     RentAdsComponent,
     RentAdDetailsComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
