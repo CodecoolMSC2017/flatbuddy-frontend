@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import {Routes,RouterModule} from '@angular/router';
-import {MatchesComponent} from './matches/matches.component'
-import {MatchDetailsComponent} from './match-details/match-details.component'
+import {MatchesComponent} from './matches/matches.component';
+import {MatchDetailsComponent} from './match-details/match-details.component';
+import {RentAdsComponent} from './rent-ads/rent-ads.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'match/:id',
     component: MatchDetailsComponent
+  },
+  {
+    path: 'advertisements',
+    component: RentAdsComponent
   }
 ];
 

@@ -1,0 +1,14 @@
+<h1>Advertisements</h1>
+<ul>
+  <div *ngFor="let rentad of rentads$">
+    <a routerLink = "/advertisements/{{rentad.id}}">
+        <div id="rentadcontainer">
+          <div>{{rentad.city}} {{rentad.street}} </div>
+          <img id="rentadimg" src="https://defenders.org/sites/default/files/styles/large/public/dolphin-kristian-sekulic-isp.jpg">
+          <div class="bottom-left">
+            <div class=advdesc>{{rentad.description}} </div>
+          </div>
+        </div>  
+      </a>
+  </div>
+</ul>

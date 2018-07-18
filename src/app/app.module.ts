@@ -7,13 +7,15 @@ import { MatchesComponent } from './matches/matches.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { MatchDetailsComponent } from './match-details/match-details.component';
 import { HttpClientModule} from '@angular/common/http';
+import { RentAdsComponent } from './rent-ads/rent-ads.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MatchesComponent,
     NavigationComponent,
-    MatchDetailsComponent
+    MatchDetailsComponent,
+    RentAdsComponent
   ],
   imports: [
     BrowserModule,
