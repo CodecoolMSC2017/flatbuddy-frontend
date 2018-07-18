@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   getAuth() {
     this.authService.getAuth(this.loginDetails).subscribe(user => {
       sessionStorage.setItem('user', JSON.stringify(user));
-      this.router.navigate(['mymatches']);
+      this.router.navigate(['advertisements']);
     }, error => alert(error.message));
   }
 }
