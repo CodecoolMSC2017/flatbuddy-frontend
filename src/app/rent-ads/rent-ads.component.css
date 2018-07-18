@@ -3,9 +3,9 @@
     text-align: center;
     color: white;
     background-color:#2d2e2e;
-    height: 250px;
-    width:400px;
-    border-radius:25px 20px;
+    height: 15%;
+    width:23%;
+    border-radius:5px 5px;
     float: left;
     margin: 10px;
     font-weight: bold;
@@ -32,6 +32,7 @@
     height:auto;
     transition: .5s ease;
     backface-visibility: hidden;
+    border-radius: 5px 5px;
 }
 #rentadcontainer:hover #rentadimg{
     opacity: 0.3;

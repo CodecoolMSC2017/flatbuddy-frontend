@@ -1,8 +1,21 @@
 <h1>Matches</h1>
 <ul>
-  <li *ngFor="let match of matches$">
-    <a routerLink = "/match/{{match.id}}"><span>Match ID:</span>{{ match.id }}
-      <span>Match request from: </span>{{ match.userB }}
-      <span>Match status: </span>{{ match.status }}</a>
-  </li>
+  <div *ngFor="let match of matches$">
+    <a routerLink = "/match/{{match.id}}">
+      <div id="usercontainer">
+        <img id="userimg" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512">
+          <div>{{match.userB}} users name </div>
+          <br>
+          <div class="bottom-left">
+            <div class=userdesc> Age: 22  Status: {{match.status}}</div>
+          </div>
+          <div id="matchbuttons">
+            <i class="material-icons">check</i>
+            <i class="material-icons">cancel</i>
+          </div>
+      </div>  
+    </a>
+  </div>
 </ul>
+
+

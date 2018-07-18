@@ -1,0 +1,33 @@
+#usercontainer {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-color:#2d2e2e;
+    width:200px;
+    height: 200px;
+    border-radius:5px 5px;
+    float: left;
+    margin: 10px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+#usercontainer .bottom-left {
+    position: relative;
+    text-align: center;
+}
+#userimg {
+    display: block;
+	width:50%;
+    height:auto;
+    border-radius: 150px;
+    position: relative;
+    top:1%;
+    left:25%;
+}
+.userdesc {
+  color: white;
+  font-size: 16px;
+}
+.material-icons {
+    margin:10px;
+}
