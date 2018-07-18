@@ -4,7 +4,6 @@
 <br>
 <label>Password: </label>
 <input type="password" [(ngModel)]="loginDetails.password">
-<br>
-<button (click)="getAuth()">Login</button>
-<br>
+<br><span class="error" *ngIf="showError">Email and password cannot be empty!</span><br>
+<br><button (click)="getAuth()">Login</button><br>
 <br><a routerLink="/register" routerLinkActive="active">Click here to register</a>
