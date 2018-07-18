@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './login.guard';
 import {RentAdsComponent} from './rent-ads/rent-ads.component';
 import { RentAdDetailsComponent } from './rent-ad-details/rent-ad-details.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'match/:id', component: MatchDetailsComponent},
   {path: 'advertisements',component: RentAdsComponent,canActivate: [LoginGuard]},
   {path: 'advertisement/:id',component: RentAdDetailsComponent,canActivate: [LoginGuard]}
+  {path: 'register', component: RegisterComponent},
 ];
 
 @NgModule({
