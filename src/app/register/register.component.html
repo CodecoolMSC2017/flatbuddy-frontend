@@ -1,0 +1,14 @@
+<h1>Register</h1>
+<label>Email: </label>
+<input id="email" name="email" [(ngModel)]="registerDetails.email" required>
+<br>
+<label>Password: </label>
+<input id="password" name="password" type="password" [(ngModel)]="registerDetails.password" required>
+<br>
+<label>Confirmation Password: </label>
+<input id="confirmationPassword" name="confirmationPassword" type="password" [(ngModel)]="registerDetails.confirmationPassword" required>
+<br>
+<button (click)="register()">Register</button>
+<br>
+<br><a routerLink="/login" routerLinkActive="active">Click here to login</a>
+
