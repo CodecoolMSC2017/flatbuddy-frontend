@@ -10,6 +10,7 @@ import { User } from './user';
 })
 export class AuthService {
 
+  public loggedInUser: User;
   constructor(private http: HttpClient) { }
 
   getAuth(loginDetails: LoginDetails): Observable<User> {
