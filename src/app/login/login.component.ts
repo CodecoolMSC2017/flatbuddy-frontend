@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
 
   showError: boolean = false;
 
+  errorMessage: string;
+
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() : void {
@@ -27,7 +29,12 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('user', JSON.stringify(user));
         this.authService.loggedInUser = user;
         this.router.navigate(['advertisements']);
-      }, error => alert(error.message));
+      }, error => {
+        if (error.status == 404) {
+          this.showError = true;
+          this.errorMessage = "No such user!";
+        }
+      });
 
     }
   }
@@ -36,6 +43,7 @@ export class LoginComponent implements OnInit {
     const result = !this.loginDetails.email || !this.loginDetails.password;
     if (result) {
       this.showError = true;
+      this.errorMessage = "Email and password cannot be empty!"
       return result;
     }
   }
