@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RentAdsComponent } from './rent-ads/rent-ads.component';
 import { RentAdDetailsComponent } from './rent-ad-details/rent-ad-details.component';
 import { RegisterComponent } from './register/register.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RegisterComponent } from './register/register.component';
     MatchDetailsComponent,
     RentAdsComponent,
     RentAdDetailsComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

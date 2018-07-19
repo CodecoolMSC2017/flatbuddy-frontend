@@ -1,7 +1,7 @@
 <h1>Matches</h1>
 <ul>
   <div *ngFor="let match of matches$">
-    <a routerLink = "/match/{{match.id}}">
+    <a routerLink = "/profile/{{match.userB}}">
       <div id="usercontainer">
         <img id="userimg" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512">
           <div>{{match.userB}} users name </div>
