@@ -1,8 +1,17 @@
 <h1>{{ user$.lastName }} {{ user$.firstName }}</h1>
+<div class="topcontainer">
+    <div class="userimgdiv">
+      <img class="userimg" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512">
+    </div>  
+    <div id="userdesc"> <p>{{ user$.description }}</p></div>
+</div>
 
-<ul>
-  <li><strong>Age:</strong> {{ user$.age}}</li>
-  <li><strong>Gender:</strong> {{ user$.gender }}</li>
-  <li><strong>Description:</strong> {{ user$.description }}</li>
-</ul>
-
+<div id="userdetailslist">
+  <ul>
+    <li><strong>Firstname:</strong> {{ user$.firstName }}</li>
+    <li><strong>Lastname:</strong> {{ user$.lastName }}</li>
+    <li><strong>Age:</strong> {{ user$.age}}</li>
+    <li><strong>Gender:</strong> {{ user$.gender }}</li>
+    <li *ngIf="user$.destination !=''"><strong>Destination:</strong> {{ user$.destination }}</li>
+  </ul>
+</div>

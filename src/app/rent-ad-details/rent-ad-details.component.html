@@ -14,7 +14,8 @@
     <li><strong>Rent cost:</strong> {{ rentAd$.cost }}</li>
     <li><strong>Rent size:</strong> {{ rentAd$.size }}</li>
     <li><strong>Rent type:</strong> {{ rentAd$.type }}</li>
-    <li><strong>Is it furnitured:</strong> {{ rentAd$.isFurnitured }}</li>
+    <li *ngIf="rentAd$.furnitured"><strong>Is it furnitured:</strong> Yes</li>
+    <li *ngIf="!rentAd$.furnitured"><strong>Is it furnitured:</strong> No</li>
     <li><strong>Rooms avaiable:</strong> {{ rentAd$.roomsAvailable }}</li>
   </ul>
 </div>

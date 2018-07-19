@@ -7,11 +7,17 @@
           <div>{{match.userB}} users name </div>
           <br>
           <div class="bottom-left">
-            <div class=userdesc> Age: 22  Status: {{match.status}}</div>
-          </div>
-          <div id="matchbuttons">
-            <i class="material-icons">check</i>
-            <i class="material-icons">cancel</i>
+            <div class=userdesc *ngIf="match.status == 1">  Status: <font color="orange">pending</font></div>
+            <div class=userdesc *ngIf="match.status == 2">  Status: <font color="green">matched</font>
+              <div id="matchbuttons">
+                <i class="material-icons">cancel</i>
+              </div></div>
+            <div class=userdesc *ngIf="match.status == 3"> 
+              <div id="matchbuttons">
+                <i class="material-icons">check</i>
+                <i class="material-icons">cancel</i>
+              </div>
+            </div>
           </div>
       </div>  
     </a>
