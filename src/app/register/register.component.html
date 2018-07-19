@@ -1,14 +1,15 @@
 <h1>Register</h1>
 <label>Email: </label>
-<input id="email" name="email" [(ngModel)]="registerDetails.email" required>
+<input id="email" name="email" [(ngModel)]="registerDetails.email">
 <br>
 <label>Password: </label>
-<input id="password" name="password" type="password" [(ngModel)]="registerDetails.password" required>
+<input id="password" name="password" type="password" [(ngModel)]="registerDetails.password">
 <br>
 <label>Confirmation Password: </label>
-<input id="confirmationPassword" name="confirmationPassword" type="password" [(ngModel)]="registerDetails.confirmationPassword" required>
+<input id="confirmationPassword" name="confirmationPassword" type="password" [(ngModel)]="registerDetails.confirmationPassword">
 <br>
-<button (click)="register()">Register</button>
+<span class="error" *ngIf="showError">{{ errorMessage }}</span><br>
+<br><button (click)="register()">Register</button>
 <br>
 <br><a routerLink="/login" routerLinkActive="active">Click here to login</a>
 

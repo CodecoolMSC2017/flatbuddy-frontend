@@ -13,14 +13,43 @@ export class RegisterComponent implements OnInit {
 
   registerDetails: RegisterDetails = new RegisterDetails();
 
+  showError: boolean = false;
+
+  errorMessage: string;
+
   constructor(private registerService: RegisterService, private router: Router) { }
 
   ngOnInit() {}
 
   register() {
-    this.registerService.register(this.registerDetails).subscribe( () => {
-      this.router.navigate(['login']);
-    }, error => alert(error.message));
+    const fieldsComplete = this.checkRegisterFields();
+    const passwordChecker = this.checkRegisterPasswords();
+
+    if (!fieldsComplete && !passwordChecker) {
+      this.registerService.register(this.registerDetails).subscribe( () => {
+        this.router.navigate(['login']);
+      }, error => alert(error.message));
+    }
+  }
+
+  private checkRegisterFields(): boolean {
+    const result = !this.registerDetails.email || !this.registerDetails.password || !this.registerDetails.confirmationPassword;
+
+    if (result) {
+      this.showError = true;
+      this.errorMessage = "Please fill out each inputs!";
+      return result;
+    }
+  }
+
+  private checkRegisterPasswords(): boolean {
+    const result = this.registerDetails.password != this.registerDetails.confirmationPassword;
+
+    if (result) {
+      this.showError = true;
+      this.errorMessage = "Passwords must be the same!";
+      return result;
+    }
   }
 
 }
