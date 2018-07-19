@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'match/:id', component: MatchDetailsComponent},
   {path: 'advertisements',component: RentAdsComponent,canActivate: [LoginGuard]},
   {path: 'advertisement/:id',component: RentAdDetailsComponent,canActivate: [LoginGuard]}
-  {path: 'register', component: RegisterComponent},
+  {path: 'register', component: RegisterComponent}
 ];
 
 @NgModule({
