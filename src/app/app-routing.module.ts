@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'mymatches', component: MatchesComponent, canActivate: [LoginGuard]},
   {path: 'match/:id', component: MatchDetailsComponent},
   {path: 'advertisements',component: RentAdsComponent,canActivate: [LoginGuard]},
-  {path: 'advertisement/:id',component: RentAdDetailsComponent,canActivate: [LoginGuard]}
+  {path: 'advertisement/:id',component: RentAdDetailsComponent,canActivate: [LoginGuard]},
   {path: 'register', component: RegisterComponent}
 ];
 

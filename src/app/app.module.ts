@@ -22,7 +22,7 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     MatchDetailsComponent,
     RentAdsComponent,
-    RentAdDetailsComponent
+    RentAdDetailsComponent,
     RegisterComponent
   ],
   imports: [
