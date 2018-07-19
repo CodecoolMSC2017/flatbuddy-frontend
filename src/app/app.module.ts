@@ -13,6 +13,7 @@ import { RentAdsComponent } from './rent-ads/rent-ads.component';
 import { RentAdDetailsComponent } from './rent-ad-details/rent-ad-details.component';
 import { RegisterComponent } from './register/register.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { ImageViewerComponent } from './image-viewer/image-viewer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     RentAdsComponent,
     RentAdDetailsComponent,
     RegisterComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    ImageViewerComponent
   ],
   imports: [
     BrowserModule,
