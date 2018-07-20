@@ -14,11 +14,11 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: '', component: LoginComponent},
   {path: 'mymatches', component: MatchesComponent, canActivate: [LoginGuard]},
-  {path: 'match/:id', component: MatchDetailsComponent},
+  {path: 'match/:id', component: MatchDetailsComponent, canActivate: [LoginGuard]},
   {path: 'advertisements',component: RentAdsComponent,canActivate: [LoginGuard]},
   {path: 'advertisement/:id',component: RentAdDetailsComponent,canActivate: [LoginGuard]},
   {path: 'register', component: RegisterComponent},
-  {path: 'profile/:id', component: UserDetailsComponent}
+  {path: 'profile/:id', component: UserDetailsComponent, canActivate: [LoginGuard]}
 
   
 ];

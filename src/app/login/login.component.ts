@@ -30,9 +30,9 @@ export class LoginComponent implements OnInit {
         this.authService.loggedInUser = user;
         this.router.navigate(['advertisements']);
       }, error => {
-        if (error.status == 404) {
+        if (error.status == 401) {
           this.showError = true;
-          this.errorMessage = "No such user!";
+          this.errorMessage = "Invalid email or password!";
         }
       });
 
