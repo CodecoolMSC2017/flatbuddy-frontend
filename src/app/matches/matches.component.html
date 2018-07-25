@@ -4,7 +4,7 @@
     <a >
       <div id="usercontainer">
         <img id="userimg" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512" routerLink = "/profile/{{match.userB}}">
-          <div>{{match.userB}} users name </div>
+          <div>{{match.id}} users name</div>
           <br>
           <div class="bottom-left">
             <div class=userdesc *ngIf="match.status == 1">  Status: <font color="orange">pending</font></div>
@@ -14,7 +14,7 @@
               </div></div>
             <div class=userdesc *ngIf="match.status == 3"> 
               <div id="matchbuttons">
-                <i class="material-icons" (click)="acceptMatchButtonClick(match.userB)" >check</i>
+                <i class="material-icons" (click)="acceptMatchButtonClick(match)" >check</i>
                 <i class="material-icons" (click)="declineMatchButtonClick(match)">cancel</i>
               </div>
             </div>

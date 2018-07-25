@@ -13,13 +13,11 @@ export class MatchesComponent implements OnInit {
   constructor(private match: MatchserviceService) { }
 
   ngOnInit() {
-    this.match.getMatches().subscribe(matches => {
-      this.matches$ = matches;
-    }
+    this.match.getMatches().subscribe(matches =>this.matches$ = matches.sort((a,b) => a.id - b.id));
   }
 
-  acceptMatchButtonClick(matchId) {
-    this.match.acceptMatch(matchId).subscribe();
+  acceptMatchButtonClick(match) {
+    this.match.acceptMatch(match.id).subscribe();
   }
 
   declineMatchButtonClick(match: Match) {
