@@ -14,6 +14,7 @@ import { RentAdDetailsComponent } from './rent-ad-details/rent-ad-details.compon
 import { RegisterComponent } from './register/register.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ImageViewerComponent } from './image-viewer/image-viewer.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ImageViewerComponent } from './image-viewer/image-viewer.component';
     RentAdDetailsComponent,
     RegisterComponent,
     UserDetailsComponent,
-    ImageViewerComponent
+    ImageViewerComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

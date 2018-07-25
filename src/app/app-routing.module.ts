@@ -9,6 +9,7 @@ import {RentAdsComponent} from './rent-ads/rent-ads.component';
 import { RentAdDetailsComponent } from './rent-ad-details/rent-ad-details.component';
 import { RegisterComponent } from './register/register.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -18,9 +19,8 @@ const routes: Routes = [
   {path: 'advertisements',component: RentAdsComponent,canActivate: [LoginGuard]},
   {path: 'advertisement/:id',component: RentAdDetailsComponent,canActivate: [LoginGuard]},
   {path: 'register', component: RegisterComponent},
-  {path: 'profile/:id', component: UserDetailsComponent, canActivate: [LoginGuard]}
-
-  
+  {path: 'profile/:id', component: UserDetailsComponent, canActivate: [LoginGuard]},
+  {path: 'myprofile', component: UserProfileComponent, canActivate: [LoginGuard]}
 ];
 
 @NgModule({
