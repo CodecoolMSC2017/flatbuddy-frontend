@@ -1,0 +1,42 @@
+<h1>Profile</h1>
+
+<h2>Personal information</h2>
+
+<div id="personal">
+  First name:<br>
+  <input type="text" value="{{ user.firstName }}" [disabled]="enabled" /><br>
+  
+  Last name:<br>
+  <input type="text" value="{{ user.lastName }}" [disabled]="enabled" /><br>
+  
+  Age:<br>
+  <input type="number" value="{{ user.age }}" [disabled]="enabled" /><br>
+  
+  Gender:<br>
+  <select [(ngModel)]="user.gender" [disabled]="enabled">
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>  
+  </select><br>
+  
+  Description:<br>
+  <textarea value="{{ user.description }}" [disabled]="enabled"></textarea><br>
+  
+  Destination:<br>
+  <input type="text" value="{{ user.destination }}" [disabled]="enabled"><br>
+  
+  Show in people: <input type="checkbox" [(ngModel)]="user.flatmate" [disabled]="enabled"><br>
+</div>
+
+<div id="change-password">
+  <h2>Change password</h2>
+  Old password:<br>
+  <input type="password" [disabled]="enabled"><br>
+  New password:<br>
+  <input type="password" [disabled]="enabled"><br>
+  Confirmation password:<br>
+  <input type="password" [disabled]="enabled"><br>    
+</div>
+
+<button (click)="modify()">Modify</button>
+<button (click)="save()">Save</button>
+
