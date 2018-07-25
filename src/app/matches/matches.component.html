@@ -1,21 +1,21 @@
 <h1>Matches</h1>
 <ul>
   <div *ngFor="let match of matches$">
-    <a routerLink = "/profile/{{match.userB}}">
+    <a >
       <div id="usercontainer">
-        <img id="userimg" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512">
+        <img id="userimg" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512" routerLink = "/profile/{{match.userB}}">
           <div>{{match.userB}} users name </div>
           <br>
           <div class="bottom-left">
             <div class=userdesc *ngIf="match.status == 1">  Status: <font color="orange">pending</font></div>
             <div class=userdesc *ngIf="match.status == 2">  Status: <font color="green">matched</font>
               <div id="matchbuttons">
-                <i class="material-icons">cancel</i>
+                <i class="material-icons" (click)="declineMatchButtonClick(match.userB)">cancel</i>
               </div></div>
             <div class=userdesc *ngIf="match.status == 3"> 
               <div id="matchbuttons">
-                <i class="material-icons">check</i>
-                <i class="material-icons">cancel</i>
+                <i class="material-icons" (click)="acceptMatchButtonClick(match.id)" >check</i>
+                <i class="material-icons" (click)="declineMatchButtonClick(match.userB)">cancel</i>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatchserviceService} from '../matchservice.service';
 import {Observable} from 'rxjs';
+
 @Component({
   selector: 'app-matches',
   templateUrl: './matches.component.html',
@@ -12,6 +13,14 @@ export class MatchesComponent implements OnInit {
 
   ngOnInit() {
     this.match.getMatches().subscribe(match => this.matches$ = match)
+  }
+
+  acceptMatchButtonClick(matchId) {
+    this.match.acceptMatch(matchId).subscribe();
+  }
+
+  declineMatchButtonClick(userBId) {
+    this.match.declineMatch(userBId).subscribe();
   }
 
 }

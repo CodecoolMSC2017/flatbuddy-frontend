@@ -23,11 +23,21 @@
     position: relative;
     top:1%;
     left:25%;
+
 }
+
+#userimg:hover {
+    cursor:pointer ;
+}
+
 .userdesc {
   color: white;
   font-size: 16px;
 }
 .material-icons {
     margin:10px;
+}
+
+.material-icons:hover {
+    cursor: pointer;
 }
