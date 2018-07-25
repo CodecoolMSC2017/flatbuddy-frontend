@@ -17,8 +17,13 @@ export class MatchserviceService {
     return this.http.get('/api/user/matches/'+this.auth.loggedInUser.id);
   }
 
-  acceptMatch(matchId){
+  acceptMatch(matchId): Observable<any>{
     console.log("eljut ide" + matchId);
     return this.http.put('/api/user/match/accept/'+matchId,JSON);
+  }
+
+  declineMatch(matchId): Observable<any>{
+    console.log("eljut ide" + matchId);
+    return this.http.delete('/api/user/match/delete/'+matchId);
   }
 }
