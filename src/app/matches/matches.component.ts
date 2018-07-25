@@ -14,4 +14,9 @@ export class MatchesComponent implements OnInit {
     this.match.getMatches().subscribe(match => this.matches$ = match)
   }
 
+  acceptMatchButtonClick(matchId) {
+    this.match.acceptMatch(matchId);
+    console.log(matchId);
+  }
+
 }
