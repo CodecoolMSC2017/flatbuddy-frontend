@@ -3,6 +3,8 @@ import { RegisterDetails } from '../register-details';
 import { RegisterService } from '../register.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -26,9 +28,13 @@ export class RegisterComponent implements OnInit {
     const passwordChecker = this.checkRegisterPasswords();
 
     if (!fieldsComplete && !passwordChecker) {
-      this.registerService.register(this.registerDetails).subscribe( () => {
+      this.registerService.register(this.registerDetails).subscribe(() => {
         this.router.navigate(['login']);
-      }, error => alert(error.message));
+      },
+      (error) => {
+          this.showError = true;
+          this.errorMessage = error.error.message;
+      });
     }
   }
 
@@ -47,7 +53,7 @@ export class RegisterComponent implements OnInit {
 
     if (result) {
       this.showError = true;
-      this.errorMessage = "Passwords must be the same!";
+      this.errorMessage = "Passwords must be same!";
       return result;
     }
   }
