@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
+import { Match } from './match';
+import { MatchesComponent } from './matches/matches.component';
 
 
 
@@ -12,16 +14,17 @@ export class MatchserviceService {
 
   constructor(private http: HttpClient, private auth: AuthService) { }
 
-  getMatches(){
+  getMatches(): Observable<Match[]>{
     
-    return this.http.get('/api/user/matches/'+this.auth.loggedInUser.id);
+    return this.http.get<Match[]>('/api/user/matches/'+this.auth.loggedInUser.id);
   }
 
   acceptMatch(matchId): Observable<any>{
-    return this.http.put('/api/user/match/accept/'+matchId,JSON);
+    return this.http.put('/api/user/match/accept/'+matchId,null);
   }
 
   declineMatch(userBId): Observable<any>{
     return this.http.delete('/api/user/match/delete/'+userBId);
   }
+
 }

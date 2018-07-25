@@ -10,12 +10,12 @@
             <div class=userdesc *ngIf="match.status == 1">  Status: <font color="orange">pending</font></div>
             <div class=userdesc *ngIf="match.status == 2">  Status: <font color="green">matched</font>
               <div id="matchbuttons">
-                <i class="material-icons" (click)="declineMatchButtonClick(match.userB)">cancel</i>
+                <i class="material-icons" (click)="declineMatchButtonClick(match)">cancel</i>
               </div></div>
             <div class=userdesc *ngIf="match.status == 3"> 
               <div id="matchbuttons">
-                <i class="material-icons" (click)="acceptMatchButtonClick(match.id)" >check</i>
-                <i class="material-icons" (click)="declineMatchButtonClick(match.userB)">cancel</i>
+                <i class="material-icons" (click)="acceptMatchButtonClick(match.userB)" >check</i>
+                <i class="material-icons" (click)="declineMatchButtonClick(match)">cancel</i>
               </div>
             </div>
           </div>

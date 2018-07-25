@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatchserviceService} from '../matchservice.service';
 import {Observable} from 'rxjs';
+import { Match } from '../match';
 
 @Component({
   selector: 'app-matches',
@@ -8,19 +9,26 @@ import {Observable} from 'rxjs';
   styleUrls: ['./matches.component.css']
 })
 export class MatchesComponent implements OnInit {
-  matches$: Object;
+  matches$: Match[] = [];
   constructor(private match: MatchserviceService) { }
 
   ngOnInit() {
-    this.match.getMatches().subscribe(match => this.matches$ = match)
+    this.match.getMatches().subscribe(matches => {
+      this.matches$ = matches;
+    }
   }
 
   acceptMatchButtonClick(matchId) {
     this.match.acceptMatch(matchId).subscribe();
   }
 
-  declineMatchButtonClick(userBId) {
-    this.match.declineMatch(userBId).subscribe();
+  declineMatchButtonClick(match: Match) {
+    this.match.declineMatch(match.userB).subscribe();
+    this.deleteMatch(match);
+  }
+  deleteMatch(match: Match){
+    const index: number = this.matches$.indexOf(match);
+    this.matches$.splice(index,1);
   }
 
 }
