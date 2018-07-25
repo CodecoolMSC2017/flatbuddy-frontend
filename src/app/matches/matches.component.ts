@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {MatchserviceService} from '../matchservice.service';
-import { Router } from '@angular/router';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -10,7 +9,7 @@ import {Observable} from 'rxjs';
 })
 export class MatchesComponent implements OnInit {
   matches$: Object;
-  constructor(private match: MatchserviceService, private router: Router) { }
+  constructor(private match: MatchserviceService) { }
 
   ngOnInit() {
     this.match.getMatches().subscribe(match => this.matches$ = match)
@@ -18,11 +17,10 @@ export class MatchesComponent implements OnInit {
 
   acceptMatchButtonClick(matchId) {
     this.match.acceptMatch(matchId).subscribe();
-    this.router.navigate(['mymatches']);
   }
 
-  declineMatchButtonClick(matchId) {
-    this.match.declineMatch(matchId).subscribe();
+  declineMatchButtonClick(userBId) {
+    this.match.declineMatch(userBId).subscribe();
   }
 
 }

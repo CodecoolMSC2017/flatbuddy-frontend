@@ -18,12 +18,10 @@ export class MatchserviceService {
   }
 
   acceptMatch(matchId): Observable<any>{
-    console.log("eljut ide" + matchId);
     return this.http.put('/api/user/match/accept/'+matchId,JSON);
   }
 
-  declineMatch(matchId): Observable<any>{
-    console.log("eljut ide" + matchId);
-    return this.http.delete('/api/user/match/delete/'+matchId);
+  declineMatch(userBId): Observable<any>{
+    return this.http.delete('/api/user/match/delete/'+userBId);
   }
 }
