@@ -3,7 +3,7 @@ export class User {
     firstName: string;
     lastName: string;
     email: string;
-    isFlatmate: boolean;
+    flatmate: boolean;
     age: number;
     gender: string;
     description: string;
