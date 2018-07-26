@@ -21,8 +21,9 @@ export class MatchesComponent implements OnInit {
     this.match.getMatches(this.user.id).subscribe(matches =>this.matches$ = matches.sort((a,b) => a.id - b.id));
   }
 
-  acceptMatchButtonClick(match) {
+  acceptMatchButtonClick(match: Match) {
     this.match.acceptMatch(match.id).subscribe();
+    this.acceptMatch(match);
   }
 
   declineMatchButtonClick(match: Match) {
@@ -32,6 +33,10 @@ export class MatchesComponent implements OnInit {
   deleteMatch(match: Match){
     const index: number = this.matches$.indexOf(match);
     this.matches$.splice(index,1);
+  }
+  acceptMatch(match: Match){
+    const index: number = this.matches$.indexOf(match);
+    this.matches$[index].status = 2;
   }
 
 }
