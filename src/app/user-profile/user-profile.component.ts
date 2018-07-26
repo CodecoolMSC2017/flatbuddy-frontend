@@ -12,28 +12,25 @@ import { AuthService } from '../auth.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  user: User;
+  user: User = new User();
 
   enabled: boolean = true;
 
   changePw: ChangePassword = new ChangePassword();
 
-  constructor(private userProfileService: UserProfileService,
-  private authService: AuthService) { }
+  constructor(private userProfileService: UserProfileService, private authService: AuthService) { }
 
-  ngOnInit() : void {
+  ngOnInit() {
     this.authService.getAuth().subscribe(user => this.user = user);
-    console.log(this.user.id);
   }
 
   modify() : void {
+    console.log(this.user);
     this.enabled = false;
   }
 
   save() : void {
     this.enabled = true;
-    console.log(this.user);
-    console.log(this.changePw);
     this.userProfileService.updateProfileDetails(this.user, this.changePw)
     .subscribe(console.log, error => {
       console.log(error);

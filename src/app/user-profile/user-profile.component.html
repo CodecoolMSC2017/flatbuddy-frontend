@@ -10,16 +10,16 @@
   <input type="text" [disabled]="enabled" [(ngModel)]="user.lastName"/><br>
   
   Age:<br>
-  <input type="number" [disabled]="enabled" [(ngModel)]="user.age"/><br>
+  <input type="number" min="0" max="110" step="1" [disabled]="enabled" [(ngModel)]="user.age"/><br>
   
   Gender:<br>
-  <select [(ngModel)]="user.gender" [disabled]="enabled" [(ngModel)]="user.gender">
+  <select [(ngModel)]="user.gender" [disabled]="enabled">
     <option value="Male">Male</option>
     <option value="Female">Female</option>  
   </select><br>
   
   Description:<br>
-  <textarea [disabled]="enabled" [(ngModel)]="user.description"></textarea><br>
+  <textarea maxlength="500" rows="4" cols="50" [disabled]="enabled" [(ngModel)]="user.description"></textarea><br>
   
   Destination:<br>
   <input type="text" [disabled]="enabled" [(ngModel)]="user.destination"><br>
@@ -34,7 +34,7 @@
   New password:<br>
   <input type="password" [disabled]="enabled" [(ngModel)]="changePw.newPw"><br>
   Confirmation password:<br>
-  <input type="password" [disabled]="enabled" [(ngModel)]="changePw.confirmationPw"><br>
+  <input type="password" [disabled]="enabled" [(ngModel)]="changePw.confirmartionPw"><br>
 </div>
 
 <button (click)="modify()">Edit</button>
