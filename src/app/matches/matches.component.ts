@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {MatchserviceService} from '../matchservice.service';
 import {Observable} from 'rxjs';
 import { Match } from '../match';
+import { User } from '../user';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-matches',
@@ -10,10 +12,13 @@ import { Match } from '../match';
 })
 export class MatchesComponent implements OnInit {
   matches$: Match[] = [];
-  constructor(private match: MatchserviceService) { }
+
+  user: User = new User();
+  constructor(private match: MatchserviceService, private authService: AuthService) {}
 
   ngOnInit() {
-    this.match.getMatches().subscribe(matches =>this.matches$ = matches.sort((a,b) => a.id - b.id));
+    this.authService.getAuth().subscribe(user => this.user = user);
+    this.match.getMatches(this.user.id).subscribe(matches =>this.matches$ = matches.sort((a,b) => a.id - b.id));
   }
 
   acceptMatchButtonClick(match) {
