@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
 import { Match } from './match';
 import { MatchesComponent } from './matches/matches.component';
+import { User } from './user';
 
 
 
@@ -14,9 +15,8 @@ export class MatchserviceService {
 
   constructor(private http: HttpClient, private auth: AuthService) { }
 
-  getMatches(): Observable<Match[]>{
-    
-    return this.http.get<Match[]>('/api/user/matches/'+this.auth.loggedInUser.id);
+  getMatches(id): Observable<Match[]>{
+    return this.http.get<Match[]>('/api/user/matches/'+ id);
   }
 
   acceptMatch(matchId): Observable<any>{
