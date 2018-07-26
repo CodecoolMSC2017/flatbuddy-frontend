@@ -26,8 +26,6 @@ export class LoginComponent implements OnInit {
     
     if (!fieldsComplete) {
       this.authService.getAuth(this.loginDetails).subscribe(user => {
-        sessionStorage.setItem('user', JSON.stringify(user));
-        this.authService.loggedInUser = user;
         this.router.navigate(['advertisements']);
       }, error => {
         if (error.status == 401) {
