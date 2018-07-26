@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {ChangePassword} from '../change-password-details'
+import { User } from '../user';
+import { UserProfileService } from '../user-profile.service';
+import { error } from 'util';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,22 +12,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  user = JSON.parse(sessionStorage.getItem('user'));
+  user: User;
 
   enabled: boolean = true;
 
-  constructor() { }
+  changePw: ChangePassword = new ChangePassword();
 
-  ngOnInit() { }
+  constructor(private userProfileService: UserProfileService,
+  private authService: AuthService) { }
 
-  modify() {
+  ngOnInit() : void {
+    this.authService.getAuth().subscribe(user => this.user = user);
+    console.log(this.user.id);
+  }
+
+  modify() : void {
     this.enabled = false;
   }
 
-  save() {
+  save() : void {
     this.enabled = true;
+    console.log(this.user);
+    console.log(this.changePw);
+    this.userProfileService.updateProfileDetails(this.user, this.changePw)
+    .subscribe(console.log, error => {
+      console.log(error);
+    });
   }
-
-
-
 }
