@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import { Match } from '../match';
 import { User } from '../user';
 import { AuthService } from '../auth.service';
+import { map, tap, concat } from 'rxjs/operators';
 
 @Component({
   selector: 'app-matches',
@@ -12,13 +13,17 @@ import { AuthService } from '../auth.service';
 })
 export class MatchesComponent implements OnInit {
   matches$: Match[] = [];
-
-  user: User = new User();
+  user: User;
+  
   constructor(private match: MatchserviceService, private authService: AuthService) {}
 
   ngOnInit() {
-    this.authService.getAuth().subscribe(user => this.user = user);
-    this.match.getMatches(this.user.id).subscribe(matches =>this.matches$ = matches.sort((a,b) => a.id - b.id));
+    this.authService.getAuth().pipe(
+      tap(user => {
+	    this.match.getMatches(user.id).subscribe(matches => this.matches$ = matches.sort((a,b) => a.id - b.id));
+      })
+    ).subscribe(user => this.user = user);
+
   }
 
   acceptMatchButtonClick(match: Match) {
