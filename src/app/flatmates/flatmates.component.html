@@ -1,0 +1,19 @@
+<h1>People</h1>
+<ul>
+  <div *ngFor="let flatmate of flatmates$">
+    <a >
+      <div id="usercontainer">
+        <img id="userimg" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512" routerLink = "/profile/{{flatmate.id}}">
+          <div>{{flatmate.firstName}}</div>
+          <br>
+          <div class="bottom-left">
+            <div class=userdesc > 
+              <p>Age: {{flatmate.age}}</p>
+              <p>Destination: {{flatmate.destination}}</p>
+              <i class="material-icons" (click)="sendMatchRequestButtonClick(flatmate)">add_circle</i>
+            </div>
+          </div>
+      </div>  
+    </a>
+  </div>
+</ul>

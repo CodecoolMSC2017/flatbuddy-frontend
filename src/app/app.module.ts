@@ -16,6 +16,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { ImageViewerComponent } from './image-viewer/image-viewer.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NewAdvertisementComponent } from './new-advertisement/new-advertisement.component';
+import { FlatmatesComponent } from './flatmates/flatmates.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NewAdvertisementComponent } from './new-advertisement/new-advertisement
     UserDetailsComponent,
     ImageViewerComponent,
     UserProfileComponent,
-    NewAdvertisementComponent
+    NewAdvertisementComponent,
+    FlatmatesComponent
   ],
   imports: [
     BrowserModule,
