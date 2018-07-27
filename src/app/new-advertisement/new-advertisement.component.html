@@ -1,38 +1,50 @@
 <h1>Create New Advertisement</h1>
 <label>Country: </label>
+<br>
 <input id="country" name="country" [(ngModel)] = "advertisement.country">
 <br>
 <label>State: </label>
+<br>
 <input id="state" name="state" [(ngModel)] = "advertisement.state">
 <br>
 <label>City: </label>
+<br>
 <input id="city" name="city" [(ngModel)] = "advertisement.city">
 <br>
 <label>ZipCode: </label>
+<br>
 <input id="zipCode" name="zipCode" [(ngModel)] = "advertisement.zipCode">
 <br>
 <label>District: </label>
+<br>
 <input id="district" name="district" [(ngModel)] = "advertisement.district">
 <br>
 <label>Street: </label>
+<br>
 <input id="street" name="street" [(ngModel)] = "advertisement.street">
 <br>
 <label>Description: </label>
+<br>
 <input id="description" name="description" [(ngModel)] = "advertisement.description">
 <br>
 <label>Cost (monthly): </label>
+<br>
 <input id="cost" name="cost" [(ngModel)] = "advertisement.cost">
 <br>
 <label>Number of rooms: </label>
+<br>
 <input id="size" name="size" [(ngModel)] = "advertisement.size">
 <br>
 <label>Type: </label>
+<br>
 <input id="type" name="type" [(ngModel)] = "advertisement.type">
 <br>
 <label>Furnitured: </label>
+<br>
 <input type = "checkbox" id="isFurnitured" name="isFurnitured" [(ngModel)] = "advertisement.isFurnitured">
 <br>
 <label>Avaiable rooms: </label>
+<br>
 <input id="roomsAvailable" name="roomsAvailable" [(ngModel)] = "advertisement.roomsAvailable">
 <br>
 <span class="error" *ngIf="showError">{{ errorMessage }}</span><br>
