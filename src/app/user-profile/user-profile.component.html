@@ -37,6 +37,8 @@
   <input type="password" [disabled]="enabled" [(ngModel)]="changePw.confirmartionPw"><br>
 </div>
 
-<button (click)="modify()">Edit</button>
+  <br><span class="error" *ngIf="showError">{{ errorMessage }}</span><br>
+
+<br><button (click)="modify()">Edit</button>
 <button (click)="save()">Save</button>
 
