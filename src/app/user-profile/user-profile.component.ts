@@ -20,7 +20,7 @@ export class UserProfileComponent implements OnInit {
 
   showError: boolean = false;
 
-  enabled: boolean = true;
+  canEdit: boolean = false;
 
   changePw: ChangePassword = new ChangePassword();
 
@@ -31,28 +31,22 @@ export class UserProfileComponent implements OnInit {
     this.authService.getAuth().subscribe(user => this.user = user);
   }
 
-  private areFieldsFilledOut(): boolean {
-    let filledOut = this.user.firstName != "" && this.user.lastName != "" && 
-        this.user.gender != "" && this.user.age != null && 
-        this.user.description != "" && this.user.destination != "";
-
-    if (filledOut) {
-      this.user.flatmate = true;
-    } else {
-      this.user.flatmate = false;
+  areFieldsFilledOut(): boolean {
+    if (!this.canEdit) {
+      return true;
     }
 
-    return filledOut;
+    if (this.user.firstName != null && this.user.firstName != "" && this.user.lastName != null
+    && this.user.lastName != "" &&
+       this.user.description != null && this.user.description != "" && this.user.destination != "" && this.user.destination != null) {
+        return false;
+    }
+    this.user.flatmate = false;
+    return true;
   }
 
   modify() : void {
-    const flatMateInput = document.getElementById("showPeopleInput");
-    this.enabled = false;
-    if(!this.areFieldsFilledOut()) {
-      flatMateInput.setAttribute("disabled", "true"); 
-    } else if (this.areFieldsFilledOut()) {
-      flatMateInput.setAttribute("disabled", "false");
-    }
+    this.canEdit = true;
   }
 
   handleError() {
@@ -65,10 +59,9 @@ export class UserProfileComponent implements OnInit {
   }
 
   save() : void {
-    this.enabled = true;
-    document.getElementById("showPeopleInput").setAttribute("disabled", "true");
+    this.canEdit = false;
 
-    if (this.areFieldsFilledOut) {
+    if (!this.areFieldsFilledOut) {
       this.userProfileService.updateProfileDetails(this.user, this.changePw)
         .subscribe(() => {this.showError = false;}), error => {
           if (error.status == 401) {
