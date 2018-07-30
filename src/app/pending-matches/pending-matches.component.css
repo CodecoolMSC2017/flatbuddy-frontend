@@ -35,6 +35,8 @@
 .userdesc {
   color: white;
   font-size: 16px;
+  position: relative;
+  bottom: 10px;
 }
 .material-icons {
     margin:10px;

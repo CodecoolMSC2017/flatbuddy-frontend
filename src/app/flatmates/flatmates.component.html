@@ -3,7 +3,7 @@
   <div *ngFor="let flatmate of flatmates$">
     <a >
       <div id="usercontainer">
-        <img [ngStyle]="{'border-color': match.userB.gender == 'Male'? 'lightblue' : 'pink'}" id="userimg" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512" routerLink = "/profile/{{flatmate.id}}">
+        <img [ngStyle]="{'border-color': flatmate.gender == 'Male'? 'lightblue' : 'pink'}" id="userimg" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512" routerLink = "/profile/{{flatmate.id}}">
           <div>{{flatmate.firstName}}</div>
           <br>
           <div class="bottom-left">
