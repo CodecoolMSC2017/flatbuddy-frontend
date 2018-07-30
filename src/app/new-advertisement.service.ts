@@ -13,7 +13,6 @@ export class NewAdvertisementService {
 
   createNewAd(advertisement: Advertisement): Observable<void> {
     return this.http.post<void>('/api/user/advertisement',{
-      userId: 1, //logged in user kell ide
       country: advertisement.country,
       state: advertisement.state,
       city: advertisement.city,
@@ -21,13 +20,11 @@ export class NewAdvertisementService {
       district: advertisement.district,
       street: advertisement.street,
       description: advertisement.description,
-      cost: advertisement.cost,
-      size: advertisement.size,
+      cost: +advertisement.cost,
+      size: +advertisement.size,
       type: advertisement.type,
-      isFurnitured: advertisement.isFurnitured,
-      roomsAvailable: advertisement.roomsAvailable,
-      isEnabled: true,
-      isPremium: false
+      furnitured: advertisement.isFurnitured,
+      roomsAvailable: +advertisement.roomsAvailable
     })
   }
 }
