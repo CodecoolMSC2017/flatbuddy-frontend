@@ -18,6 +18,10 @@ export class UserProfileComponent implements OnInit {
 
   errorMessage: String;
 
+  ageErrorMessage: String;
+
+  passwordsErrorMessage: String;
+
   showError: boolean = false;
 
   canEdit: boolean = false;
@@ -37,8 +41,8 @@ export class UserProfileComponent implements OnInit {
     }
 
     if (this.user.firstName != null && this.user.firstName != "" && this.user.lastName != null
-    && this.user.lastName != "" &&
-       this.user.description != null && this.user.description != "" && this.user.destination != "" && this.user.destination != null) {
+      && this.user.lastName != "" && this.user.age != null &&
+      this.user.description != null && this.user.description != "" && this.user.destination != "" && this.user.destination != null) {
         return false;
     }
     this.user.flatmate = false;
@@ -61,15 +65,32 @@ export class UserProfileComponent implements OnInit {
   save() : void {
     this.canEdit = false;
 
-    if (!this.areFieldsFilledOut) {
-      this.userProfileService.updateProfileDetails(this.user, this.changePw)
-        .subscribe(() => {this.showError = false;}), error => {
-          if (error.status == 401) {
-            this.handleError();
-            setTimeout(() => {this.navigateToLogin()}, 5000);
-          }
-      };
+    this.userProfileService.updateProfileDetails(this.user, this.changePw)
+      .subscribe(() => {this.showError = false;}, resp => {
+        if (resp.error.status == 401) {
+          this.handleError();
+          setTimeout(() => {this.navigateToLogin()}, 5000);
+        } else if (resp.error.status == 500) {
+          this.showError = true;
+          this.errorMessage = resp.error.message;
+        }
+      }
+    );
+  }
+
+  isAgeNumber(): boolean{
+    if(this.user.age == null || this.user.age < 15 || this.user.age > 99) {
+      this.ageErrorMessage = "Enter a number between 15 and 99!";
+      return true;
     }
-    
+    return false;
+  }
+
+  checkNewPasswords(): boolean {
+    if (this.changePw.newPw != this.changePw.confirmationPw) {
+      this.passwordsErrorMessage = "New password must be same as confirmation password!";
+      return true;
+    }
+    return false;
   }
 }
