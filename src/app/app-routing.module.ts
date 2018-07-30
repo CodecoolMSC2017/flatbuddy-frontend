@@ -12,6 +12,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NewAdvertisementComponent } from './new-advertisement/new-advertisement.component';
 import { FlatmatesComponent } from './flatmates/flatmates.component';
+import { PendingMatchesComponent } from './pending-matches/pending-matches.component'
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'profile/:id', component: UserDetailsComponent, canActivate: [LoginGuard]},
   {path: 'myprofile', component: UserProfileComponent, canActivate: [LoginGuard]},
   {path: 'newadvertisement', component: NewAdvertisementComponent, canActivate: [LoginGuard]},
-  {path: 'people', component: FlatmatesComponent, canActivate: [LoginGuard]}
+  {path: 'people', component: FlatmatesComponent, canActivate: [LoginGuard]},
+  {path: 'pendingmatches', component: PendingMatchesComponent, canActivate: [LoginGuard]}
 ];
 
 @NgModule({

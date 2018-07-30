@@ -10,8 +10,8 @@ export class FlatmatesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getFlatmates(): Observable<User[]>{
-    return this.httpClient.get<User[]>('/api/user/flatmates');
+  getFlatmates(userId): Observable<User[]>{
+    return this.httpClient.get<User[]>('/api/user/flatmates/' + userId);
   }
 
   sendMatchRequest(userId) {

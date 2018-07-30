@@ -17,6 +17,7 @@ import { ImageViewerComponent } from './image-viewer/image-viewer.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NewAdvertisementComponent } from './new-advertisement/new-advertisement.component';
 import { FlatmatesComponent } from './flatmates/flatmates.component';
+import { PendingMatchesComponent } from './pending-matches/pending-matches.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FlatmatesComponent } from './flatmates/flatmates.component';
     ImageViewerComponent,
     UserProfileComponent,
     NewAdvertisementComponent,
-    FlatmatesComponent
+    FlatmatesComponent,
+    PendingMatchesComponent
   ],
   imports: [
     BrowserModule,

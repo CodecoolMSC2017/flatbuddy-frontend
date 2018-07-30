@@ -26,11 +26,6 @@ export class MatchesComponent implements OnInit {
 
   }
 
-  acceptMatchButtonClick(match: Match) {
-    this.match.acceptMatch(match.id).subscribe();
-    this.acceptMatch(match);
-  }
-
   declineMatchButtonClick(match: Match) {
     this.match.declineMatch(match.userB).subscribe();
     this.deleteMatch(match);
@@ -39,9 +34,5 @@ export class MatchesComponent implements OnInit {
     const index: number = this.matches$.indexOf(match);
     this.matches$.splice(index,1);
   }
-  acceptMatch(match: Match){
-    const index: number = this.matches$.indexOf(match);
-    this.matches$[index].status = 2;
-  }
-
+ 
 }
