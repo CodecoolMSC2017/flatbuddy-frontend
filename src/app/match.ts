@@ -1,6 +1,6 @@
 export class Match{
     id: number;
     userA: number;
-    userB: number;
+    userB: any;
     status: number;
 }

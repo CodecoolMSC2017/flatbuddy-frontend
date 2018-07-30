@@ -2,9 +2,9 @@
 <ul>
   <div *ngFor="let match of matches$">
     <a >
-      <div id="usercontainer" *ngIf="match.status == 2">
-        <img id="userimg" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512" routerLink = "/profile/{{match.userB}}">
-          <div>{{match.id}} users name</div>
+      <div id="usercontainer" *ngIf="match.status == 2"  >
+        <img [ngStyle]="{'border-color': match.userB.gender == 'Male'? 'lightblue' : 'pink'}" id="userimg" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512" routerLink = "/profile/{{match.userB.id}}">
+          <div>{{match.userB.lastName}}, {{match.userB.age}} </div>
           <br>
           <div class="bottom-left">
             <div class=userdesc *ngIf="match.status == 2">  Status: <font color="green">matched</font>

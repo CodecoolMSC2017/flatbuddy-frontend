@@ -35,7 +35,7 @@ export class PendingMatchesComponent implements OnInit {
   }
 
   declineMatchButtonClick(match: Match) {
-    this.match.declineMatch(match.userB).subscribe();
+    this.match.declineMatch(match.userB.id).subscribe();
     this.deleteMatch(match);
   }
   deleteMatch(match: Match){
