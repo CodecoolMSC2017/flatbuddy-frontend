@@ -10,8 +10,9 @@
   <input type="text" placeholder="Brown" [disabled]="!canEdit" [(ngModel)]="user.lastName"/><br>
   
   Age:<br>
-  <input type="number" placeholder="25" min="0" max="110" step="1" [disabled]="!canEdit" [(ngModel)]="user.age"/><br>
-  
+  <input type="number" placeholder="25" min="15" max="99" step="1" [disabled]="!canEdit" [(ngModel)]="user.age"/>
+  <span class="error" *ngIf="isAgeNumber()">{{ ageErrorMessage }}</span><br>
+
   Gender:<br>
   <select [(ngModel)]="user.gender" [disabled]="!canEdit">
     <option value="Male">Male</option>
@@ -30,15 +31,16 @@
 <div id="change-password">
   <h2>Change password</h2>
   Old password:<br>
-  <input type="password" [disabled]="enabled" [(ngModel)]="changePw.oldPw"><br>
+  <input type="password" [disabled]="!canEdit" [(ngModel)]="changePw.oldPw"><br>
   New password:<br>
-  <input type="password" [disabled]="enabled" [(ngModel)]="changePw.newPw"><br>
+  <input type="password" [disabled]="!canEdit" [(ngModel)]="changePw.newPw"><br>
   Confirmation password:<br>
-  <input type="password" [disabled]="enabled" [(ngModel)]="changePw.confirmartionPw"><br>
+  <input type="password" [disabled]="!canEdit" [(ngModel)]="changePw.confirmationPw"><br>
+  <span class="error" *ngIf="checkNewPasswords()">{{ passwordsErrorMessage }}</span>
 </div>
 
 <br><span class="error" *ngIf="showError">{{ errorMessage }}</span><br>
 
-<br><button (click)="modify()">Edit</button>
-<button (click)="save()">Save</button>
+<button (click)="modify()">Edit</button>
+<button (click)="save()" [disabled]="isAgeNumber() || checkNewPasswords()">Save</button>
 
