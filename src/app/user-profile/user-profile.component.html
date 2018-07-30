@@ -19,12 +19,12 @@
   </select><br>
   
   Description:<br>
-  <textarea maxlength="500" rows="4" cols="50" [disabled]="enabled" [(ngModel)]="user.description"></textarea><br>
+  <textarea maxlength="500" rows="10" cols="50" [disabled]="enabled" [(ngModel)]="user.description" placeholder="(max. 500 characters)"></textarea><br>
   
   Destination:<br>
   <input type="text" [disabled]="enabled" [(ngModel)]="user.destination"><br>
   
-  Show in people: <input type="checkbox" [(ngModel)]="user.flatmate" [disabled]="enabled"><br>
+  Show in people: <input id="showPeopleInput" type="checkbox" [(ngModel)]="user.flatmate" [disabled]="!areFieldsFilledOut()"><br>
 </div>
 
 <div id="change-password">
@@ -37,7 +37,7 @@
   <input type="password" [disabled]="enabled" [(ngModel)]="changePw.confirmartionPw"><br>
 </div>
 
-  <br><span class="error" *ngIf="showError">{{ errorMessage }}</span><br>
+<br><span class="error" *ngIf="showError">{{ errorMessage }}</span><br>
 
 <br><button (click)="modify()">Edit</button>
 <button (click)="save()">Save</button>
