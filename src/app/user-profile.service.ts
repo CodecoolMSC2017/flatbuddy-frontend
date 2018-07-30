@@ -23,7 +23,7 @@ export class UserProfileService {
       isFlatmate: user.flatmate,
       oldPw: changePw.oldPw,
       newPw: changePw.newPw,
-      confirmationPw: changePw.confirmartionPw 
+      confirmationPw: changePw.confirmationPw
     });
     }
 }
