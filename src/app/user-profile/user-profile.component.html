@@ -4,27 +4,27 @@
 
 <div id="personal">
   First name:<br>
-  <input type="text" [disabled]="enabled" [(ngModel)]="user.firstName"/><br>
+  <input type="text" [disabled]="!canEdit" [(ngModel)]="user.firstName"/><br>
   
   Last name:<br>
-  <input type="text" [disabled]="enabled" [(ngModel)]="user.lastName"/><br>
+  <input type="text" [disabled]="!canEdit" [(ngModel)]="user.lastName"/><br>
   
   Age:<br>
-  <input type="number" min="0" max="110" step="1" [disabled]="enabled" [(ngModel)]="user.age"/><br>
+  <input type="number" min="0" max="110" step="1" [disabled]="!canEdit" [(ngModel)]="user.age"/><br>
   
   Gender:<br>
-  <select [(ngModel)]="user.gender" [disabled]="enabled">
+  <select [(ngModel)]="user.gender" [disabled]="!canEdit">
     <option value="Male">Male</option>
     <option value="Female">Female</option>  
   </select><br>
   
   Description:<br>
-  <textarea maxlength="500" rows="10" cols="50" [disabled]="enabled" [(ngModel)]="user.description" placeholder="(max. 500 characters)"></textarea><br>
+  <textarea maxlength="500" rows="10" cols="50" [disabled]="!canEdit" [(ngModel)]="user.description" placeholder="(max. 500 characters)"></textarea><br>
   
   Destination:<br>
-  <input type="text" [disabled]="enabled" [(ngModel)]="user.destination"><br>
+  <input type="text" [disabled]="!canEdit" [(ngModel)]="user.destination"><br>
   
-  Show in people: <input id="showPeopleInput" type="checkbox" [(ngModel)]="user.flatmate" [disabled]="!areFieldsFilledOut()"><br>
+  Show in people: <input id="showPeopleInput" type="checkbox" [(ngModel)]="user.flatmate" [disabled]="areFieldsFilledOut()"><br>
 </div>
 
 <div id="change-password">
