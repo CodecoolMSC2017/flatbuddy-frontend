@@ -16,5 +16,5 @@ export class Advertisement{
     publishedDate: Date;
     expirationDate: Date;
     isEnabled: boolean;
-    isPremium: boolean;
+    premium: boolean;
 }
