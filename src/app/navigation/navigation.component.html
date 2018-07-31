@@ -1,33 +1,30 @@
-<!-- <nav>
-  <ul>
-    <li>
-      <a routerLink = "myprofile">
-          <i class="material-icons">person_pin</i>
-      </a>
-      <a routerLink ="mymatches">
-          <i class="material-icons">perm_contact_calendar</i>
-      </a>
-      <a routerLink ="advertisements">
-        <i class="material-icons">local_hotel</i>
-    </a>
-    <a routerLink = "" (click)="deleteAuth()">
-      <i class="material-icons">exit_to_app</i>
-    </a>
-    </li>
-  </ul>
-</nav>
- -->
 
- <nav>
-<!-- / Begin Body -->
+<nav>
 <div class='swanky'>
-
-  <!-- /////////// Begin Dropdown //////////// -->
   <div class='swanky_wrapper'>
     <label routerLink = "myprofile" for='profile'>
       <i class="material-icons">person_pin</i>
       <span>Profile</span>
       <div class='bar'></div>
+    </label>
+    <label for='Notifications'>
+      <i class="material-icons">error</i>
+    <span>Notifications</span>
+    <div class='bar'></div>
+    </label>
+    <input id='Messages' name='radio' type='radio' value = 1 (click)='resetRadio($event)'>
+    <label for='Messages'>
+        <i class="material-icons">mail</i>
+      <span>Messages</span>
+      <div class='lil_arrow'></div>
+      <div class='bar'></div>
+      <div class='swanky_wrapper__content'>
+        <ul>
+          <li>Inbox</li>
+          <li>Outbox</li>
+          <li>Sent</li>
+        </ul>
+      </div>
     </label>
     <input id='Matches' name='radio' type='radio' value = 1 (click)='resetRadio($event)'>
     <label for='Matches'>
@@ -53,24 +50,12 @@
         <ul>
           <li routerLink ="advertisements">Browse advertisements</li>
           <li routerLink ="newadvertisement">Add advertisements</li>
-          <li>My advertisements</li>
+          <li routerLink ="myadvertisements">My advertisements</li>
         </ul>
       </div>
     </label>
-    <input id='Messages' name='radio' type='radio' value = 1 (click)='resetRadio($event)'>
-    <label for='Messages'>
-        <i class="material-icons">mail</i>
-      <span>Messages</span>
-      <div class='lil_arrow'></div>
-      <div class='bar'></div>
-      <div class='swanky_wrapper__content'>
-        <ul>
-          <li>Inbox</li>
-          <li>Outbox</li>
-          <li>Sent</li>
-        </ul>
-      </div>
-    </label>
+    
+    
     
     <label routerLink = "" (click)="deleteAuth()" for='Logout' id=logout>
         <i class="material-icons">exit_to_app</i>

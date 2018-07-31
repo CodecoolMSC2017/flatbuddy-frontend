@@ -3,6 +3,8 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { pipe } from 'rxjs';
+import { User } from '../user';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navigation',
@@ -10,11 +12,11 @@ import { pipe } from 'rxjs';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
+  user: User = new User();
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {  }
 
   deleteAuth() {
     this.authService.deleteAuth()

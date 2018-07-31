@@ -18,6 +18,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NewAdvertisementComponent } from './new-advertisement/new-advertisement.component';
 import { FlatmatesComponent } from './flatmates/flatmates.component';
 import { PendingMatchesComponent } from './pending-matches/pending-matches.component';
+import { UserAdvertisementsComponent } from './user-advertisements/user-advertisements.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PendingMatchesComponent } from './pending-matches/pending-matches.compo
     UserProfileComponent,
     NewAdvertisementComponent,
     FlatmatesComponent,
-    PendingMatchesComponent
+    PendingMatchesComponent,
+    UserAdvertisementsComponent
   ],
   imports: [
     BrowserModule,

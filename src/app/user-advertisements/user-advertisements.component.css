@@ -1,0 +1,43 @@
+#rentadcontainer {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-color:#2d2e2e;
+    height: 15%;
+    width:23%;
+    border-radius:5px 5px;
+    float: left;
+    margin: 10px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+#rentadcontainer .bottom-left {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+#rentadcontainer:hover .bottom-left {
+    visibility: visible;
+    opacity: 1;
+}
+#rentadimg {
+    opacity: 1;
+    display: block;
+	width:100%;
+    height:auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    border-radius: 5px 5px;
+}
+#rentadcontainer:hover #rentadimg{
+    opacity: 0.3;
+}
+.advdesc {
+  color: white;
+  font-size: 16px;
+}
