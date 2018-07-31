@@ -1,4 +1,4 @@
-<h1>Login</h1>
+<!-- <h1>Login</h1>
 <label>Email: </label>
 <input [(ngModel)]="loginDetails.email">
 <br>
@@ -6,4 +6,16 @@
 <input type="password" [(ngModel)]="loginDetails.password">
 <br><span class="error" *ngIf="showError">{{ errorMessage }}</span><br>
 <br><button (click)="getAuth()">Login</button><br>
-<br><a routerLink="/register" routerLinkActive="active">Sign up</a>
+<br><a routerLink="/register" routerLinkActive="active">Sign up</a> -->
+<div id="logincontainer">
+    <h1>Log In</h1>
+    <form>
+    <input [(ngModel)]="loginDetails.email" type="email" name="email" placeholder="E-mail">
+    <input type="password" [(ngModel)]="loginDetails.password" name="pass" placeholder="Password">
+    <a (click)="getAuth()">Log in</a>
+    <div id="remember-container">
+        <span class="error" *ngIf="showError">{{ errorMessage }}</span><br>
+        <span id="forgotten"><a routerLink="/register" routerLinkActive="active">Sign up</a></span>
+    </div>
+</form>
+</div>

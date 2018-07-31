@@ -18,7 +18,6 @@ import { UserAdvertisementsComponent } from './user-advertisements/user-advertis
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: '', component: LoginComponent},
   {path: 'mymatches', component: MatchesComponent, canActivate: [LoginGuard]},
   {path: 'match/:id', component: MatchDetailsComponent, canActivate: [LoginGuard]},
   {path: 'advertisements',component: RentAdsComponent,canActivate: [LoginGuard]},
@@ -29,7 +28,8 @@ const routes: Routes = [
   {path: 'newadvertisement', component: NewAdvertisementComponent, canActivate: [LoginGuard]},
   {path: 'people', component: FlatmatesComponent, canActivate: [LoginGuard]},
   {path: 'pendingmatches', component: PendingMatchesComponent, canActivate: [LoginGuard]},
-  {path: 'myadvertisements', component: UserAdvertisementsComponent, canActivate: [LoginGuard]}
+  {path: 'myadvertisements', component: UserAdvertisementsComponent, canActivate: [LoginGuard]},
+  {path: '**', redirectTo: '/advertisements' ,pathMatch:'full'}
 ];
 
 @NgModule({
