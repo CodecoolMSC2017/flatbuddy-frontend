@@ -1,41 +1,43 @@
 <h1>Profile</h1>
 
-<h2>Personal information</h2>
 
 <div id="personal">
-  First name:<br>
-  <input type="text" placeholder="John" [disabled]="!canEdit" [(ngModel)]="user.firstName"/><br>
-  
-  Last name:<br>
-  <input type="text" placeholder="Brown" [disabled]="!canEdit" [(ngModel)]="user.lastName"/><br>
-  
-  Age:<br>
-  <input type="number" placeholder="25" min="15" max="99" step="1" [disabled]="!canEdit" [(ngModel)]="user.age"/>
-  <span class="error" *ngIf="isAgeNumber()">{{ ageErrorMessage }}</span><br>
+  <h2>Personal information</h2>
 
-  Gender:<br>
+  <p>First name:</p>
+  <input type="text" placeholder="John" [disabled]="!canEdit" [(ngModel)]="user.firstName"/>
+  
+  <p>Last name:</p>
+  <input type="text" placeholder="Brown" [disabled]="!canEdit" [(ngModel)]="user.lastName"/>
+  
+  <p>Age:</p>
+  <input type="number" placeholder="25" min="15" max="99" step="1" [disabled]="!canEdit" [(ngModel)]="user.age"/>
+  <span class="error" *ngIf="isAgeNumber()">{{ ageErrorMessage }}</span>
+
+  <p>Gender:</p>
   <select [(ngModel)]="user.gender" [disabled]="!canEdit">
     <option value="Male">Male</option>
     <option value="Female">Female</option>  
-  </select><br>
+  </select>
   
-  Description:<br>
-  <textarea maxlength="500" rows="10" cols="50" [disabled]="!canEdit" [(ngModel)]="user.description" placeholder="(max. 500 characters)"></textarea><br>
+  <p>Description:</p>
+  <textarea maxlength="500" rows="10" cols="50" [disabled]="!canEdit" [(ngModel)]="user.description" placeholder="(max. 500 characters)"></textarea>
   
-  Destination:<br>
-  <input type="text" placeholder="Budapest" [disabled]="!canEdit" [(ngModel)]="user.destination"><br>
+  <p>Destination:</p>
+  <input type="text" placeholder="Budapest" [disabled]="!canEdit" [(ngModel)]="user.destination">
   
-  Show in people: <input id="showPeopleInput" type="checkbox" [(ngModel)]="user.flatmate" [disabled]="areFieldsFilledOut()"><br>
+  <p>Show in people:</p> <input id="showPeopleInput" type="checkbox" [(ngModel)]="user.flatmate" [disabled]="areFieldsFilledOut()">
 </div>
+<br>
 
 <div id="change-password">
   <h2>Change password</h2>
-  Old password:<br>
-  <input type="password" [disabled]="!canEdit" [(ngModel)]="changePw.oldPw"><br>
-  New password:<br>
-  <input type="password" [disabled]="!canEdit" [(ngModel)]="changePw.newPw"><br>
-  Confirmation password:<br>
-  <input type="password" [disabled]="!canEdit" [(ngModel)]="changePw.confirmationPw"><br>
+  <p>Old password:</p>
+  <input type="password" [disabled]="!canEdit" [(ngModel)]="changePw.oldPw">
+  <p>New password:</p>
+  <input type="password" [disabled]="!canEdit" [(ngModel)]="changePw.newPw">
+  <p>Confirmation password:</p>
+  <input type="password" [disabled]="!canEdit" [(ngModel)]="changePw.confirmationPw">
   <span class="error" *ngIf="checkNewPasswords()">{{ passwordsErrorMessage }}</span>
 </div>
 
@@ -44,3 +46,34 @@
 <button (click)="modify()">Edit</button>
 <button (click)="save()" [disabled]="isAgeNumber() || checkNewPasswords()">Save</button>
 
+ <!-- <h1>Profile</h1>
+
+ <div id="profilecontainer">
+  <form>
+    <h2>Personal information</h2>
+    <input type="text" placeholder="Firstname" [disabled]="!canEdit" [(ngModel)]="user.firstName"/>
+    <input type="text" placeholder="Lastname" [disabled]="!canEdit" [(ngModel)]="user.lastName"/>
+    <input type="number" placeholder="25" min="15" max="99" step="1" [disabled]="!canEdit" [(ngModel)]="user.age"/>
+    <select [(ngModel)]="user.gender" [disabled]="!canEdit">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>  
+    </select>
+    <span class="error" *ngIf="isAgeNumber()">{{ ageErrorMessage }}</span><br>
+    <textarea maxlength="500" rows="10" cols="50" [disabled]="!canEdit" [(ngModel)]="user.description" placeholder="(max. 500 characters)"></textarea>
+    <input type="text" placeholder="Destination city" [disabled]="!canEdit" [(ngModel)]="user.destination">
+    <div id="showPeopleInputSign">Show in people</div>
+    <input id="showPeopleInput" type="checkbox" [(ngModel)]="user.flatmate" [disabled]="areFieldsFilledOut()">
+
+    <h2>Change password</h2>
+    <input type="password" placeholder="Old password" [disabled]="!canEdit" [(ngModel)]="changePw.oldPw">
+    <input type="password" placeholder="New password" [disabled]="!canEdit" [(ngModel)]="changePw.newPw">
+    <input type="password" placeholder="New password again" [disabled]="!canEdit" [(ngModel)]="changePw.confirmationPw">
+    <br>
+    <span class="error" *ngIf="checkNewPasswords()">{{ passwordsErrorMessage }}</span>
+    <span class="error" *ngIf="showError">{{ errorMessage }}</span>
+    <br>
+    <button (click)="modify()">Edit</button>
+    <button (click)="save()" [disabled]="isAgeNumber() || checkNewPasswords()">Save</button>
+  </form>
+</div>
+ -->
