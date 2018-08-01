@@ -1,7 +1,7 @@
 <h1>My advertisements</h1>
 <ul>
   <div *ngFor="let rentad of rentads$">
-    <a routerLink = "/advertisement/{{rentad.id}}">
+    <a routerLink = "/editadvertisement/{{rentad.id}}">
         <div id="rentadcontainer">
           <div>{{rentad.city}} {{rentad.street}} </div>
           <img id="rentadimg" src="https://defenders.org/sites/default/files/styles/large/public/dolphin-kristian-sekulic-isp.jpg">

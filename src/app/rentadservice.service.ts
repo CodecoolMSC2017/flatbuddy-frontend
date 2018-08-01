@@ -25,4 +25,24 @@ export class RentadserviceService {
   getUserAdById(rentAdId) {
     return this.http.get('/api/user/myadvertisement/'+rentAdId);
   }
+
+  updateAdvertisement(rentAd): Observable<void> {
+    return this.http.post<void>('/api/advertisement/update', {
+    id: rentAd.id,
+    country: rentAd.country,
+    state: rentAd.state,
+    city: rentAd.city,
+    zipCode: rentAd.zipCode,
+    district: rentAd.district,
+    street: rentAd.street,
+    description: rentAd.description,
+    cost: +rentAd.cost,
+    size: +rentAd.size,
+    type: rentAd.type,
+    roomsAvailable: +rentAd.roomsAvailable,
+    furnitured: rentAd.furnitured
+
+
+    });
+  }
 }

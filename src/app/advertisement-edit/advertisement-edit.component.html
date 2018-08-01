@@ -1,0 +1,94 @@
+<h2>Edit advertisement</h2>
+
+<div class="container">
+  <form action="/action_page.php">
+    <div class="row">
+      <div class="col-25">
+        <label for="state">State</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="state" name="rent-state" placeholder="{{rentAd.state}}" [(ngModel)]="rentAd.state">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="city">City</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="city" name="rent-city" placeholder="{{rentAd.city}}" [(ngModel)]="rentAd.city">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="district">District</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="district" name="rent-district" placeholder="{{rentAd.district}}" [(ngModel)]="rentAd.district">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="street">Street</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="street" name="rent-street" placeholder="{{rentAd.street}}" [(ngModel)]="rentAd.street">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="cost">Cost</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="cost" name="rent-cost" placeholder="{{rentAd.cost}}" [(ngModel)]="rentAd.cost">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="type">Type</label>
+      </div>
+      <div class="col-75">
+        <select id="type" name="rent-type" [(ngModel)]="rentAd.type">
+          <option value="flat">Flat</option>
+          <option value="house">House</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="size">Size</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="size" name="rent-size" placeholder="{{rentAd.size}}" [(ngModel)]="rentAd.size">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="furnitured">Furniured</label>
+      </div>
+      <div class="col-75">
+        <input type="checkbox" id="furnitured" name="rent-furnitured" [(ngModel)]="rentAd.furnitured">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="rooms">Available rooms</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="rooms" name="rent-rooms" placeholder="{{rentAd.roomsAvailable}}" [(ngModel)]="rentAd.roomsAvailable">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="description">Description</label>
+      </div>
+      <div class="col-75">
+        <textarea id="description" name="rent-description" placeholder="{{rentAd.description}}." [(ngModel)]="rentAd.description" style="height:200px"></textarea>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <input type="button" value="Edit" (click) = 'editAdvertisement()'>
+    </div>
+  </form>
+</div>
