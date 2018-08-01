@@ -20,6 +20,26 @@ import { FlatmatesComponent } from './flatmates/flatmates.component';
 import { PendingMatchesComponent } from './pending-matches/pending-matches.component';
 import { UserAdvertisementsComponent } from './user-advertisements/user-advertisements.component';
 import { AdvertisementEditComponent } from './advertisement-edit/advertisement-edit.component';
+import {
+  GoogleApiModule,
+  GoogleApiService,
+  GoogleAuthService,
+  NgGapiClientConfig,
+  NG_GAPI_CONFIG,
+  GoogleApiConfig
+} from "ng-gapi";
+
+let gapiClientConfig: NgGapiClientConfig = {
+  client_id: "87138340487-dna6m556e14folussr8dqq5pn0k3em07.apps.googleusercontent.com",
+  discoveryDocs: ["https://analyticsreporting.googleapis.com/$discovery/rest?version=v4"],
+  scope: [
+      "https://www.googleapis.com/auth/drive",
+      "https://www.googleapis.com/auth/drive.readonly",
+      "https://www.googleapis.com/auth/spreadsheets",
+      "https://www.googleapis.com/auth/drive",
+      "https://www.googleapis.com/auth/spreadsheets.readonly"
+  ].join(" ")
+};
 import { RentSlotsComponent } from './rent-slots/rent-slots.component';
 
 @NgModule({
@@ -44,6 +64,10 @@ import { RentSlotsComponent } from './rent-slots/rent-slots.component';
     RentSlotsComponent
   ],
   imports: [
+    GoogleApiModule.forRoot({
+      provide: NG_GAPI_CONFIG,
+      useValue: gapiClientConfig
+    }),
     BrowserModule,
     AppRoutingModule,
     FormsModule,
