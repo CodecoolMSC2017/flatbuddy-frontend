@@ -20,6 +20,7 @@ import { FlatmatesComponent } from './flatmates/flatmates.component';
 import { PendingMatchesComponent } from './pending-matches/pending-matches.component';
 import { UserAdvertisementsComponent } from './user-advertisements/user-advertisements.component';
 import { AdvertisementEditComponent } from './advertisement-edit/advertisement-edit.component';
+import { RentSlotsComponent } from './rent-slots/rent-slots.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AdvertisementEditComponent } from './advertisement-edit/advertisement-e
     FlatmatesComponent,
     PendingMatchesComponent,
     UserAdvertisementsComponent,
-    AdvertisementEditComponent
+    AdvertisementEditComponent,
+    RentSlotsComponent
   ],
   imports: [
     BrowserModule,

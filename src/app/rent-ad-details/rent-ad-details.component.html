@@ -1,7 +1,7 @@
 <h1>{{ rentAd$.city }} {{rentAd$.district}} {{rentAd$.street}} </h1>
 <div class="topcontainer">
 <app-image-viewer></app-image-viewer>
-  <div class=rentadslots>Slots</div>
+  <div class="rentadslots"><app-rent-slots [rentAdId]="rentAd$"></app-rent-slots></div>
   <div id="rentaddesc"> <p>{{ rentAd$.description }}</p></div>
 </div>
 
