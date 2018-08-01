@@ -64,6 +64,13 @@ export class UserProfileComponent implements OnInit {
 
   save() : void {
     this.canEdit = false;
+    this.userProfileService.updateProfileDetails(this.user, this.changePw)
+        .subscribe(() => {this.showError = false;}), error => {
+          if (error.status == 401) {
+            this.handleError();
+            setTimeout(() => {this.navigateToLogin()}, 5000);
+          }
+      };
 
     this.userProfileService.updateProfileDetails(this.user, this.changePw)
       .subscribe(() => {this.showError = false;}, resp => {
