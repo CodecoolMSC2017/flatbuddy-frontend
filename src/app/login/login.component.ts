@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { LoginDetails } from '../login-details';
+import { GoogleApiService, GoogleAuthService } from 'ng-gapi';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   loginDetails: LoginDetails = new LoginDetails();
@@ -16,23 +18,35 @@ export class LoginComponent implements OnInit {
 
   errorMessage: string;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  handleAuthSuccess = user => {
+    this.ngZone.run(() => this.router.navigate(['advertisements']));
+  };
+  
+  handleAuthError = error => {
+    if (error.status == 401) {
+      this.showError = true;
+      this.errorMessage = "Invalid email or password!";
+    }
+  };
 
-  ngOnInit() : void {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private googleAuthService: GoogleAuthService,
+    private gapiService: GoogleApiService,
+    private ngZone: NgZone) {
+      this.gapiService.onLoad().subscribe();
+      this.authService.getAuth().subscribe();
   }
+
+  ngOnInit() : void {}
 
   getAuth() : void {
     const fieldsComplete = this.checkLoginFields();
     
     if (!fieldsComplete) {
-      this.authService.getAuth(this.loginDetails).subscribe(user => {
-        this.router.navigate(['advertisements']);
-      }, error => {
-        if (error.status == 401) {
-          this.showError = true;
-          this.errorMessage = "Invalid email or password!";
-        }
-      });
+      this.authService.getAuth(this.loginDetails)
+        .subscribe(this.handleAuthSuccess, this.handleAuthError);
 
     }
   }
@@ -44,5 +58,10 @@ export class LoginComponent implements OnInit {
       this.errorMessage = "Email and password cannot be empty!"
       return result;
     }
+  }
+
+  public signIn() {
+    this.authService.getGoogleAuth()
+      .subscribe(this.handleAuthSuccess, this.handleAuthError);
   }
 }
