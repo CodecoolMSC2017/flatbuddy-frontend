@@ -18,8 +18,8 @@ export class RentadserviceService {
     return this.http.get('/api/user/advertisement/'+rentAdId);
   }
 
-  getUserAds() {
-    return this.http.get('/api/user/myadvertisements');
+  getUserAds(): Observable<Advertisement[]> {
+    return this.http.get<Advertisement[]>('/api/user/myadvertisements');
   }
 
   getUserAdById(rentAdId) {
