@@ -17,6 +17,9 @@ export class RentadserviceService {
   getAdById(rentAdId){
     return this.http.get('/api/user/advertisement/'+rentAdId);
   }
+  getMyAdById(rentAdId){
+    return this.http.get('/api/user/myadvertisement/'+rentAdId);
+  }
 
   getUserAds(): Observable<Advertisement[]> {
     return this.http.get<Advertisement[]>('/api/user/myadvertisements');

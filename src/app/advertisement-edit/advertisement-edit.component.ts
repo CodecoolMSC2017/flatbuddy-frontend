@@ -8,14 +8,22 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./advertisement-edit.component.css']
 })
 export class AdvertisementEditComponent implements OnInit {
-
+  showError: boolean = false;
+  errorMessage: string;
   rentAd: Object;
   constructor(private adService: RentadserviceService, private route: ActivatedRoute, private router: Router) { 
     this.route.params.subscribe(params => this.rentAd = params.id);
   }
 
   ngOnInit() {
-    this.adService.getAdById(this.rentAd).subscribe(rentads => this.rentAd = rentads);
+    this.adService.getMyAdById(this.rentAd)
+      .subscribe(
+        rentads => this.rentAd = rentads,
+        (error) => {
+          //.alert(error.error.message)
+          this.router.navigate(['advertisements']);
+        });
+    
   }
 
   editAdvertisement(){
