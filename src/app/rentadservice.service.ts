@@ -27,7 +27,7 @@ export class RentadserviceService {
   }
 
   updateAdvertisement(rentAd): Observable<void> {
-    return this.http.post<void>('/api/advertisement/update', {
+    return this.http.post<void>('/api/user/advertisement/update', {
     id: rentAd.id,
     country: rentAd.country,
     state: rentAd.state,
@@ -41,8 +41,6 @@ export class RentadserviceService {
     type: rentAd.type,
     roomsAvailable: +rentAd.roomsAvailable,
     furnitured: rentAd.furnitured
-
-
     });
   }
 }

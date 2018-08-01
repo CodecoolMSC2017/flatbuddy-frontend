@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AdvertisementEditComponent implements OnInit {
 
   rentAd: Object;
-  constructor(private adService: RentadserviceService, private route: ActivatedRoute) { 
+  constructor(private adService: RentadserviceService, private route: ActivatedRoute, private router: Router) { 
     this.route.params.subscribe(params => this.rentAd = params.id);
   }
 
@@ -21,6 +21,7 @@ export class AdvertisementEditComponent implements OnInit {
   editAdvertisement(){
 
     this.adService.updateAdvertisement(this.rentAd).subscribe();
+    this.router.navigate(["myadvertisements"]);
   }
 
 }
