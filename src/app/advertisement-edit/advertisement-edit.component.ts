@@ -28,8 +28,10 @@ export class AdvertisementEditComponent implements OnInit {
 
   editAdvertisement(){
 
-    this.adService.updateAdvertisement(this.rentAd).subscribe();
-    this.router.navigate(["myadvertisements"]);
+    this.adService.updateAdvertisement(this.rentAd).subscribe(() => {this.router.navigate(["myadvertisements"]);}, 
+    (error)=>{
+      this.showError = true;
+      this.errorMessage = error.error.message;
+    });
   }
-
 }

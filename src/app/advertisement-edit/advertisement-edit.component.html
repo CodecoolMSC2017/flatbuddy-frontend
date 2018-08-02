@@ -39,7 +39,7 @@
         <label for="cost">Cost</label>
       </div>
       <div class="col-75">
-        <input type="text" id="cost" name="rent-cost" placeholder="{{rentAd.cost}}" [(ngModel)]="rentAd.cost">
+        <input type="number" id="cost" name="rent-cost" placeholder="{{rentAd.cost}}" [(ngModel)]="rentAd.cost">
       </div>
     </div>
     <div class="row">
@@ -58,7 +58,7 @@
         <label for="size">Size</label>
       </div>
       <div class="col-75">
-        <input type="text" id="size" name="rent-size" placeholder="{{rentAd.size}}" [(ngModel)]="rentAd.size">
+        <input type="number" id="size" name="rent-size" placeholder="{{rentAd.size}}" [(ngModel)]="rentAd.size">
       </div>
     </div>
     <div class="row">
@@ -74,7 +74,7 @@
         <label for="rooms">Available rooms</label>
       </div>
       <div class="col-75">
-        <input type="text" id="rooms" name="rent-rooms" placeholder="{{rentAd.roomsAvailable}}" [(ngModel)]="rentAd.roomsAvailable">
+        <input type="number" id="rooms" name="rent-rooms" placeholder="{{rentAd.roomsAvailable}}" [(ngModel)]="rentAd.roomsAvailable">
       </div>
     </div>
     <div class="row">
@@ -88,6 +88,7 @@
 
 
     <div class="row">
+      <span class="error" *ngIf="showError">{{ errorMessage }}</span><br>
       <input type="button" value="Edit" (click) = 'editAdvertisement()'>
     </div>
   </form>
