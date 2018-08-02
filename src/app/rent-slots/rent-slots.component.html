@@ -3,7 +3,7 @@
     <div *ngFor ="let rentSlot of rentSlots">
         <div class="rentslot"> 
             <img (click) = "joinSlotButtonClick(rentSlot)" *ngIf="rentSlot.renter == null" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/add-button-sign-basic-math-calculation-plus-3b4fe8b38b910691-512x512.png"> 
-            <img *ngIf="rentSlot.renter !== null" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512">
+            <img *ngIf="rentSlot.renter !== null" (click) = "leaveSlotButtonClick(rentSlot)" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512">
         </div>
     </div>
 </div>

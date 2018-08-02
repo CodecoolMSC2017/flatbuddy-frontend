@@ -27,19 +27,42 @@ export class RentSlotsComponent implements OnInit {
   }
 
   joinSlotButtonClick(slot: RentSlot) {
-    this.rentSlot.joinSlot(slot.id).subscribe(() => {this.showError = false;}, resp => {
+    this.rentSlot.joinSlot(slot.id).subscribe(() => {
+      this.showError = false; 
+      this.joinSlotUpdate(slot);
+    }, 
+    resp => {
       if (resp.error) {
         this.showError = true;
         this.errorMessage = resp.error.message;
       }
     });
-    this.updateSlot(slot);
   }
 
-  updateSlot(slot: RentSlot) {
-    this.authService.getAuth().subscribe(user => this.user = user);
+  leaveSlotButtonClick(slot: RentSlot) {
+    this.rentSlot.leaveSlot(slot.id,slot.renter.id).subscribe(() => {
+      this.showError = false;
+      this.leaveSlotUpdate(slot);
+    }, 
+    resp => {
+      if (resp.error) {
+        this.showError = true;
+        this.errorMessage = resp.error.message;
+      }
+    });
+  }
+
+  joinSlotUpdate(slot: RentSlot) {
+    this.authService.getAuth().subscribe((user) => {
+      this.user = user;
+      const index:number = this.rentSlots.indexOf(slot);
+      this.rentSlots[index].renter = this.user;
+    });
+  }
+
+  leaveSlotUpdate(slot: RentSlot) {
     const index:number = this.rentSlots.indexOf(slot);
-    this.rentSlots[index].renter = this.user;
+    this.rentSlots[index].renter = null;
   }
 
 }

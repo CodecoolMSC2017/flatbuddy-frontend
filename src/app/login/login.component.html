@@ -7,9 +7,11 @@
     <div id="remember-container">
         <span class="error" *ngIf="showError">{{ errorMessage }}</span><br>
         <span id="forgotten"><a routerLink="/register" routerLinkActive="active">Sign up</a></span>
+        <div id="customBtn" class="customGPlusSignIn" (click)="signIn()">
+            <span class="icon"></span>
+            <span class="buttonText">Google login</span>
+        </div>
     </div>
+    
 </form>
 </div>
-<h3>Sign-in with your Google account</h3>
-<button (click)="signIn()">Google</button>
-<br><a routerLink="/register" routerLinkActive="active">Sign up</a>

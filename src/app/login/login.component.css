@@ -16,9 +16,9 @@
     bottom: 0;
     margin: auto;
     width: 260px;
-    height: 260px;
+    height: 280px;
     border-radius: 5px;
-    background: rgba(3,3,3,0.25);
+    background: rgba(3,3,3,0.60);
     box-shadow: 1px 1px 50px #000;
     
   }
@@ -135,6 +135,7 @@
     color: rgba(255,255,255,.2);
     right: 0px;
     top: 8px;
+    height: 44px;
     cursor: pointer;
     -webkit-transition: all 2s ease-in-out;
     -moz-transition: all 2s ease-in-out;
@@ -163,4 +164,35 @@
   
   .orange-btn{
     background: rgba(87,198,255,.5);
+  }
+
+  #customBtn {
+    background: white;
+    color: #444;
+    width: 140px;
+    border-radius: 5px;
+    border: thin solid #888;
+    box-shadow: 1px 1px 1px grey;
+    white-space: nowrap;
+  }
+  #customBtn:hover {
+    cursor: pointer;
+  }
+  span.label {
+    font-family: serif;
+    font-weight: normal;
+  }
+  span.icon {
+    background: url('https://developers.google.com/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+  }
+  span.buttonText {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 42px;
+    font-size: 14px;
+    font-weight: bold;
   }

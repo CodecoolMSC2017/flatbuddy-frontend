@@ -18,4 +18,8 @@ export class RentSlotsService {
   joinSlot(id): Observable<any>{
     return this.http.put('/api/user/advertisementslots/join/'+id,null);
   }
+
+  leaveSlot(id,renterId): Observable<any>{
+    return this.http.put('/api/user/advertisementslots/leave/'+id + '/' + renterId,null);
+  }
 }

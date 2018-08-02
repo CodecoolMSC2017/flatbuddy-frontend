@@ -1,3 +1,7 @@
+.error {
+    color:red;
+}
+
 .rentslot {
     float: left;
     width: 70px;
