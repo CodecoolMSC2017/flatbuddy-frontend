@@ -19,7 +19,7 @@ textarea {
     width: 400px;
     height: 850px;
     border-radius: 5px;
-    background: rgba(3,3,3,0.25);
+    background: rgba(3,3,3,0.6);
     box-shadow: 1px 1px 50px #000;
     
   }
@@ -28,7 +28,7 @@ textarea {
     margin: auto;
     width: 400px;
     border-radius: 5px;
-    background: rgba(3,3,3,0.25);
+    background: rgba(3,3,3,0.6);
     box-shadow: 1px 1px 50px #000;
   }
   
