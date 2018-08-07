@@ -31,6 +31,7 @@ export class UserProfileComponent implements OnInit {
   constructor(private userProfileService: UserProfileService,
     private authService: AuthService, private router: Router) { }
 
+
   ngOnInit() {
     this.authService.getAuth().subscribe(user => this.user = user);
   }
@@ -100,4 +101,14 @@ export class UserProfileComponent implements OnInit {
     }
     return false;
   }
+  
+
+  onFileChanged(event) {
+    this.userProfileService.selectedFile= event.target.files[0]
+  }
+
+  onUpload() {
+    this.userProfileService.uploadPicture();
+  }
+
 }

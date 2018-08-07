@@ -9,6 +9,8 @@ import { User } from './user';
 })
 export class UserProfileService {
 
+  selectedFile: File;
+
   constructor(private http: HttpClient) { }
 
   public updateProfileDetails(user: User, changePw: ChangePassword): Observable<void> {
@@ -25,5 +27,17 @@ export class UserProfileService {
       newPw: changePw.newPw,
       confirmationPw: changePw.confirmationPw
     });
-    }
+  }
+
+  uploadPicture() {
+    const uploadData = new FormData();
+    uploadData.append('file', this.selectedFile, this.selectedFile.name);
+    this.http.post('/api/user/uploadpicture', uploadData, {
+      reportProgress: true,
+      observe: 'events'
+    })
+      .subscribe(event => {
+        console.log(event);
+      });
+  }
 }
