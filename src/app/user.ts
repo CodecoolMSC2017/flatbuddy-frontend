@@ -10,4 +10,5 @@ export class User {
     destination: string;
     isEnabled: boolean;
     authorities: String[] = [];
+    pictures: Object[]=[];
 }

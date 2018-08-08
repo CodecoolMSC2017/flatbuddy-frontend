@@ -65,11 +65,17 @@
           <label for="pictures">Pictures</label>
         </div>
         <div class="col-75">
-          <input 
-          style="display: none" 
-          type="file" (change)="onFileChanged($event)" #fileInput>
-          <button (click)="fileInput.click()">Select File</button>
-          <button (click)="onUpload()">Upload!</button>     
+          <div *ngFor="let number of [0,1,2,3]">
+            <div class ="uploadButton" *ngIf="pictures.length &lt; number+1">
+              <input 
+              style="display: none" 
+              type="file" (change)="onFileChanged($event)" #fileInput>
+              <button (click)="fileInput.click()">Select File</button>
+            </div>
+            <div class ="uploadButton" *ngIf="user.pictures[number] != null">
+              <img id="userimg" src="localhost:4200/api/media/uploads/profiles/{{user.id}}/{{pictures[number].path}} ">
+            </div>
+          </div>     
         </div>
       </div>
 </div>

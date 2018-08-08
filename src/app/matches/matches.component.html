@@ -3,10 +3,9 @@
   <div *ngFor="let match of matches$">
     <a >
       <div id="usercontainer" *ngIf="match.status == 2"  >
-        <img [ngStyle]="{'border-color': match.userB.gender == 'Male'? 'lightblue' : 'pink'}" id="userimg" *ngIf="match.userB.gender == 'Male'" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512" routerLink = "/profile/{{match.userB.id}}">
-        <img [ngStyle]="{'border-color': match.userB.gender == 'Male'? 'lightblue' : 'pink'}" id="userimg" *ngIf="match.userB.gender != 'Male'" src="http://www.kepfeltoltes.eu/images/hdd1/2018/07/30/433mateboy.jpg" routerLink = "/profile/{{match.userB.id}}">
-
-          <div>{{match.userB.firstName}}, {{match.userB.age}} </div>
+        <img [ngStyle]="{'border-color': match.userB.gender == 'Male'? 'lightblue' : 'pink'}" id="userimg" *ngIf='match.userB.pictures.length == 0'  src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png" routerLink = "/profile/{{match.userB.id}}">
+        <img [ngStyle]="{'border-color': match.userB.gender == 'Male'? 'lightblue' : 'pink'}" id="userimg" *ngIf='match.userB.pictures.length > 0'  src="localhost:4200/api/media/uploads/{{match.userB.pictures[0].path}}" routerLink = "/profile/{{match.userB.id}}">
+        <div>{{match.userB.firstName}}, {{match.userB.age}} </div>
           <br>
           <div class="bottom-left">
             <div class=userdesc *ngIf="match.status == 2">  Status: <font color="green">matched</font>

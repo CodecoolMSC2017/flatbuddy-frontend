@@ -14,6 +14,8 @@ import { Router } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
+  pictures: Object[] = [];
+
   user: User = new User();
 
   errorMessage: String;
@@ -33,7 +35,9 @@ export class UserProfileComponent implements OnInit {
 
 
   ngOnInit() {
-    this.authService.getAuth().subscribe(user => this.user = user);
+    this.authService.getAuth().subscribe(user => {
+      this.user = user;
+      this.pictures = user.pictures;})
   }
 
   areFieldsFilledOut(): boolean {
@@ -104,7 +108,8 @@ export class UserProfileComponent implements OnInit {
   
 
   onFileChanged(event) {
-    this.userProfileService.selectedFile= event.target.files[0]
+    this.userProfileService.selectedFile= event.target.files[0];
+    this.onUpload();
   }
 
   onUpload() {
