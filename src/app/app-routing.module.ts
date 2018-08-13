@@ -16,6 +16,7 @@ import { PendingMatchesComponent } from './pending-matches/pending-matches.compo
 import { UserAdvertisementsComponent } from './user-advertisements/user-advertisements.component';
 import { AdvertisementEditComponent } from './advertisement-edit/advertisement-edit.component';
 import { EditadvertisementGuard } from './editadvertisement.guard';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: 'people', component: FlatmatesComponent, canActivate: [LoginGuard]},
   {path: 'pendingmatches', component: PendingMatchesComponent, canActivate: [LoginGuard]},
   {path: 'myadvertisements', component: UserAdvertisementsComponent, canActivate: [LoginGuard]},
+  {path: 'notifications', component: NotificationsComponent, canActivate: [LoginGuard]},
   {path: 'editadvertisement/:id', component: AdvertisementEditComponent, canActivate: [LoginGuard], canLoad:[EditadvertisementGuard]},
   {path: '**', redirectTo: '/advertisements' ,pathMatch:'full'}
 ];

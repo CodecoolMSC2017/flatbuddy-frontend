@@ -1,0 +1,44 @@
+.notification {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+}
+.notification-date{
+    position: relative;
+    right: 3px;
+    bottom: 1px;
+
+}
+
+.match {
+    padding: 20px;
+    background-color: lightgreen;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.advertisement{
+    padding: 20px;
+    background-color: red;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.slot{
+    padding: 20px;
+    background-color: blueviolet;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+    font-weight: bold;
+}

@@ -41,6 +41,7 @@ let gapiClientConfig: NgGapiClientConfig = {
   ].join(" ")
 };
 import { RentSlotsComponent } from './rent-slots/rent-slots.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { RentSlotsComponent } from './rent-slots/rent-slots.component';
     PendingMatchesComponent,
     UserAdvertisementsComponent,
     AdvertisementEditComponent,
-    RentSlotsComponent
+    RentSlotsComponent,
+    NotificationsComponent
   ],
   imports: [
     GoogleApiModule.forRoot({
