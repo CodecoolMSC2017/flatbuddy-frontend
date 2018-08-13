@@ -29,15 +29,16 @@ export class UserProfileService {
     });
   }
 
-  uploadPicture() {
+  uploadPicture(): Observable<any> {
     const uploadData = new FormData();
     uploadData.append('file', this.selectedFile, this.selectedFile.name);
-    this.http.post('/api/user/uploadpicture', uploadData, {
+    return this.http.post('/api/user/uploadpicture', uploadData, {
       reportProgress: true,
       observe: 'events'
-    })
-      .subscribe(event => {
-        console.log(event);
-      });
+    });
+  }
+
+  deletePicture(pictureId): Observable<any>{
+    return this.http.delete('/api/user/deletepicture/' + pictureId);
   }
 }

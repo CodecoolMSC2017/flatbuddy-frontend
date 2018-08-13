@@ -5,8 +5,6 @@ import { UserProfileService } from '../user-profile.service';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -113,7 +111,12 @@ export class UserProfileComponent implements OnInit {
   }
 
   onUpload() {
-    this.userProfileService.uploadPicture();
+    this.userProfileService.uploadPicture().subscribe();
+  }
+
+  onDeleteButtonClick(picture) {
+    const index: number = this.pictures.indexOf(picture);
+    this.userProfileService.deletePicture(picture.id).subscribe();
   }
 
 }
