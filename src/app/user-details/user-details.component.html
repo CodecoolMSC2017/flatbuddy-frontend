@@ -1,16 +1,19 @@
-<h1>{{ user$.firstName }}</h1>
-<div class="topcontainer">
-    <div class="userimgdiv" [ngStyle]="{'background-color': user$.gender == 'Male'? 'lightblue' : 'pink'}">
-      <img class="userimg" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512">
-    </div>  
-    <div id="userdesc"> <p>{{ user$.description }}</p></div>
-</div>
+<div *ngIf="user">
+  <h1>{{ user.firstName }}</h1>
+  <div class="topcontainer">
+      <div class="userimgdiv" [ngStyle]="{'background-color': user.gender == 'Male'? 'lightblue' : 'pink'}">
+        <img class="userimg" *ngIf='user.pictures.length == 0'  src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png">
+        <img class="userimg" *ngIf='user.pictures.length > 0'  src="/api/media/uploads/profiles/{{user.id}}/{{user.pictures[0].path}}">
+      </div>  
+      <div id="userdesc"> <p>{{ user.description }}</p></div>
+  </div>
 
-<div id="userdetailslist">
-  <ul>
-    <li><strong>Firstname:</strong> {{ user$.firstName }}</li>
-    <li><strong>Age:</strong> {{ user$.age}}</li>
-    <li><strong>Gender:</strong> {{ user$.gender }}</li>
-    <li *ngIf="user$.destination !=''"><strong>Destination:</strong> {{ user$.destination }}</li>
-  </ul>
+  <div id="userdetailslist">
+    <ul>
+      <li><strong>Firstname:</strong> {{ user.firstName }}</li>
+      <li><strong>Age:</strong> {{ user.age}}</li>
+      <li><strong>Gender:</strong> {{ user.gender }}</li>
+      <li *ngIf="user.destination !=''"><strong>Destination:</strong> {{ user.destination }}</li>
+    </ul>
+  </div>
 </div>
