@@ -104,5 +104,10 @@ input[type=button]:hover {
     position: relative;
     top: 0;
     left: 0;
+    
+}
+
+#userimg:hover {
+    cursor: auto;
 }
 

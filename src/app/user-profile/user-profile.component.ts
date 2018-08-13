@@ -111,12 +111,12 @@ export class UserProfileComponent implements OnInit {
   }
 
   onUpload() {
-    this.userProfileService.uploadPicture().subscribe();
+    this.userProfileService.uploadPicture().subscribe(() => this.pictures.push(this.userProfileService.selectedFile));
   }
 
   onDeleteButtonClick(picture) {
     const index: number = this.pictures.indexOf(picture);
-    this.userProfileService.deletePicture(picture.id).subscribe();
+    this.userProfileService.deletePicture(picture.id).subscribe(this.pictures.splice(index,1));
   }
 
 }

@@ -32,8 +32,8 @@
     border-radius: 5px 10px;
 }
 .userimg {
-   max-width: 70%;
-   max-height: auto; 
+   width: 15vw;
+   height: 15vw; 
    border-radius: 250px;
    margin: auto;
    display: block;

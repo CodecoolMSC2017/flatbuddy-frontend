@@ -38,7 +38,7 @@ export class UserProfileService {
     });
   }
 
-  deletePicture(pictureId): Observable<any>{
+  deletePicture(pictureId): any{
     return this.http.delete('/api/user/deletepicture/' + pictureId);
   }
 }
