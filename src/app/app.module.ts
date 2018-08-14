@@ -64,7 +64,7 @@ import { MessageComponent } from './message/message.component';
     UserAdvertisementsComponent,
     AdvertisementEditComponent,
     RentSlotsComponent,
-    NotificationsComponent
+    NotificationsComponent,
     RentSlotsComponent,
     MessageComponent
   ],
