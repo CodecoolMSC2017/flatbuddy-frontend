@@ -1,6 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="notifications" *ngFor="let notification of notifications">
-  <div class= {{notification.type}}>
+  <div class= {{notification.type}} (click) = 'notificationClick(notification)'>
     {{notification.content}}
     <div class = "notification-date">
       {{notification.date | date:'y-MM-dd hh:mm'}}

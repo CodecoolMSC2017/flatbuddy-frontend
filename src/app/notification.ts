@@ -5,4 +5,5 @@ export class Notification{
     isSeen: boolean;
     date: Date;
     type: String;
+    idOfSubject: number;
 }
