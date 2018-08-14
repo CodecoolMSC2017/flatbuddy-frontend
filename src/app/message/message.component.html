@@ -1,15 +1,20 @@
-<h1>Send new message</h1>
+
 
 <div class="container">
+
+  
   
   <form action="/action_page.php">
+
+    <h1>Send new message</h1>
     
     <div class="row">
       <div class="col-25">
         <label for="receiver">To:</label>
       </div>
       <div class="col-75">
-          <select id="receiver" name="receiver" autocomplete="off" [(ngModel)] = "message.receiverId">
+          <select id="receiver" name="receiver" [(ngModel)] = "newMessage.receiverId">
+            <option *ngFor="let user of users$" [value]="user.id">{{user.firstName + " " + user.lastName + " "}}({{user.email}})</option>
           </select>
       </div>
     </div>
@@ -19,7 +24,7 @@
         <label for="subject">Subject</label>
       </div>
       <div class="col-75">
-          <input type="text" id="subject" name="subject" maxlength="50" placeholder="(max. 50 characters)" [(ngModel)] = "message.subject">
+          <input type="text" id="subject" name="subject" maxlength="50" placeholder="(max. 50 characters)" [(ngModel)] = "newMessage.subject">
       </div>
     </div>
 
@@ -28,12 +33,13 @@
           <label for="message">Message</label>
         </div>
         <div class="col-75">
-            <textarea id="content" name="content" maxlength="500" rows="10" cols="84" placeholder="(max. 500 characters)" [(ngModel)] = "message.content"></textarea>
+            <textarea id="content" name="content" maxlength="500" rows="10" cols="84" placeholder="(max. 500 characters)" [(ngModel)] = "newMessage.content"></textarea>
         </div>
     </div>
 
     <div class="row">
         <span class="error" *ngIf="showError">{{ errorMessage }}</span>
+        <span class="information" *ngIf="showInfo">{{ information }}</span>
         <input type="button" value="Send" (click)="sendNewMessage()">
     </div>
 
