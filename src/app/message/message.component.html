@@ -1,3 +1,42 @@
-<p>
-  message works!
-</p>
+<h1>Send new message</h1>
+
+<div class="container">
+  
+  <form action="/action_page.php">
+    
+    <div class="row">
+      <div class="col-25">
+        <label for="receiver">To:</label>
+      </div>
+      <div class="col-75">
+          <select id="receiver" name="receiver" autocomplete="off" [(ngModel)] = "message.receiverId">
+          </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Subject</label>
+      </div>
+      <div class="col-75">
+          <input type="text" id="subject" name="subject" maxlength="50" placeholder="(max. 50 characters)" [(ngModel)] = "message.subject">
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+          <label for="message">Message</label>
+        </div>
+        <div class="col-75">
+            <textarea id="content" name="content" maxlength="500" rows="10" cols="84" placeholder="(max. 500 characters)" [(ngModel)] = "message.content"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <span class="error" *ngIf="showError">{{ errorMessage }}</span>
+        <input type="button" value="Send" (click)="sendNewMessage()">
+    </div>
+
+  </form>
+
+</div>
