@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ChangePassword} from '../change-password-details'
 import { User } from '../user';
+import { UserPicture } from '../userpicture';
 import { UserProfileService } from '../user-profile.service';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
@@ -111,7 +112,8 @@ export class UserProfileComponent implements OnInit {
   }
 
   onUpload() {
-    this.userProfileService.uploadPicture().subscribe(() => this.pictures.push(this.userProfileService.selectedFile));
+    let newPicture: UserPicture;
+    this.userProfileService.uploadPicture().subscribe(() => this.pictures.push(newPicture));
   }
 
   onDeleteButtonClick(picture) {

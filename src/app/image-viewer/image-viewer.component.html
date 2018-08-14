@@ -1,6 +1,8 @@
-<div class="rentadgallery">
-  <div class="rentadimg"><img class="userimg" src="{{selectedImage}}"></div>
-  <div class="rentadthumbnails"><!-- ngFor-al lesznek a képek -->
-    <div class="rentadthumbnail" *ngFor="let picture of adPictures" ><img class="userimg" src="{{picture}}" (click)="changePic($event)"></div>
+<div *ngIf="rentAd">
+  <div class="rentadgallery">
+    <div class="rentadimg"><img class="userimg" src="/api/media/uploads/advertisements/{{rentAd.id}}/{{selectedImage}}"></div>
+    <div class="rentadthumbnails">
+      <div class="rentadthumbnail" *ngFor="let picture of pictures" ><img class="userimg" src="/api/media/uploads/advertisements/{{rentAd.id}}/{{picture.path}}" (click)="changePic($event)"></div>
+    </div>
   </div>
 </div>

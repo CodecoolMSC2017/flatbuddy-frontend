@@ -85,6 +85,23 @@
         <textarea id="description" name="rent-description" placeholder="{{rentAd.description}}." [(ngModel)]="rentAd.description" style="height:200px"></textarea>
       </div>
     </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="pictures">Pictures</label>
+      </div>
+      <div id = "picturescontainer" class="col-75">
+        <div *ngFor="let number of [0,1,2,3]">
+          <div class ="uploadButton" *ngIf="pictures.length &lt; number+1">
+            <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+            <img src="https://www.logolynx.com/images/logolynx/df/dfc95540c225d6841233d7f74c9a2a11.png" (click)="fileInput.click()">
+          </div>
+          <div class ="uploadButton" *ngIf="pictures[number] != null">
+            <img src="/api/media/uploads/advertisements/{{rentAd.id}}/{{pictures[number].path}}" id="userimg" >
+            <img src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-coloricon/21/19-512.png" (click)="onDeleteButtonClick(pictures[number])" id="deleteimg">
+          </div>
+        </div>     
+      </div>
+    </div>
 
 
     <div class="row">
