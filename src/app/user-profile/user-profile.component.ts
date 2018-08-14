@@ -113,7 +113,7 @@ export class UserProfileComponent implements OnInit {
 
   onUpload() {
     let newPicture: UserPicture;
-    this.userProfileService.uploadPicture().subscribe(() => this.pictures.push(newPicture));
+    this.userProfileService.uploadPicture().subscribe(() => this.ngOnInit());
   }
 
   onDeleteButtonClick(picture) {
