@@ -74,9 +74,9 @@ input[type=button]:hover {
 
 .uploadButton {
     float: left;
-    margin-left: 8px;
-    margin-right: 8px;
-    width: 20%;
+    margin-left: 9px;
+    margin-right: 9px;
+    width: 18%;
     height: 100px;
     position: relative;
 }

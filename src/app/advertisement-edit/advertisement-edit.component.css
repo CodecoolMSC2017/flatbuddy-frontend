@@ -33,6 +33,7 @@ input[type=button]:hover {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
+    width: 80%;
 }
 
 .col-25 {
@@ -63,4 +64,46 @@ input[type=button]:hover {
 }
 .error{
     color: red;
+}
+#picturescontainer {
+    height: 100px;
+}
+
+.uploadButton {
+    float: left;
+    margin-left: 9px;
+    margin-right: 9px;
+    width: 18%;
+    height: 100px;
+    position: relative;
+}
+
+.uploadButton img {
+    width: 100%;
+    height: 100%;
+    border: 2px solid darkslategrey;
+}
+
+.uploadButton img:hover {
+    cursor: pointer;
+}
+
+#deleteimg {
+    position: absolute;
+    right:4px;
+    top:2px;
+    width: 20px;
+    height:20px;
+    border:none;
+}
+
+#userimg {
+    position: relative;
+    top: 0;
+    left: 0;
+    
+}
+
+#userimg:hover {
+    cursor: auto;
 }

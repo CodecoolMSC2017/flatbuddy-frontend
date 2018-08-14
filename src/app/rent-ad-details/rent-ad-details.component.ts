@@ -9,14 +9,21 @@ import { Observable } from 'rxjs';
   styleUrls: ['./rent-ad-details.component.css']
 })
 export class RentAdDetailsComponent implements OnInit {
-  rentAd$: Object;
+  rentAd$: any = {};
+  rentAdId: number;
+  rentAdId2: number;
   constructor(private route:ActivatedRoute, private rentads:RentadserviceService) { 
-    this.route.params.subscribe(params => this.rentAd$ = params.id);
+    this.route.params.subscribe(params => {
+      this.rentAdId = params.id;
+      this.rentAdId2 = params.id;
+    });
 
   }
 
   ngOnInit() {
-    this.rentads.getAdById(this.rentAd$).subscribe(rentads => this.rentAd$ = rentads);
+    this.rentads.getAdById(this.rentAdId).subscribe(rentads => { 
+      this.rentAd$ = rentads;
+    });
   }
 
 }

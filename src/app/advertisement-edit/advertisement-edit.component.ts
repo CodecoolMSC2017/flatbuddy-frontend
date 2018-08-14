@@ -10,7 +10,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AdvertisementEditComponent implements OnInit {
   showError: boolean = false;
   errorMessage: string;
-  rentAd: Object;
+  rentAd:any;
+  pictures: Object[] = [];
+
   constructor(private adService: RentadserviceService, private route: ActivatedRoute, private router: Router) { 
     this.route.params.subscribe(params => this.rentAd = params.id);
   }
@@ -18,11 +20,12 @@ export class AdvertisementEditComponent implements OnInit {
   ngOnInit() {
     this.adService.getMyAdById(this.rentAd)
       .subscribe(
-        rentads => this.rentAd = rentads,
+        rentads => {this.rentAd = rentads,
+        this.pictures = this.rentAd.adPictures,
         (error) => {
           //.alert(error.error.message)
           this.router.navigate(['advertisements']);
-        });
+        }});
     
   }
 
@@ -33,5 +36,19 @@ export class AdvertisementEditComponent implements OnInit {
       this.showError = true;
       this.errorMessage = error.error.message;
     });
+  }
+
+  onFileChanged(event) {
+    this.adService.selectedFile= event.target.files[0];
+    this.onUpload();
+  }
+
+  onUpload() {
+    this.adService.uploadPicture(this.rentAd.id).subscribe();
+  }
+
+  onDeleteButtonClick(picture) {
+    const index: number = this.pictures.indexOf(picture);
+    this.adService.deletePicture(picture.id).subscribe(this.pictures.splice(index,1));
   }
 }

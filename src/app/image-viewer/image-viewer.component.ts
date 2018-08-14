@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { RentadserviceService } from '../rentadservice.service';
 
 @Component({
   selector: 'app-image-viewer',
@@ -7,20 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImageViewerComponent implements OnInit {
 
+  @Input() rentAdId2: any;
+  rentAd: any;
   public selectedImage: String;
-  public adPictures: string[] = ['https://content.ingatlanbazar.hu/static/property/images/1f/ee/f6/f6/1feef6f6-84a6-11e8-b1f6-005056b3506b/08646def-b952-4b06-8b04-b9c5f8c6522d_1024x768b.jpg',
-  'https://content.ingatlanbazar.hu/static/property/images/1f/ee/f6/f6/1feef6f6-84a6-11e8-b1f6-005056b3506b/be540219-f417-4a3b-940a-de05002a79e7_1024x768b.jpg',
-  'https://content.ingatlanbazar.hu/static/property/images/1f/ee/f6/f6/1feef6f6-84a6-11e8-b1f6-005056b3506b/90473cdc-86b6-4984-bf86-55e0a46a3e36_1024x768b.jpg'
-]; 
+  public pictures: any[];
   
-  constructor() { 
-    this.selectedImage = this.adPictures[0];
+  constructor(private rentads:RentadserviceService) { 
   }
 
-  ngOnInit() {
+  ngOnInit() { 
+    this.rentads.getAdById(this.rentAdId2).subscribe(rentads => { 
+    this.rentAd = rentads;
+    this.pictures = this.rentAd.adPictures;
+    if (this.pictures.length != 0) {
+      this.selectedImage = this.rentAd.adPictures[0].path;
+    }
+  });
   }
   changePic(event){
-    this.selectedImage = event.target.src;
+    let index = event.target.src.lastIndexOf('/');
+    let newSrc=event.target.src.slice(index+1);
+    this.selectedImage = newSrc;
   }
 
 }

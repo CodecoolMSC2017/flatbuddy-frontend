@@ -8,6 +8,7 @@ import { Advertisement } from './advertisement';
   providedIn: 'root'
 })
 export class RentadserviceService {
+  selectedFile: File;
 
   constructor(private http: HttpClient) { }
 
@@ -45,5 +46,18 @@ export class RentadserviceService {
     roomsAvailable: +rentAd.roomsAvailable,
     furnitured: rentAd.furnitured
     });
+  }
+
+  uploadPicture(rentAdId): Observable<any> {
+    const uploadData = new FormData();
+    uploadData.append('file', this.selectedFile, this.selectedFile.name);
+    return this.http.post('/api/advertisement/uploadpicture/' + rentAdId, uploadData, {
+      reportProgress: true,
+      observe: 'events'
+    });
+  }
+
+  deletePicture(pictureId): any{
+    return this.http.delete('/api/advertisement/deletepicture/' + pictureId);
   }
 }
