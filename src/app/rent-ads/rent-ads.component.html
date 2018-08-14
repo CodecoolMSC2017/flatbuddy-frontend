@@ -1,5 +1,5 @@
 <h1>Advertisements</h1>
-<input type="text" class ="searchTerm" [(ngModel)]="advFilter" placeholder="Search by City...">
+<input type="text" class ="searchTerm" [(ngModel)]="advFilter" placeholder="Search ...">
 <ul>
   <div *ngFor="let rentad of rentads$ | advertisementFilter: advFilter">
     <a routerLink = "/advertisement/{{rentad.id}}">

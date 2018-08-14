@@ -11,10 +11,15 @@ export class AdvertisementFilterPipe implements PipeTransform {
     }else{
       args = args.toUpperCase();
     }
-    return value.filter(items => {
+    /*return value.filter(items => {
       var city = items.city.toUpperCase();
-      return city.startsWith(args) == true;
-    })
+      return city.includes(args) == true;
+    })*/
+    return value.filter(item => 
+      Object.keys(item).some(k => item[k] != null && 
+      item[k].toString().toUpperCase()
+      .includes(args.toUpperCase()))
+      );
   }
 
 }
