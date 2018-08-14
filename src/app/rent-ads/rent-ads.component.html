@@ -1,6 +1,7 @@
 <h1>Advertisements</h1>
+<input type="text" class ="searchTerm" [(ngModel)]="advFilter" placeholder="Search by City...">
 <ul>
-  <div *ngFor="let rentad of rentads$">
+  <div *ngFor="let rentad of rentads$ | advertisementFilter: advFilter">
     <a routerLink = "/advertisement/{{rentad.id}}">
         <div id="rentadcontainer" [ngStyle]="{'background-color': rentad.premium ? 'gold' : '#2d2e2e'}">
           <div>{{rentad.city}} {{rentad.street}} </div>
