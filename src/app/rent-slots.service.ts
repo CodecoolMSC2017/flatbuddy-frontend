@@ -22,4 +22,8 @@ export class RentSlotsService {
   leaveSlot(id,renterId): Observable<any>{
     return this.http.put('/api/user/advertisementslots/leave/'+id + '/' + renterId,null);
   }
+
+  inviteSlot(slotId, userId){
+    return this.http.post('/user/advertisementslots/invite/'+slotId+'/'+userId,null);
+  }
 }
