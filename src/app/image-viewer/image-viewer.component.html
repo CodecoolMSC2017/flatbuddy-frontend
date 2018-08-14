@@ -1,6 +1,9 @@
 <div *ngIf="rentAd">
   <div class="rentadgallery">
-    <div class="rentadimg"><img class="userimg" src="/api/media/uploads/advertisements/{{rentAd.id}}/{{selectedImage}}"></div>
+    <div class="rentadimg">
+      <img *ngIf="pictures.length > 0" class="userimg" src="/api/media/uploads/advertisements/{{rentAd.id}}/{{selectedImage}}">
+      <img *ngIf="pictures.length == 0" class="userimg" src="https://www.logolynx.com/images/logolynx/df/dfc95540c225d6841233d7f74c9a2a11.png">
+    </div>
     <div class="rentadthumbnails">
       <div class="rentadthumbnail" *ngFor="let picture of pictures" ><img class="userimg" src="/api/media/uploads/advertisements/{{rentAd.id}}/{{picture.path}}" (click)="changePic($event)"></div>
     </div>

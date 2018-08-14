@@ -7,7 +7,7 @@
           <img id="rentadimg" *ngIf="rentad.adPictures.length != 0" src="/api/media/uploads/advertisements/{{rentad.id}}/{{rentad.adPictures[0].path}}">
           <img id="rentadimg" *ngIf="rentad.adPictures.length == 0" src="https://www.logolynx.com/images/logolynx/df/dfc95540c225d6841233d7f74c9a2a11.png">
           <div class="bottom-left">
-            <div class=advdesc>Click here to view!</div>
+            <div class=advdesc>{{rentad.description}}</div>
           </div>
         </div>  
       </a>

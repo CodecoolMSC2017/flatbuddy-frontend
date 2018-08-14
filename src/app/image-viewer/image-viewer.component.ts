@@ -19,8 +19,10 @@ export class ImageViewerComponent implements OnInit {
   ngOnInit() { 
     this.rentads.getAdById(this.rentAdId2).subscribe(rentads => { 
     this.rentAd = rentads;
-    this.selectedImage = this.rentAd.adPictures[0].path;
     this.pictures = this.rentAd.adPictures;
+    if (this.pictures.length != 0) {
+      this.selectedImage = this.rentAd.adPictures[0].path;
+    }
   });
   }
   changePic(event){
