@@ -20,11 +20,11 @@ export class NewAdvertisementService {
       district: advertisement.district,
       street: advertisement.street,
       description: advertisement.description,
-      cost: +advertisement.cost,
-      size: +advertisement.size,
+      cost: advertisement.cost,
+      size: advertisement.size,
       type: advertisement.type,
       furnitured: advertisement.isFurnitured,
-      roomsAvailable: +advertisement.roomsAvailable
+      roomsAvailable: advertisement.roomsAvailable
     })
   }
 }
