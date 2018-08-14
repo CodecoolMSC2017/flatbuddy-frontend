@@ -42,6 +42,7 @@ let gapiClientConfig: NgGapiClientConfig = {
 };
 import { RentSlotsComponent } from './rent-slots/rent-slots.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
     AdvertisementEditComponent,
     RentSlotsComponent,
     NotificationsComponent
+    RentSlotsComponent,
+    MessageComponent
   ],
   imports: [
     GoogleApiModule.forRoot({
