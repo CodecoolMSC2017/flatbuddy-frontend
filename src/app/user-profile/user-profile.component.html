@@ -72,7 +72,7 @@
             </div>
             <div class ="uploadButton" *ngIf="user.pictures[number] != null">
               <img src="/api/media/uploads/profiles/{{user.id}}/{{pictures[number].path}}" id="userimg" >
-              <img src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-coloricon/21/19-512.png" (click)="onDeleteButtonClick(pictures[number])" id="deleteimg">
+              <img *ngIf="canEdit" src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-coloricon/21/19-512.png" (click)="onDeleteButtonClick(pictures[number])" id="deleteimg">
             </div>
           </div>     
         </div>
