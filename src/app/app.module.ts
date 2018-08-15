@@ -44,6 +44,7 @@ import { RentSlotsComponent } from './rent-slots/rent-slots.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { MessageComponent } from './message/message.component';
 import { AdvertisementFilterPipe } from './advertisement-filter.pipe';
+import { AdvertisementFilterComponent } from './advertisement-filter/advertisement-filter.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { AdvertisementFilterPipe } from './advertisement-filter.pipe';
     NotificationsComponent,
     RentSlotsComponent,
     MessageComponent,
-    AdvertisementFilterPipe
+    AdvertisementFilterPipe,
+    AdvertisementFilterComponent
   ],
   imports: [
     GoogleApiModule.forRoot({
