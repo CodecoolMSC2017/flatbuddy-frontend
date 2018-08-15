@@ -10,9 +10,9 @@
       <th></th>
     </tr>
     <tr *ngFor="let message of inboxMessages$">
-      <td>{{message.senderName}}</td>
-      <td>{{message.subject}}</td>
-      <td>{{message.date | date:'y-MM-dd'}}</td>
+      <td> <span [class.notSeenMessage]="!message.seen"> {{message.senderName}} </span></td>
+      <td> <span [class.notSeenMessage]="!message.seen"> {{message.subject}} </span></td>
+      <td> <span [class.notSeenMessage]="!message.seen"> {{message.date | date:'y-MM-dd hh:mm'}} </span></td>
       <td><input type="image" src="/assets/delete.png"></td>
     </tr>
   </table>

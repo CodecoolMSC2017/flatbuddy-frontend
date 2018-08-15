@@ -32,4 +32,12 @@ export class SentMessagesComponent implements OnInit {
     );
   }
 
+  onMessageClick() {
+    console.log("bööööööh");
+  }
+
+  onMessageDeleteClick() {
+    console.log("bááááááááh");
+  }
+
 }

@@ -13,10 +13,10 @@
           <th></th>
         </tr>
         <tr *ngFor="let message of sentMessages">
-          <td>{{message.receiverName}}</td>
-          <td>{{message.subject}}</td>
-          <td>{{message.date | date:'y-MM-dd'}}</td>
-          <td><input type="image" src="/assets/delete.png"></td>
+          <td (click)="onMessageClick()"> {{message.receiverName}} </td>
+          <td (click)="onMessageClick()"> {{message.subject}} </td>
+          <td (click)="onMessageClick()"> {{message.date | date:'y-MM-dd hh:mm'}} </td>
+          <td (click)="onMessageDeleteClick()"> <input type="image" src="/assets/delete.png"> </td>
         </tr>
       </table>
     </div>

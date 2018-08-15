@@ -9,4 +9,5 @@ export class Message {
     date: Date;
     isEnabledToSender: boolean;
     isEnabledToReceiver: boolean;
+    isSeen: boolean;
 }
