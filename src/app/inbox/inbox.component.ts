@@ -10,6 +10,8 @@ import { MessageService } from '../message.service';
 export class InboxComponent implements OnInit {
 
   inboxMessages$: Message[] = [];
+  showError: boolean = false;
+  errorMessage: string;
 
   constructor(private msgService: MessageService) { }
 
@@ -18,7 +20,8 @@ export class InboxComponent implements OnInit {
       this.inboxMessages$ = inboxMessages;
     },
     error => {
-      console.log(error);
+      this.showError = true;
+      this.errorMessage = error.error.message;
     }
   );
 }

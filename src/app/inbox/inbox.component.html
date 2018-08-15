@@ -1,7 +1,8 @@
 <div class="container">
 <h1>My inbox</h1>
+<span class="error" *ngIf="showError">{{ errorMessage }}</span>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <table class="inboxTable" align="center">
+  <table *ngIf="!showError" class="inboxTable" align="center">
     <tr>
       <th>Sender</th>
       <th>Subject</th>
