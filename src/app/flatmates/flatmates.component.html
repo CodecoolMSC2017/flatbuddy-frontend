@@ -4,7 +4,7 @@
     <a >
       <div id="usercontainer">
         <img [ngStyle]="{'border-color': flatmate.gender == 'Male'? 'lightblue' : 'pink'}" id="userimg" *ngIf='flatmate.pictures.length == 0'  src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png" routerLink = "/profile/{{flatmate.id}}">
-        <img [ngStyle]="{'border-color': flatmate.gender == 'Male'? 'lightblue' : 'pink'}" id="userimg" *ngIf='flatmate.pictures.length > 0'  src="/api/media/uploads/profiles/{{flatmate.id}}/{{flatmate.pictures[0].path}}" routerLink = "/profile/{flatmate.id}}">
+        <img [ngStyle]="{'border-color': flatmate.gender == 'Male'? 'lightblue' : 'pink'}" id="userimg" *ngIf='flatmate.pictures.length > 0'  src="/api/media/uploads/profiles/{{flatmate.id}}/{{flatmate.pictures[0].path}}" routerLink = "/profile/{{flatmate.id}}">
             <div>{{flatmate.firstName}}</div>
           <br>
           <div class="bottom-left">

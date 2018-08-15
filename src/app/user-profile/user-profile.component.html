@@ -67,8 +67,8 @@
         <div id = "picturescontainer" class="col-75">
           <div *ngFor="let number of [0,1,2,3]">
             <div class ="uploadButton" *ngIf="pictures.length &lt; number+1">
-              <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
-              <img src="https://static.umotive.com/img/product_image_thumbnail_placeholder.png" (click)="fileInput.click()">
+              <input [disabled]="!canEdit" style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+              <img  src="https://static.umotive.com/img/product_image_thumbnail_placeholder.png" (click)="fileInput.click()">
             </div>
             <div class ="uploadButton" *ngIf="user.pictures[number] != null">
               <img src="/api/media/uploads/profiles/{{user.id}}/{{pictures[number].path}}" id="userimg" >
