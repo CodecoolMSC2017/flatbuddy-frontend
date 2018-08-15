@@ -45,6 +45,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { MessageComponent } from './message/message.component';
 import { AdvertisementFilterPipe } from './advertisement-filter.pipe';
 import { AdvertisementFilterComponent } from './advertisement-filter/advertisement-filter.component';
+import { InboxComponent } from './inbox/inbox.component';
+import { SentMessagesComponent } from './sent-messages/sent-messages.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,12 @@ import { AdvertisementFilterComponent } from './advertisement-filter/advertiseme
     RentSlotsComponent,
     MessageComponent,
     AdvertisementFilterPipe,
+<<<<<<< HEAD
     AdvertisementFilterComponent
+=======
+    SentMessagesComponent,
+    InboxComponent
+>>>>>>> 6ec46b93f2cd60639d30508501828521bf6deacf
   ],
   imports: [
     GoogleApiModule.forRoot({
