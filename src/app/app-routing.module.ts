@@ -18,6 +18,7 @@ import { AdvertisementEditComponent } from './advertisement-edit/advertisement-e
 import { EditadvertisementGuard } from './editadvertisement.guard';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { MessageComponent } from './message/message.component';
+import { SentMessagesComponent } from './sent-messages/sent-messages.component';
 import { InboxComponent } from './inbox/inbox.component';
 
 
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path: 'notifications', component: NotificationsComponent, canActivate: [LoginGuard]},
   {path: 'editadvertisement/:id', component: AdvertisementEditComponent, canActivate: [LoginGuard], canLoad:[EditadvertisementGuard]},
   {path: 'newmessage', component: MessageComponent, canActivate: [LoginGuard]},
+  {path: 'sentmessages', component: SentMessagesComponent, canActivate: [LoginGuard]},
   {path: 'inbox', component: InboxComponent, canActivate: [LoginGuard]},
   {path: '**', redirectTo: '/advertisements' ,pathMatch:'full'}
 ];

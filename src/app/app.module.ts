@@ -45,6 +45,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { MessageComponent } from './message/message.component';
 import { AdvertisementFilterPipe } from './advertisement-filter.pipe';
 import { InboxComponent } from './inbox/inbox.component';
+import { SentMessagesComponent } from './sent-messages/sent-messages.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { InboxComponent } from './inbox/inbox.component';
     RentSlotsComponent,
     MessageComponent,
     AdvertisementFilterPipe,
+    SentMessagesComponent,
     InboxComponent
   ],
   imports: [
