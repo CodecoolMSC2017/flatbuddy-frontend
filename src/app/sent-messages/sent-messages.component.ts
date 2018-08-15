@@ -13,14 +13,21 @@ export class SentMessagesComponent implements OnInit {
 
   sentMessages: Message[];
 
+  showMessages: boolean;
+
+  showError: boolean;
+
+  errorMessage: string;
+
   ngOnInit() {
     this.msgService.getSentMessages().subscribe(
       messages => {
         this.sentMessages = messages;
-        console.log(this.sentMessages);
+        this.showMessages = true;
       },
       error => {
-        console.log(error);
+        this.showError = true;
+        this.errorMessage = error.error.message;
       }
     );
   }
