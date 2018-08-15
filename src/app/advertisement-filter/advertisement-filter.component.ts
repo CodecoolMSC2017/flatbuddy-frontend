@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RentadserviceService } from '../rentadservice.service';
+import { RentAdsComponent } from '../rent-ads/rent-ads.component';
 
 @Component({
   selector: 'app-advertisement-filter',
@@ -20,9 +22,7 @@ export class AdvertisementFilterComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSearchButtonClicked(){
-    console.log(this.generateUrl());
-  }
+
   generateUrl(): String{
     var searchParams:string[]; 
     searchParams = [];

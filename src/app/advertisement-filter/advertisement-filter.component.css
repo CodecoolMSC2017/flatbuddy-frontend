@@ -1,0 +1,13 @@
+.advfilter {
+    position: absolute;
+    top: 480px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 200px;
+    height: max-content;
+    float: left;
+    background-color: aqua;
+    border: 3px solid #73AD21;
+    padding: 10px;
+  }

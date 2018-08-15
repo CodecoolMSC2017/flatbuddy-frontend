@@ -60,4 +60,8 @@ export class RentadserviceService {
   deletePicture(pictureId): any{
     return this.http.delete('/api/advertisement/deletepicture/' + pictureId);
   }
+
+  getFilteredAds(filter): Observable<Advertisement[]>{
+    return this.http.get<Advertisement[]>('/api/user/advertisement/search/'+filter);
+  }
 }
