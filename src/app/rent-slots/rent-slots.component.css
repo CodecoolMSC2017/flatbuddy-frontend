@@ -23,6 +23,7 @@
     margin-right:5%;
     width:90%;
     overflow-y:auto;
+    overflow-x:hidden;
 }
 
 ::-webkit-scrollbar {
@@ -43,3 +44,93 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
+
+
+
+  .menu:before, .listitem:before {
+    font-family: 'Material Icons' !important;
+    font-feature-settings: 'liga';
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  *, :before, :after {
+    box-sizing: border-box;
+    transition: 0.3s;
+  }
+  
+  .menu {
+    position: relative;
+  }
+
+  .list {
+    background-color: #474747 !important;
+    margin: 0!important;
+    margin-top: 1em!important;
+    border-radius: 5px!important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .2)!important;
+    color: inherit!important;
+    font: 400 18px Roboto!important;
+    white-space: nowrap!important;
+    cursor: default!important;
+    width:250%;
+    position: absolute;
+    top:35%;
+    left:10%;
+    z-index: 1;
+  }
+  .list.hidden {
+    margin-top: 0.7em!important;
+    visibility: hidden!important;
+    opacity: 0!important;
+  }
+  .hidden {
+    visibility: hidden;
+  }
+  .list:before {
+    content: ''!important;
+    width: 0.75em!important;
+    height: 0.75em!important;
+    background-color: inherit!important;
+    position: absolute!important;
+    top: -0.375em!important;
+    left: calc(56px / 2 - .375em)!important;
+    transform: rotate(45deg)!important;
+  }
+  .listitem {
+    list-style: none!important;
+    padding: 0.5em!important;
+    margin: 0!important;
+    position: relative!important;
+    cursor: pointer!important;
+    background-color: #474747 !important;
+    z-index: 2;
+    padding: 5px;
+
+  }
+  .listitem:before {
+    position: absolute!important;
+    top: calc(5% + 8px)!important;
+    left: 8px!important;
+  }
+
+  .listitem:hover {
+    background-color: #575757!important;
+  }
+
+  .matchelement {
+    padding-bottom: 3px;
+  }
+
+  .matchelement:hover {
+    background-color: #575757;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    max-height:60px;
+    overflow-y: auto;
+  }
+
+
+  

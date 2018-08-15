@@ -2,8 +2,28 @@
     <span class="error" *ngIf="showError">{{ errorMessage }}</span>
     <div *ngFor ="let rentSlot of rentSlots">
         <div class="rentslot"> 
-            <img (click) = "joinSlotButtonClick(rentSlot)" *ngIf="rentSlot.renter == null" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/add-button-sign-basic-math-calculation-plus-3b4fe8b38b910691-512x512.png"> 
-            <img *ngIf="rentSlot.renter !== null" (click) = "leaveSlotButtonClick(rentSlot)" src="https://ca.slack-edge.com/T78TPR5LY-U7EERDEMA-3f68fbd5ca47-512">
+            <div  class="menu" *ngIf="rentSlot.renter == null">
+                <img  (click)="showOptions(rentSlot.id)" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/add-button-sign-basic-math-calculation-plus-3b4fe8b38b910691-512x512.png">
+                <ul id="slotoptions{{rentSlot.id}}" class="list hidden">
+                    <li class="listitem" (click) ="joinSlotButtonClick(rentSlot)">Join</li>
+                    <li class="listitem" (click) ="inviteUserToSlotButtonClick(rentSlot)">Invite match</li>
+                    <div class="hidden" id="matchlist{{rentSlot.id}}">
+                        <div class="dropdown">
+                            <div class="matchelement" *ngFor="let match of matches$" (click)="onInvitableMatchSelectClick(rentSlot,match.userB.id)">{{match.userB.firstName + " " + match.userB.lastName + " "}}({{match.userB.email}})</div>
+                        </div>
+                    </div>
+                </ul> 
+            </div>
+            <div  class="menu"  *ngIf="rentSlot.renter !== null" >
+                <img (click)="showOptions(rentSlot.id)" *ngIf='rentSlot.renter.pictures.length == 0' src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png">
+                <img (click)="showOptions(rentSlot.id)" *ngIf='rentSlot.renter.pictures.length > 0' src="/api/media/uploads/profiles/{{rentSlot.renter.id}}/{{rentSlot.renter.pictures[0].path}} ">
+                <ul *ngIf="rentSlot.renter.id == user.id" id="slotoptions{{rentSlot.id}}" class="list hidden">
+                    <li class="listitem" (click) = "leaveSlotButtonClick(rentSlot)">Leave</li>
+                </ul>
+                <ul *ngIf="rentSlot.renter.id !== user.id" id="slotoptions{{rentSlot.id}}" class="list hidden">
+                    <li class="listitem" routerLink = "/profile/{{rentSlot.renter.id}}">View profile</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

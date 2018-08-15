@@ -24,6 +24,6 @@ export class RentSlotsService {
   }
 
   inviteSlot(slotId, userId){
-    return this.http.post('/user/advertisementslots/invite/'+slotId+'/'+userId,null);
+    return this.http.post('/api/user/advertisementslots/invite/'+slotId+'/'+userId,null);
   }
 }
