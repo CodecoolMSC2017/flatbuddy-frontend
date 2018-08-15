@@ -1,0 +1,18 @@
+<div class="container">
+<h1>My inbox</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <table class="inboxTable" align="center">
+    <tr>
+      <th>Sender</th>
+      <th>Subject</th>
+      <th>Date</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let message of inboxMessages$">
+      <td>{{message.senderName}}</td>
+      <td>{{message.subject}}</td>
+      <td>{{message.date | date:'y-MM-dd'}}</td>
+      <td><input type="image" src="/assets/delete.png"></td>
+    </tr>
+  </table>
+</div>
