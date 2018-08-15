@@ -27,4 +27,8 @@ export class MatchserviceService {
     return this.http.delete('/api/user/match/delete/'+userBId);
   }
 
+  getMatchByUserB(userBId): Observable<Match>{
+    return this.http.get<Match>('/api/user/matches/matchbyuserb/'+ userBId);
+  }
+
 }

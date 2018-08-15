@@ -4,6 +4,17 @@
       <div class="userimgdiv" [ngStyle]="{'background-color': user.gender == 'Male'? 'lightblue' : 'pink'}">
         <img class="userimg" *ngIf='user.pictures.length == 0'  src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png">
         <img class="userimg" *ngIf='user.pictures.length > 0'  src="/api/media/uploads/profiles/{{user.id}}/{{user.pictures[0].path}}">
+        <div id="useroptions" class="menu" (click)="showOptions()">
+            <ul *ngIf="match" class="hidden" id="list">
+              <li *ngIf="match.status == 3" id="listitem" (click)="acceptMatchButtonClick(match)">Accept <i class="material-icons" >check</i></li>
+              <li *ngIf="match.status == 3" id="listitem" (click)="declineMatchButtonClick(match)">Decline <i class="material-icons" >cancel</i></li>
+              <li *ngIf="match.status == 1" id="listitem" (click)="declineMatchButtonClick(match)">Cancel request <i class="material-icons" >cancel</i></li>
+              <li *ngIf="match.status == 2" id="listitem" (click)="declineMatchButtonClick(match)">Remove match <i class="material-icons" >cancel</i></li>
+            </ul>
+            <ul *ngIf="!match" class="hidden" id="list">
+              <li id="listitem" (click)="sendMatchRequestButtonClick(user)">Add user <i class="material-icons"  >add_circle</i></li>
+            </ul>
+        </div>
       </div>  
       <div id="userdesc"> <p>{{ user.description }}</p></div>
   </div>
