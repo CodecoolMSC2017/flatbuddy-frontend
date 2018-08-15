@@ -40,17 +40,17 @@ export class AdvertisementFilterComponent implements OnInit {
       searchParams.push(stringurl);
     }
     if(this.advMinSize != null && this.advMinSize != undefined){
-      var stringurl = "size<="+this.advMinSize;
+      var stringurl = "size>="+this.advMinSize;
       searchParams.push(stringurl);
     }
     if(this.advRooms != null && this.advRooms != undefined){
-      var stringurl = "roomsAvailable<="+this.advRooms;
+      var stringurl = "roomsAvailable>="+this.advRooms;
       searchParams.push(stringurl);
     }
 
 
 
-    
+
     for(var i = 0; i < searchParams.length; i++){
       if(i == searchParams.length-1){
         this.url = this.url+searchParams[i];
