@@ -72,12 +72,9 @@ import { SentMessagesComponent } from './sent-messages/sent-messages.component';
     RentSlotsComponent,
     MessageComponent,
     AdvertisementFilterPipe,
-<<<<<<< HEAD
-    AdvertisementFilterComponent
-=======
+    AdvertisementFilterComponent,
     SentMessagesComponent,
     InboxComponent
->>>>>>> 6ec46b93f2cd60639d30508501828521bf6deacf
   ],
   imports: [
     GoogleApiModule.forRoot({
