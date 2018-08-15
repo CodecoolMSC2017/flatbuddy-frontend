@@ -1,0 +1,24 @@
+<div class="container">
+  
+  <form action="/action_page.php">
+
+    <h1>Sent messages</h1>
+
+    <table>
+      <tr>
+        <th>To</th>
+        <th>Subject</th>
+        <th>Date</th>
+        <th>Delete</th>
+      </tr>
+      <tr *ngFor="let message of sentMessages">
+        <td>{{message.receiverName}}</td>
+        <td>{{message.subject}}</td>
+        <td>{{message.date | date:'y-MM-dd'}}</td>
+        <td><input type="image" src="/assets/delete.png"></td>
+      </tr>
+    </table>
+
+  </form>
+
+</div>
