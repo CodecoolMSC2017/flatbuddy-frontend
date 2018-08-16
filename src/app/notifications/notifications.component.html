@@ -1,7 +1,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="notifications" *ngFor="let notification of notifications">
-  <div class= {{notification.type}} [ngStyle]="{'background-color':notification.seen? 'grey': 'green'}" (click) = 'notificationClick(notification)'>
-    {{notification.content}}
+  <div class= {{notification.type}} [ngStyle]="{'background-color':notification.seen? 'grey': 'green'}" >
+    {{notification.content}} 
+    <a (click) = 'notificationClick(notification)'>View </a>
+    <a  *ngIf="!notification.seen" (click) = 'seenButtonClick(notification)'>Seen </a>
+    <a (click) = 'deleteButtonClick(notification)'>Delete </a>
     <div class = "notification-date">
       {{notification.date | date:'y-MM-dd hh:mm'}}
     </div>

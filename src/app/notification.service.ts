@@ -17,4 +17,8 @@ export class NotificationService {
   setNotificationSeen(userId,notificationId): Observable<any>{
     return this.httpClient.put('/api/user/' + userId + '/notificationseen/' + notificationId,null);
   }
+
+  deleteNotification(notificationId,userId): Observable<any>{
+    return this.httpClient.delete('/api/user/' + userId + '/deletenotification/' + notificationId);
+  }
 }

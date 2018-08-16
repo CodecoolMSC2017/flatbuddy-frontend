@@ -1,5 +1,5 @@
 .notification-date{
-    position: relative;
+    position: absolute;
     right: 3px;
     bottom: 1px;
 
@@ -9,31 +9,29 @@
     padding: 20px;
     background-color: lightgreen;
     color: white;
-    opacity: 1;
-    transition: opacity 0.6s;
     margin-bottom: 15px;
     font-weight: bold;
-    cursor: pointer;
+    position: relative;
 }
 
 .advertisement{
     padding: 20px;
     background-color: red;
     color: white;
-    opacity: 1;
-    transition: opacity 0.6s;
     margin-bottom: 15px;
     font-weight: bold;
-    cursor: pointer;
+    position: relative;
 }
 
 .slot{
     padding: 20px;
     background-color: blueviolet;
     color: white;
-    opacity: 1;
-    transition: opacity 0.6s;
     margin-bottom: 15px;
     font-weight: bold;
+    position: relative;
+}
+
+a:hover{
     cursor: pointer;
 }

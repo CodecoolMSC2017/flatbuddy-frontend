@@ -10,7 +10,7 @@ import { Notification } from '../notification';
 })
 export class NotificationsComponent implements OnInit {
 
-  notifications: Notification[]
+  notifications: Notification[]=[];
   constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
@@ -44,8 +44,19 @@ export class NotificationsComponent implements OnInit {
     }
   }
 
+  seenButtonClick(notification: Notification) {
+    this.setNotificationSeen(notification.receiverId,notification.id);
+    notification.seen = true;
+  }
+
   setNotificationSeen(userId,notificationId) {
     this.notificationService.setNotificationSeen(userId,notificationId).subscribe();
+  }
+
+  deleteButtonClick(notification: Notification) {
+    this.notificationService.deleteNotification(notification.id,notification.receiverId).subscribe();
+    const index: number = this.notifications.indexOf(notification);
+    this.notifications.splice(index,1);
   }
 
 }
