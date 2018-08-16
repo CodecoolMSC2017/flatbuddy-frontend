@@ -5,6 +5,9 @@ import { finalize } from 'rxjs/operators';
 import { pipe } from 'rxjs';
 import { User } from '../user';
 import { tap } from 'rxjs/operators';
+import { NotificationService } from '../notification.service';
+import { Notification } from '../notification';
+
 
 @Component({
   selector: 'app-navigation',
@@ -13,10 +16,21 @@ import { tap } from 'rxjs/operators';
 })
 export class NavigationComponent implements OnInit {
   user: User = new User();
+  notifications: Notification[];
+  newNotifications: number;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router,private notificationService: NotificationService) { }
 
-  ngOnInit() {  }
+  ngOnInit() { 
+    this.notificationService.getNotifications().subscribe(notifications => {
+      this.notifications = notifications;
+      this.notifications.forEach(element => {
+        if (!element.seen) {
+          this.newNotifications =+1;
+        }
+      });
+    });
+   }
 
   deleteAuth() {
     this.authService.deleteAuth()

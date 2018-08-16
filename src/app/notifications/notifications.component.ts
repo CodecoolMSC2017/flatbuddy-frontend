@@ -14,11 +14,17 @@ export class NotificationsComponent implements OnInit {
   constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
-    this.notificationService.getNotifications().subscribe(notifications => this.notifications = notifications);
+    this.notificationService.getNotifications().subscribe(notifications => this.notifications = notifications.sort((a,b)=> {
+      return (a.seen ==b.seen)?0 : a.seen? 1 : -1
+    }));
   }
 
   notificationClick(notification: Notification){
    // console.log (notification);
+    if(!notification.seen) {
+      this.setNotificationSeen(notification.receiverId,notification.id);
+      notification.seen = true;
+    }
     if(notification.idOfSubject == null){
       console.log("null Notification");
     }
@@ -36,6 +42,10 @@ export class NotificationsComponent implements OnInit {
         window.location.href='/advertisement/'+ notification.idOfSubject;
       }
     }
+  }
+
+  setNotificationSeen(userId,notificationId) {
+    this.notificationService.setNotificationSeen(userId,notificationId).subscribe();
   }
 
 }

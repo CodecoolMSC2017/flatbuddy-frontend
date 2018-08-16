@@ -1,5 +1,5 @@
 
-<nav>
+<nav *ngIf="notifications">
 <div class='swanky'>
   <div class='swanky_wrapper'>
     <label routerLink = "myprofile" for='profile'>
@@ -8,7 +8,7 @@
       <div class='bar'></div>
     </label>
     <label routerLink ="notifications" for='Notifications'>
-      <i class="material-icons">error</i>
+      <i class="material-icons notification" [ngStyle]="{'color': newNotifications? 'red' :'white'}">error</i>
     <span>Notifications</span>
     <div class='bar'></div>
     </label>

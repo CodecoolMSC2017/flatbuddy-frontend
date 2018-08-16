@@ -13,4 +13,8 @@ export class NotificationService {
   getNotifications(): Observable<Notification[]>{
     return this.httpClient.get<Notification[]>('/api/user/notifications');
   }
+
+  setNotificationSeen(userId,notificationId): Observable<any>{
+    return this.httpClient.put('/api/user/' + userId + '/notificationseen/' + notificationId,null);
+  }
 }

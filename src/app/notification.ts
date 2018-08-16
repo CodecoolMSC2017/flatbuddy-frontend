@@ -2,7 +2,7 @@ export class Notification{
     id: number;
     receiverId: number;
     content: String;
-    isSeen: boolean;
+    seen: boolean;
     date: Date;
     type: String;
     idOfSubject: number;
