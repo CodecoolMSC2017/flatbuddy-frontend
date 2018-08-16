@@ -5,11 +5,15 @@
       <div id="usercontainer" *ngIf="match.status == 2"  >
         <div class="wrapper" routerLink = "/profile/{{match.userB.id}}">
             <div class="card" data-effect="color">
+              <div class="ribbon ribbon-top-right">
+                <span *ngIf="match.userB.gender == 'Male'" [ngStyle]="{'background-color':match.userB.gender == 'Male'? '#2980b9' : '#dd22ae'}">Male</span>
+                <span *ngIf="match.userB.gender == 'Female'" [ngStyle]="{'background-color': match.userB.gender == 'Male'? '#2980b9' : '#dd22ae'}">Female</span>
+              </div>
               <figure  class="card__image">
                 <img src="https://media.defense.gov/2017/Sep/06/2001803826/-1/-1/0/170621-F-LL945-0001.JPG" alt="Short description">
               </figure>
               <div class="card__header">
-                <figure class="card__profile">
+                <figure class="card__profile" >
                     <img *ngIf='match.userB.pictures.length == 0'  src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png" >
                     <img *ngIf='match.userB.pictures.length > 0'  src="/api/media/uploads/profiles/{{match.userB.id}}/{{match.userB.pictures[0].path}}">
                 </figure>

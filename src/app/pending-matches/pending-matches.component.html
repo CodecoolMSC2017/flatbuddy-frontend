@@ -1,22 +1,38 @@
 <h1>Pending matches</h1>
 <ul>
-  <div *ngFor="let match of matches$">
-    <a >
-      <div id="usercontainer" > 
-        <img [ngStyle]="{'border-color': match.userB.gender == 'Male'? 'lightblue' : 'pink'}" id="userimg" *ngIf='match.userB.pictures.length == 0'  src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png" routerLink = "/profile/{{match.userB.id}}">
-        <img [ngStyle]="{'border-color': match.userB.gender == 'Male'? 'lightblue' : 'pink'}" id="userimg" *ngIf='match.userB.pictures.length > 0'  src="/api/media/uploads/profiles/{{match.userB.id}}/{{match.userB.pictures[0].path}}" routerLink = "/profile/{{match.userB.id}}">
-          <div>{{match.userB.firstName}}, {{match.userB.age}} </div>
-          <br>
-          <div class="bottom-left">
-            <div class=userdesc *ngIf="match.status == 1">  Status: <font color="orange">pending</font></div>
-            <div class=userdesc *ngIf="match.status == 3"> 
-              <div id="matchbuttons">
-                <i class="material-icons" (click)="acceptMatchButtonClick(match)" >check</i>
-                <i class="material-icons" (click)="declineMatchButtonClick(match)">cancel</i>
+    <div *ngFor="let match of matches$">
+      <a >
+        <div id="usercontainer" >
+          <div class="wrapper" routerLink = "/profile/{{match.userB.id}}">
+              <div class="card" data-effect="color">
+                <div class="ribbon ribbon-top-right">
+                  <span *ngIf="match.userB.gender == 'Male'" [ngStyle]="{'background-color':match.userB.gender == 'Male'? '#2980b9' : '#dd22ae'}">Male</span>
+                  <span *ngIf="match.userB.gender == 'Female'" [ngStyle]="{'background-color': match.userB.gender == 'Male'? '#2980b9' : '#dd22ae'}">Female</span>
+                </div>
+                <figure  class="card__image">
+                  <img src="https://media.defense.gov/2017/Sep/06/2001803826/-1/-1/0/170621-F-LL945-0001.JPG" alt="Short description">
+                </figure>
+                <div class="card__header">
+                  <figure class="card__profile" >
+                      <img *ngIf='match.userB.pictures.length == 0'  src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png" >
+                      <img *ngIf='match.userB.pictures.length > 0'  src="/api/media/uploads/profiles/{{match.userB.id}}/{{match.userB.pictures[0].path}}">
+                  </figure>
+                </div>
+                <div class="card__body">
+                  <h3 class="card__name">{{match.userB.firstName}}, {{match.userB.age}}</h3>
+                  <p class="card__bio"> {{match.userB.description}}</p>
+                </div>
+                <div class="card__footer" *ngIf="match.status == 1">
+                  <p class="card__buttons">Withdraw request</p>
+                  <i class="material-icons" (click)="declineMatchButtonClick(match)">cancel</i>
+                </div>
+                <div class="card__footer" *ngIf="match.status == 3">
+                    <i class="material-icons" (click)="acceptMatchButtonClick(match)">check</i>
+                    <i class="material-icons" (click)="declineMatchButtonClick(match)">cancel</i>
+                  </div>
               </div>
             </div>
-          </div>
-      </div>  
-    </a>
-  </div>
-</ul>
+        </div>  
+      </a>
+    </div>
+  </ul>

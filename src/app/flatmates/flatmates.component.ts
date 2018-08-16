@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-flatmates',
   templateUrl: './flatmates.component.html',
-  styleUrls: ['./flatmates.component.css']
+  styleUrls: ['../matches/matches.component.css']
 })
 export class FlatmatesComponent implements OnInit {
   flatmates$: User[] = [];

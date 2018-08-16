@@ -1,20 +1,34 @@
 <h1>People</h1>
 <ul>
-  <div *ngFor="let flatmate of flatmates$">
-    <a >
-      <div id="usercontainer">
-        <img [ngStyle]="{'border-color': flatmate.gender == 'Male'? 'lightblue' : 'pink'}" id="userimg" *ngIf='flatmate.pictures.length == 0'  src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png" routerLink = "/profile/{{flatmate.id}}">
-        <img [ngStyle]="{'border-color': flatmate.gender == 'Male'? 'lightblue' : 'pink'}" id="userimg" *ngIf='flatmate.pictures.length > 0'  src="/api/media/uploads/profiles/{{flatmate.id}}/{{flatmate.pictures[0].path}}" routerLink = "/profile/{{flatmate.id}}">
-            <div>{{flatmate.firstName}}</div>
-          <br>
-          <div class="bottom-left">
-            <div class=userdesc > 
-              <p>Age: {{flatmate.age}}</p>
-              <p>Destination: {{flatmate.destination}}</p>
-              <i class="material-icons" (click)="sendMatchRequestButtonClick(flatmate)">add_circle</i>
+    <div *ngFor="let flatmate of flatmates$">
+      <a >
+        <div id="usercontainer" >
+          <div class="wrapper" routerLink = "/profile/{{flatmate.id}}">
+              <div class="card" data-effect="color">
+                <div class="ribbon ribbon-top-right">
+                  <span *ngIf="flatmate.gender == 'Male'" [ngStyle]="{'background-color':flatmate.gender == 'Male'? '#2980b9' : '#dd22ae'}">Male</span>
+                  <span *ngIf="flatmate.gender == 'Female'" [ngStyle]="{'background-color': flatmate.gender == 'Male'? '#2980b9' : '#dd22ae'}">Female</span>
+                </div>
+                <figure  class="card__image">
+                  <img src="https://media.defense.gov/2017/Sep/06/2001803826/-1/-1/0/170621-F-LL945-0001.JPG" alt="Short description">
+                </figure>
+                <div class="card__header">
+                  <figure class="card__profile" >
+                      <img *ngIf='flatmate.pictures.length == 0'  src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png" >
+                      <img *ngIf='flatmate.pictures.length > 0'  src="/api/media/uploads/profiles/{{flatmate.id}}/{{flatmate.pictures[0].path}}">
+                  </figure>
+                </div>
+                <div class="card__body">
+                  <h3 class="card__name">{{flatmate.firstName}}, {{flatmate.age}}</h3>
+                  <p class="card__bio">{{flatmate.destination}}<br><br> {{flatmate.description}}</p>
+                </div>
+                <div class="card__footer">
+                  <p class="card__buttons">Add user</p>
+                  <i class="material-icons" (click)="sendMatchRequestButtonClick(flatmate)">add_circle</i>
+                </div>
+              </div>
             </div>
-          </div>
-      </div>  
-    </a>
-  </div>
-</ul>
+        </div>  
+      </a>
+    </div>
+  </ul>

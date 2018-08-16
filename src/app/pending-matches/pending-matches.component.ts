@@ -11,7 +11,7 @@ import { PendingMatchesService } from '../pending-matches.service';
 @Component({
   selector: 'app-pending-matches',
   templateUrl: './pending-matches.component.html',
-  styleUrls: ['./pending-matches.component.css']
+  styleUrls: ['../matches/matches.component.css']
 })
 export class PendingMatchesComponent implements OnInit {
   matches$: Match[] = [];
