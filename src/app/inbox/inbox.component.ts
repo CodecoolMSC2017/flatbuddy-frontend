@@ -13,6 +13,8 @@ export class InboxComponent implements OnInit {
   inboxMessages$: Message[] = [];
   showError: boolean = false;
   errorMessage: string;
+  showMessageModal: boolean = false;
+  message: Message;
 
   constructor(private msgService: MessageService, private router: Router) { }
 
@@ -33,4 +35,24 @@ deleteReceivedMessage(messageId) {
   }
 }
 
+onMessageClick(id) {
+  this.msgService.getMessageById(id).subscribe(
+    message => {
+      this.showMessageModal = true;
+      this.message = message;
+    },
+    error => {
+      console.log(error);
+    }
+  );
+}
+
+onMessageCloseClick() {
+  this.showMessageModal = false;
+  this.ngOnInit();
+}
+
+onMessageReplyClick() {
+  this.router.navigate(['newmessage']);
+}
 }

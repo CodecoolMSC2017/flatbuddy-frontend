@@ -9,11 +9,30 @@
       <th>Date</th>
       <th></th>
     </tr>
-    <tr *ngFor="let message of inboxMessages$">
-      <td> <span [class.notSeenMessage]="!message.seen"> {{message.senderName}} </span></td>
-      <td> <span [class.notSeenMessage]="!message.seen"> {{message.subject}} </span></td>
-      <td> <span [class.notSeenMessage]="!message.seen"> {{message.date | date:'y-MM-dd hh:mm'}} </span></td>
+    <tr class="pointer" *ngFor="let message of inboxMessages$">
+      <td (click)="onMessageClick(message.id)"> <span [class.notSeenMessage]="!message.seen"> {{message.senderName}} </span></td>
+      <td (click)="onMessageClick(message.id)"> <span [class.notSeenMessage]="!message.seen"> {{message.subject}} </span></td>
+      <td (click)="onMessageClick(message.id)"> <span [class.notSeenMessage]="!message.seen"> {{message.date | date:'y-MM-dd hh:mm'}} </span></td>
       <td><input type="image" src="/assets/delete.png" (click)="deleteReceivedMessage(message.id)"></td>
     </tr>
   </table>
+
+  <div [class.showModal]="showMessageModal" id="myModal" class="modal">
+      <div class="modal-content">
+          <div class="modal-header">
+            <span class="close" (click)="onMessageCloseClick()">&times;</span>
+            <h2>To: {{ message.receiverName }} </h2>
+          </div>
+          <div class="modal-body">
+            <p><b>Subject:</b> {{ message.subject }}</p>
+            <p><b>Date:</b> {{ message.date | date:'y-MM-dd hh:mm'}}</p>
+            <p><b>Message:</b></p>
+            <p> {{ message.content }} </p>
+          </div>
+          <div class="modal-footer">
+            <input type="image" value="Reply" src="/assets/new-message.png" (click)="onMessageReplyClick()">
+          </div>
+      </div>
+    </div>
+
 </div>
