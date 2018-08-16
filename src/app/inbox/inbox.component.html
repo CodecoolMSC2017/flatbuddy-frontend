@@ -13,7 +13,7 @@
       <td> <span [class.notSeenMessage]="!message.seen"> {{message.senderName}} </span></td>
       <td> <span [class.notSeenMessage]="!message.seen"> {{message.subject}} </span></td>
       <td> <span [class.notSeenMessage]="!message.seen"> {{message.date | date:'y-MM-dd hh:mm'}} </span></td>
-      <td><input type="image" src="/assets/delete.png"></td>
+      <td><input type="image" src="/assets/delete.png" (click)="deleteReceivedMessage(message.id)"></td>
     </tr>
   </table>
 </div>
