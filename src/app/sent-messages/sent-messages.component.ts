@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../message.service';
 import { Message } from '../message';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sent-messages',
@@ -9,13 +10,11 @@ import { Message } from '../message';
 })
 export class SentMessagesComponent implements OnInit {
 
-  constructor(private msgService: MessageService) { }
+  constructor(private msgService: MessageService, private router: Router) { }
 
   sentMessages: Message[];
 
-  showMessages: boolean;
-
-  showError: boolean;
+  showError: boolean = false;
 
   errorMessage: string;
 
@@ -23,7 +22,6 @@ export class SentMessagesComponent implements OnInit {
     this.msgService.getSentMessages().subscribe(
       messages => {
         this.sentMessages = messages;
-        this.showMessages = true;
       },
       error => {
         this.showError = true;
@@ -33,11 +31,20 @@ export class SentMessagesComponent implements OnInit {
   }
 
   onMessageClick() {
-    console.log("bööööööh");
+    console.log("this will show the given message");
   }
 
-  onMessageDeleteClick() {
-    console.log("bááááááááh");
+  onMessageDeleteClick(id) {
+    if (confirm("Are you sure to delete this message?") == true) {
+      this.msgService.deleteMessage(id).subscribe(
+        resutl => {
+          this.ngOnInit();
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
   }
 
 }

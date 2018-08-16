@@ -5,7 +5,7 @@
     <h1>Sent messages</h1>
 
     <div id="messages">
-      <table *ngIf="showMessages">
+      <table *ngIf="!showError">
         <tr>
           <th>To</th>
           <th>Subject</th>
@@ -16,13 +16,13 @@
           <td (click)="onMessageClick()"> {{message.receiverName}} </td>
           <td (click)="onMessageClick()"> {{message.subject}} </td>
           <td (click)="onMessageClick()"> {{message.date | date:'y-MM-dd hh:mm'}} </td>
-          <td (click)="onMessageDeleteClick()"> <input type="image" src="/assets/delete.png"> </td>
+          <td (click)="onMessageDeleteClick(message.id)"> <input type="image" src="/assets/delete.png"> </td>
         </tr>
       </table>
     </div>
 
     <div id="error">
-      <span class="error">{{ errorMessage }}</span>
+      <span *ngIf="showError" class="error">{{ errorMessage }}</span>
     </div>
 
   </form>
