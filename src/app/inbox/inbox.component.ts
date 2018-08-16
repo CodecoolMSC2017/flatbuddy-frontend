@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Message } from '../message';
 import { MessageService } from '../message.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inbox',
@@ -13,7 +14,7 @@ export class InboxComponent implements OnInit {
   showError: boolean = false;
   errorMessage: string;
 
-  constructor(private msgService: MessageService) { }
+  constructor(private msgService: MessageService, private router: Router) { }
 
   ngOnInit() {
     this.msgService.getReceivedMessages().subscribe(inboxMessages => {
@@ -24,6 +25,12 @@ export class InboxComponent implements OnInit {
       this.errorMessage = error.error.message;
     }
   );
+}
+
+deleteReceivedMessage(messageId) {
+  if (confirm("Are you sure to delete this message?") == true) {
+    this.msgService.deleteMessage(messageId).subscribe(() => this.ngOnInit());
+  }
 }
 
 }
