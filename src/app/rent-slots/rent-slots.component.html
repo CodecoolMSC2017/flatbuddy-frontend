@@ -9,7 +9,9 @@
                     <li class="listitem" (click) ="inviteUserToSlotButtonClick(rentSlot)">Invite match</li>
                     <div class="hidden" id="matchlist{{rentSlot.id}}">
                         <div class="dropdown">
-                            <div class="matchelement" *ngFor="let match of matches$" (click)="onInvitableMatchSelectClick(rentSlot,match.userB.id)">{{match.userB.firstName + " " + match.userB.lastName + " "}}({{match.userB.email}})</div>
+                            <div *ngFor="let match of matches$">
+                                <div class="matchelement" *ngIf="match.status == 2" (click)="onInvitableMatchSelectClick(rentSlot,match.userB.id)">{{match.userB.firstName + " " + match.userB.lastName + " "}}({{match.userB.email}})</div>
+                            </div>
                         </div>
                     </div>
                 </ul> 

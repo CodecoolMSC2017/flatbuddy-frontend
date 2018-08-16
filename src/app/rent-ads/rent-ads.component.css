@@ -1,10 +1,10 @@
 #rentadcontainer {
     position: relative;
-    text-align: center;
+    text-align: left;
     color: white;
     background-color:#2d2e2e;
-    height: 20vw;
-    width:23%;
+    height: 290px;
+    width:270px;
     border-radius:5px 5px;
     float: left;
     margin: 10px;
@@ -14,8 +14,9 @@
 #rentadcontainer .bottom-left {
     transition: .5s ease;
     opacity: 0;
-    position: absolute;
-    top: 50%;
+    position: relative;
+    height:50%;
+    bottom: 70px;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -31,13 +32,12 @@
     opacity: 1;
     display: block;
 	max-width:100%;
-    height:94%;
-    transition: .5s ease;
+    height:84.5%;
     backface-visibility: hidden;
     border-radius: 5px 5px;
 }
 #rentadcontainer:hover #rentadimg{
-    opacity: 0.3;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); 
 }
 
 
@@ -59,4 +59,78 @@
   .searchTerm:focus{
     color: #00B4CC;
   }
+
+  h3,h4 {
+    margin:0px;
+    margin-left:3px;
+    overflow: hidden;
+  }
+
+  .ribbon {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+  }
+  .ribbon::before,
+  .ribbon::after {
+    position: absolute;
+    z-index: 1;
+    content: '';
+    display: block;
+  }
+  .ribbon span {
+    position: absolute;
+    display: block;
+    width: 225px;
+    padding: 15px 0;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    color: #fff;
+    font: 700 18px/1, sans-serif;
+    text-shadow: 0 1px 1px rgba(0,0,0,.2);
+    text-transform: uppercase;
+    text-align: center;
+    background-color:#ffc62a;
+  }
+  /* top right*/
+  .ribbon-top-right {
+    top: -1px;
+    right: -1px;
+    z-index: 1;
+  }
+  .ribbon-top-right::before,
+  .ribbon-top-right::after {
+    border-top-color: transparent;
+    border-right-color: transparent;
+  }
+  .ribbon-top-right::before {
+    top: 0;
+    left: 0;
+  }
+  .ribbon-top-right::after {
+    bottom: 0;
+    right: 0;
+  }
+  .ribbon-top-right span {
+    left: -5px;
+    top: 15px;
+    transform: rotate(45deg);
+  }
+  
+  i:hover {
+    -webkit-transform: scale(2, 2);
+    transform: scale(2, 2);
+  }
+
+  .rentadheader {
+      height: 40px;
+      border: 3px solid gray;
+      border-radius: 3px;
+  }
+.advdesc {
+    max-height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
   

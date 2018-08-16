@@ -3,12 +3,15 @@
 <ul>
   <div *ngFor="let rentad of rentads$ | advertisementFilter: advFilter">
     <a routerLink = "/advertisement/{{rentad.id}}">
-        <div id="rentadcontainer" [ngStyle]="{'background-color': rentad.premium ? 'gold' : '#2d2e2e'}">
-          <div>{{rentad.city}} {{rentad.street}} </div>
+        <div id="rentadcontainer" >
+          <div class="ribbon ribbon-top-right">
+            <span *ngIf="rentad.premium">Premium</span>
+          </div>
+          <div class="rentadheader" ><h3>{{rentad.cost}}$/month</h3><h4> {{rentad.city}} {{rentad.street}}</h4></div>
           <img id="rentadimg" *ngIf="rentad.adPictures.length != 0" src="/api/media/uploads/advertisements/{{rentad.id}}/{{rentad.adPictures[0].path}}">
           <img id="rentadimg" *ngIf="rentad.adPictures.length == 0" src="https://www.logolynx.com/images/logolynx/df/dfc95540c225d6841233d7f74c9a2a11.png">
           <div class="bottom-left">
-            <div class=advdesc>{{rentad.description}}</div>
+            <div class="advdesc">{{rentad.description}}</div>
           </div>
         </div>  
       </a>

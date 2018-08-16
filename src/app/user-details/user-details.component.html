@@ -1,7 +1,7 @@
 <div *ngIf="user">
   <h1>{{ user.firstName }}</h1>
   <div class="topcontainer">
-      <div class="userimgdiv" [ngStyle]="{'background-color': user.gender == 'Male'? 'lightblue' : 'pink'}">
+      <div class="userimgdiv" [ngStyle]="{'background-color': user.gender == 'Male'? '#2980b9' : '#dd22ae'}">
         <img class="userimg" *ngIf='user.pictures.length == 0'  src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png">
         <img class="userimg" *ngIf='user.pictures.length > 0'  src="/api/media/uploads/profiles/{{user.id}}/{{user.pictures[0].path}}">
         <div id="useroptions" class="menu" (click)="showOptions()">
