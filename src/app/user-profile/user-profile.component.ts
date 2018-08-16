@@ -27,6 +27,8 @@ export class UserProfileComponent implements OnInit {
 
   canEdit: boolean = false;
 
+  canEditPics: boolean = false;
+
   changePw: ChangePassword = new ChangePassword();
 
   constructor(private userProfileService: UserProfileService,
@@ -55,6 +57,15 @@ export class UserProfileComponent implements OnInit {
 
   modify() : void {
     this.canEdit = true;
+  }
+
+  modifyPictures(): void {
+    if (this.canEditPics == true) {
+      this.canEditPics = false;
+    }
+    else {
+      this.canEditPics = true
+    }
   }
 
   handleError() {

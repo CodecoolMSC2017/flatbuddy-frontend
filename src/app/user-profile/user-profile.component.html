@@ -1,4 +1,29 @@
- <div class="container">
+<div class="container">
+  <h2>Images</h2>
+  <div class="row">
+    <div class="col-25">
+      <label for="pictures">Upload your photos:</label>
+    </div>
+    <div id = "picturescontainer" class="col-75">
+      <div *ngFor="let number of [0,1,2,3]">
+        <div class ="uploadButton" *ngIf="pictures.length &lt; number+1">
+          <input [disabled]="!canEditPics" style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+          <img  src="https://static.umotive.com/img/product_image_thumbnail_placeholder.png" (click)="fileInput.click()">
+        </div>
+        <div class ="uploadButton" *ngIf="user.pictures[number] != null">
+          <img src="/api/media/uploads/profiles/{{user.id}}/{{pictures[number].path}}" id="userimg" >
+          <img *ngIf="canEditPics" src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-coloricon/21/19-512.png" (click)="onDeleteButtonClick(pictures[number])" id="deleteimg">
+        </div>
+      </div>     
+    </div>
+  </div>
+  <div class="row">
+    <br><input type="button" (click)="modifyPictures()" *ngIf="!canEditPics" value="Edit">
+    <input type="button" (click)="modifyPictures()" *ngIf="canEditPics" value="Done">
+  </div>
+</div>
+<br>
+<div class="container">
    <h2>Personal information</h2>
     <div class="row">
       <div class="col-25">
@@ -60,23 +85,6 @@
         <input id="showPeopleInput" type="checkbox" [(ngModel)]="user.flatmate" [disabled]="areFieldsFilledOut()">      
       </div>
     </div>
-    <div class="row">
-        <div class="col-25">
-          <label for="pictures">Pictures</label>
-        </div>
-        <div id = "picturescontainer" class="col-75">
-          <div *ngFor="let number of [0,1,2,3]">
-            <div class ="uploadButton" *ngIf="pictures.length &lt; number+1">
-              <input [disabled]="!canEdit" style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
-              <img  src="https://static.umotive.com/img/product_image_thumbnail_placeholder.png" (click)="fileInput.click()">
-            </div>
-            <div class ="uploadButton" *ngIf="user.pictures[number] != null">
-              <img src="/api/media/uploads/profiles/{{user.id}}/{{pictures[number].path}}" id="userimg" >
-              <img *ngIf="canEdit" src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-coloricon/21/19-512.png" (click)="onDeleteButtonClick(pictures[number])" id="deleteimg">
-            </div>
-          </div>     
-        </div>
-      </div>
 </div>
 
 
