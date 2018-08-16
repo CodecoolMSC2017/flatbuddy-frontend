@@ -171,6 +171,8 @@
     color: rgba(255, 255, 255, 0.65);
     opacity: 0;
     transition-duration: 1s;
+    overflow: hidden;
+    max-height: 54px;
   }
   
   .card:hover .card__bio {
@@ -181,6 +183,7 @@
   
   .card__footer {
     position: relative;
+    height: 56px;
     -webkit-transform: translateY(60%);
     transform: translateY(60%);
     display: grid;
