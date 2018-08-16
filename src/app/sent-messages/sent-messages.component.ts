@@ -16,6 +16,10 @@ export class SentMessagesComponent implements OnInit {
 
   showError: boolean = false;
 
+  showMessageModal: boolean = false;
+
+  message: Message;
+
   errorMessage: string;
 
   ngOnInit() {
@@ -30,14 +34,22 @@ export class SentMessagesComponent implements OnInit {
     );
   }
 
-  onMessageClick() {
-    console.log("this will show the given message");
+  onMessageClick(id) {
+    this.msgService.getMessageById(id).subscribe(
+      message => {
+        this.showMessageModal = true;
+        this.message = message;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   onMessageDeleteClick(id) {
     if (confirm("Are you sure to delete this message?") == true) {
       this.msgService.deleteMessage(id).subscribe(
-        resutl => {
+        result => {
           this.ngOnInit();
         },
         error => {
@@ -45,6 +57,16 @@ export class SentMessagesComponent implements OnInit {
         }
       );
     }
+  }
+
+  onMessageCloseClick() {
+    this.showMessageModal = false;
+  }
+
+  onMessageReplyClick() {
+    this.router.navigate(['newmessage']);
+
+
   }
 
 }
