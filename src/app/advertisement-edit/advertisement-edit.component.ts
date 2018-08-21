@@ -9,13 +9,18 @@ import { PaypalService } from '../paypal.service';
   styleUrls: ['./advertisement-edit.component.css']
 })
 export class AdvertisementEditComponent implements OnInit {
+
+  selectedAd: number;
   showError: boolean = false;
   errorMessage: string;
   rentAd:any;
   pictures: Object[] = [];
 
   constructor(private adService: RentadserviceService, private route: ActivatedRoute, private router: Router, private paypal: PaypalService) { 
-    this.route.params.subscribe(params => this.rentAd = params.id);
+    this.route.params.subscribe(params => {this.rentAd = params.id
+      this.selectedAd = this.rentAd;
+      });
+    
   }
 
   ngOnInit() {
@@ -54,7 +59,7 @@ export class AdvertisementEditComponent implements OnInit {
   }
 
   onPaypalButtonClick(){
-    this.paypal.makePayment(50000).subscribe((resp: any) => {
+    this.paypal.makePayment(50000,this.selectedAd).subscribe((resp: any) => {
         window.location.href= resp.redirect_url;
     });
   }
