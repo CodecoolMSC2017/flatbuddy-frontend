@@ -1,13 +1,18 @@
 .advfilter {
-    position: absolute;
-    top: 480px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 205px;
+    margin-top:20px;
+    width: 99%;
     height: max-content;
-    float: left;
     background-color: #293649;
     padding: 10px;
     color:#eff4fa;
+    border: 3px solid #00B4CC;
+    border-radius: 5px;
+  }
+
+  #rooms {
+    width: 40px;
+  }
+
+  #search {
+    margin-left: 35px;
   }

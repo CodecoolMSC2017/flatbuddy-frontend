@@ -69,7 +69,9 @@ export class AdvertisementFilterComponent implements OnInit {
   }
 
   onSearchButtonClicked(){
-    this.filterService.setUrl(this.generateUrl());
+    if (this.generateUrl() != "") {
+      this.filterService.setUrl(this.generateUrl());
+    }
   }
  
 }
