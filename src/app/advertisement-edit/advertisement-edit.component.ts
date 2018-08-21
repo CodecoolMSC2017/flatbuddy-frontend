@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RentadserviceService } from '../rentadservice.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PaypalService } from '../paypal.service';
 
 @Component({
   selector: 'app-advertisement-edit',
@@ -13,7 +14,7 @@ export class AdvertisementEditComponent implements OnInit {
   rentAd:any;
   pictures: Object[] = [];
 
-  constructor(private adService: RentadserviceService, private route: ActivatedRoute, private router: Router) { 
+  constructor(private adService: RentadserviceService, private route: ActivatedRoute, private router: Router, private paypal: PaypalService) { 
     this.route.params.subscribe(params => this.rentAd = params.id);
   }
 
@@ -50,5 +51,12 @@ export class AdvertisementEditComponent implements OnInit {
   onDeleteButtonClick(picture) {
     const index: number = this.pictures.indexOf(picture);
     this.adService.deletePicture(picture.id).subscribe(this.pictures.splice(index,1));
+  }
+
+  onPaypalButtonClick(){
+    this.paypal.makePayment(10).subscribe((resp: any) => {
+        console.log(resp.redirect_url);
+        window.location.href= resp.redirect_url;
+    });
   }
 }

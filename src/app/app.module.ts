@@ -47,6 +47,7 @@ import { AdvertisementFilterPipe } from './advertisement-filter.pipe';
 import { AdvertisementFilterComponent } from './advertisement-filter/advertisement-filter.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { SentMessagesComponent } from './sent-messages/sent-messages.component';
+import { PaypalComponent } from './paypal/paypal.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { SentMessagesComponent } from './sent-messages/sent-messages.component';
     AdvertisementFilterPipe,
     AdvertisementFilterComponent,
     SentMessagesComponent,
-    InboxComponent
+    InboxComponent,
+    PaypalComponent
   ],
   imports: [
     GoogleApiModule.forRoot({

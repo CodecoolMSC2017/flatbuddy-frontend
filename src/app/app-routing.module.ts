@@ -20,6 +20,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { MessageComponent } from './message/message.component';
 import { SentMessagesComponent } from './sent-messages/sent-messages.component';
 import { InboxComponent } from './inbox/inbox.component';
+import { PaypalComponent } from './paypal/paypal.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path: 'newmessage', component: MessageComponent, canActivate: [LoginGuard]},
   {path: 'sentmessages', component: SentMessagesComponent, canActivate: [LoginGuard]},
   {path: 'inbox', component: InboxComponent, canActivate: [LoginGuard]},
+  {path: 'paypaldone', component: PaypalComponent},
   {path: '**', redirectTo: '/advertisements' ,pathMatch:'full'}
 ];
 
