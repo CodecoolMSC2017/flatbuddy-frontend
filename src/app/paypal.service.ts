@@ -14,7 +14,7 @@ export class PaypalService {
   }
 
   completePayment(paymentId, payerId) {
-    return this.http.post('api/paypal/complete/payment?paymentId=' + paymentId + '&payerId=' + payerId ,null)
+    return this.http.post('api/paypal/complete/payment?paymentId=' + paymentId + '&PayerID=' + payerId ,null)
   }
 
 }

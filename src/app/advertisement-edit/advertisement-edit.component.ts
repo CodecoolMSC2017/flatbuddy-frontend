@@ -54,8 +54,7 @@ export class AdvertisementEditComponent implements OnInit {
   }
 
   onPaypalButtonClick(){
-    this.paypal.makePayment(10).subscribe((resp: any) => {
-        console.log(resp.redirect_url);
+    this.paypal.makePayment(50000).subscribe((resp: any) => {
         window.location.href= resp.redirect_url;
     });
   }
