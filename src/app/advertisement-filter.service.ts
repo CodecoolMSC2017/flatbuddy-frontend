@@ -10,7 +10,6 @@ export class AdvertisementFilterService {
   generatedUrl = new Subject<string>();
   generatedUrlObs = this.generatedUrl.asObservable();
   constructor() {
-    console.log('asdasd') 
   }
 
   setUrl(url: any){

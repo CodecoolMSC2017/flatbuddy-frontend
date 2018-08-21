@@ -1,7 +1,7 @@
 <div class = "advfilter" >
 <p>City: <input [(ngModel)] = "advCity" name="lname" type="text" /></p>
 <p>Country: <input [(ngModel)] = "advCountry" name="lname" type="text" /></p>
-<p>Max cost: <input [(ngModel)] = "advMaxCost" max="1000000" min="1" type="range" value="1"/> {{advMaxCost}}</p>
+<p>Max cost: <input [(ngModel)] = "advMaxCost" max="1000000" min="1" type="number" value="1"/> {{advMaxCost}}</p>
 <p>Min size: <input [(ngModel)] = "advMinSize" max="1000" min="1" type="range" value="1" /> {{advMinSize}}</p>
 <p>Avaiable rooms: <input [(ngModel)] = "advRooms" type="number"  /></p>
 <input type = "button" value = "Search" (click)="onSearchButtonClicked()" >

@@ -18,14 +18,12 @@ export class RentAdsComponent implements OnInit {
    }
 
   ngOnInit() {
-    console.log("kaka")
     this.rentad.getAds().subscribe(rentad => this.rentads$ = rentad.sort((a,b)=> {
       return (a.premium ==b.premium)?0 : a.premium?-1 : 1
     }));
     
     this.filterService.generatedUrlObs.subscribe(url => {
       this.url = url;
-      console.log("url: "+this.url);
       this.filterAds(url);
     });
 

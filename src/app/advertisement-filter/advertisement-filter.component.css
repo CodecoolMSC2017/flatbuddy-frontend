@@ -4,10 +4,10 @@
     bottom: 0;
     left: 0;
     right: 0;
-    width: 200px;
+    width: 205px;
     height: max-content;
     float: left;
-    background-color: aqua;
-    border: 3px solid #73AD21;
+    background-color: #293649;
     padding: 10px;
+    color:#eff4fa;
   }
