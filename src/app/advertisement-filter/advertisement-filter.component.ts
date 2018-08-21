@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RentadserviceService } from '../rentadservice.service';
 import { RentAdsComponent } from '../rent-ads/rent-ads.component';
+import { AdvertisementFilterService } from '../advertisement-filter.service';
+import { NewAdvertisementComponent } from '../new-advertisement/new-advertisement.component';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-advertisement-filter',
@@ -10,14 +13,16 @@ import { RentAdsComponent } from '../rent-ads/rent-ads.component';
 export class AdvertisementFilterComponent implements OnInit {
 
   url: String;
-  
+  method: any  
   advCity: String;
   advCountry: String;
   advMaxCost: number;
   advMinSize: number;
   advRooms: number;
 
-  constructor() { }
+  constructor(private filterService: AdvertisementFilterService, private rentadService: RentadserviceService) {
+   }
+
 
   ngOnInit() {
   }
@@ -26,7 +31,7 @@ export class AdvertisementFilterComponent implements OnInit {
   generateUrl(): String{
     var searchParams:string[]; 
     searchParams = [];
-    this.url = "search=";
+    this.url = "";
     if(this.advCity != null && this.advCity != undefined && this.advCity != ""){
       var stringurl = "city:"+this.advCity;
       searchParams.push(stringurl);
@@ -36,15 +41,15 @@ export class AdvertisementFilterComponent implements OnInit {
       searchParams.push(stringurl);
     }
     if(this.advMaxCost != null && this.advMaxCost != undefined){
-      var stringurl = "cost<="+this.advMaxCost;
+      var stringurl = "cost<"+this.advMaxCost;
       searchParams.push(stringurl);
     }
     if(this.advMinSize != null && this.advMinSize != undefined){
-      var stringurl = "size>="+this.advMinSize;
+      var stringurl = "size>"+this.advMinSize;
       searchParams.push(stringurl);
     }
     if(this.advRooms != null && this.advRooms != undefined){
-      var stringurl = "roomsAvailable>="+this.advRooms;
+      var stringurl = "roomsAvailable>"+this.advRooms;
       searchParams.push(stringurl);
     }
 
@@ -59,6 +64,12 @@ export class AdvertisementFilterComponent implements OnInit {
         this.url = this.url+searchParams[i]+",";
       }
     }
+    
     return this.url;
   }
+
+  onSearchButtonClicked(){
+    this.filterService.setUrl(this.generateUrl());
+  }
+ 
 }

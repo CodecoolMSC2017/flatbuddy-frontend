@@ -62,6 +62,6 @@ export class RentadserviceService {
   }
 
   getFilteredAds(filter): Observable<Advertisement[]>{
-    return this.http.get<Advertisement[]>('/api/user/advertisement/search/'+filter);
+    return this.http.get<Advertisement[]>('/api/user/advertisements/search/'+filter);
   }
 }
