@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '../notification.service';
 import { Notification } from '../notification';
+import { interval } from 'rxjs';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { Notification } from '../notification';
 export class NotificationsComponent implements OnInit {
 
   notifications: Notification[]=[];
+  requestTimer = interval(5000);
   constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
@@ -18,7 +20,6 @@ export class NotificationsComponent implements OnInit {
       return (a.seen ==b.seen)?0 : a.seen? 1 : -1
     }));
   }
-
   notificationClick(notification: Notification){
    // console.log (notification);
     if(!notification.seen) {
