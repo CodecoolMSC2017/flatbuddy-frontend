@@ -107,3 +107,31 @@ input[type=button]:hover {
 #userimg:hover {
     cursor: auto;
 }
+#paypal{
+    position: relative;
+    border:black;
+    border-style: solid;
+    width: 250px;
+    height: 300px;
+    top: 50px;
+    float: left;
+}
+#paypalContent{
+    color: darkgoldenrod;
+    text-align: center;
+}
+#paypalButton{
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    bottom: 5px;
+    left: 20%;
+}
+#paypalImg{
+    position: relative;
+    height: 180px;
+    left: 3%;
+}
+#paypalButton:hover{
+    cursor: pointer;
+}

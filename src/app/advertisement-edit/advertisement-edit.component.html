@@ -101,8 +101,12 @@
           </div>
         </div>     
       </div>
-      <div id = "paypal">
-        <input type="button" (click) = "onPaypalButtonClick()">
+      <div id = "paypal" *ngIf="!rentAd.premium">
+        <div id = "paypalContent">
+          <img id = "paypalImg" src = "http://icons.veryicon.com/png/System/Sticker%20Pack%201/Package.png">
+          <strong>Premium advertisement pack 5$</strong>
+        </div>
+        <img id = "paypalButton" src = "https://www.braintreepayments.com/images/features/paypal/paypal-button@2x-d5ec2863.png" (click) = "onPaypalButtonClick()">
       </div>
     </div>
 
