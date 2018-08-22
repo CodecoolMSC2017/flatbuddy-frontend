@@ -32,10 +32,16 @@ export class RentAdsComponent implements OnInit {
   }
 
   filterAds(url): void{
-    this.rentads$ = [];
-    this.rentad.getFilteredAds(url).subscribe(rentad => this.rentads$ = rentad.sort((a,b)=> {
-      return (a.premium ==b.premium)?0 : a.premium?-1 : 1
-    }));
+    if(url != ""){
+      this.rentads$ = [];
+      this.rentad.getFilteredAds(url).subscribe(rentad => this.rentads$ = rentad.sort((a,b)=> {
+        return (a.premium ==b.premium)?0 : a.premium?-1 : 1
+      }));
+    }else{
+      this.rentad.getAds().subscribe(rentad => this.rentads$ = rentad.sort((a,b)=> {
+        return (a.premium ==b.premium)?0 : a.premium?-1 : 1
+      }));
+    }
   }
   
 }
