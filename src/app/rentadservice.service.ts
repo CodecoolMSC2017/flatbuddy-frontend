@@ -64,4 +64,10 @@ export class RentadserviceService {
   getFilteredAds(filter): Observable<Advertisement[]>{
     return this.http.get<Advertisement[]>('/api/user/advertisements/search/'+filter);
   }
+
+  setAdVisibility(advertisementId): Observable<any>{
+    return this.http.put('/api/user/advertisement/setactivity/'+advertisementId,null);
+  }
+
+  
 }

@@ -6,6 +6,10 @@
           <div class="ribbon ribbon-top-right">
             <span *ngIf="rentad.premium">Premium</span>
           </div>
+          <div class="ribbon ribbon-bottom-right">
+            <span *ngIf="rentad.enabled" [ngStyle]="{'background-color': rentad.enabled ? 'green' : 'red'}">Active</span>
+            <span *ngIf="!rentad.enabled" [ngStyle]="{'background-color': rentad.enabled ? 'green' : 'red'}">Inactive</span>
+          </div>
           <div class="rentadheader" ><h3>{{rentad.cost}}$/month</h3><h4> {{rentad.city}} {{rentad.street}}</h4></div>
           <img id="rentadimg" *ngIf="rentad.adPictures.length != 0" src="/api/media/uploads/advertisements/{{rentad.id}}/{{rentad.adPictures[0].path}}">
           <img id="rentadimg" *ngIf="rentad.adPictures.length == 0" src="https://www.logolynx.com/images/logolynx/df/dfc95540c225d6841233d7f74c9a2a11.png">

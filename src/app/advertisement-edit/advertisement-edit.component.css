@@ -135,3 +135,7 @@ input[type=button]:hover {
 #paypalButton:hover{
     cursor: pointer;
 }
+
+#visible {
+    background-color: rgba(255, 0, 0, 0.795);
+}

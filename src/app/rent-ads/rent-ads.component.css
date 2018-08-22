@@ -117,6 +117,30 @@
     transform: rotate(45deg);
   }
   
+  .ribbon-bottom-right {
+    bottom: -1px;
+    right: -1px;
+    z-index: 1;
+  }
+  .ribbon-bottom-right::before,
+  .ribbon-bottom-right::after {
+    border-top-color: transparent;
+    border-right-color: transparent;
+  }
+  .ribbon-bottom-right::before {
+    bottom: 0;
+    left: 0;
+  }
+  .ribbon-bottom-right::after {
+    top: 0;
+    right: 0;
+  }
+  .ribbon-bottom-right span {
+    left: -5px;
+    bottom: 15px;
+    transform: rotate(-45deg);
+  }
+  
   i:hover {
     -webkit-transform: scale(2, 2);
     transform: scale(2, 2);

@@ -4,6 +4,15 @@
   <form action="/action_page.php">
     <div class="row">
       <div class="col-25">
+        <label for="visible">Activate/deactivate advertisement(visible for people)</label>
+      </div>
+      <div class="col-75">
+        <input *ngIf="active == true" type="button" id="visible" value="Set inactive" (click)="onSetAdVisibilityClick(rentAd.id)">
+        <input *ngIf="active == false" type="button" id="notvisible" value="Set active" (click)="onSetAdVisibilityClick(rentAd.id)">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
         <label for="state">State</label>
       </div>
       <div class="col-75">
@@ -63,7 +72,7 @@
     </div>
     <div class="row">
       <div class="col-25">
-        <label for="furnitured">Furniured</label>
+        <label for="furnitured">Furnitured</label>
       </div>
       <div class="col-75">
         <input type="checkbox" id="furnitured" name="rent-furnitured" [(ngModel)]="rentAd.furnitured">

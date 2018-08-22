@@ -15,6 +15,7 @@ export class AdvertisementEditComponent implements OnInit {
   errorMessage: string;
   rentAd:any;
   pictures: Object[] = [];
+  active:boolean;
 
   constructor(private adService: RentadserviceService, private route: ActivatedRoute, private router: Router, private paypal: PaypalService) { 
     this.route.params.subscribe(params => {this.rentAd = params.id
@@ -28,6 +29,7 @@ export class AdvertisementEditComponent implements OnInit {
       .subscribe(
         rentads => {this.rentAd = rentads,
         this.pictures = this.rentAd.adPictures,
+        this.active = this.rentAd.enabled,
         (error) => {
           //.alert(error.error.message)
           this.router.navigate(['advertisements']);
@@ -61,6 +63,17 @@ export class AdvertisementEditComponent implements OnInit {
   onPaypalButtonClick(){
     this.paypal.makePayment(50000,this.selectedAd).subscribe((resp: any) => {
         window.location.href= resp.redirect_url;
+    });
+  }
+
+  onSetAdVisibilityClick(adId) {
+    this.adService.setAdVisibility(adId).subscribe(() => {
+      if(this.active) {
+        this.active = false;
+      }
+      else {
+        this.active = true;
+      }
     });
   }
 }
