@@ -1,5 +1,14 @@
 <h2>Edit advertisement</h2>
-
+<div id="slots" >
+  <div class="row">
+    <div class="col-25">
+      <label for="visible">People in your advertisement</label>
+    </div>
+    <div class="col-75">
+      <app-rent-slots [rentAdId]="selectedAd"></app-rent-slots>
+    </div>
+  </div>
+</div>
 <div class="container">
   <form action="/action_page.php">
     <div class="row">

@@ -9,8 +9,8 @@ export class PaypalService {
 
   constructor(private http: HttpClient) { }
 
-  makePayment(sum,rentId) {
-    return this.http.post('api/paypal/make/payment?sum='+sum+'&rentId='+ rentId, {});
+  makePayment(rentId) {
+    return this.http.post('api/paypal/make/payment?rentId='+ rentId, {});
   }
 
   completePayment(paymentId, payerId) {
