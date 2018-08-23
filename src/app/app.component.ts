@@ -15,6 +15,7 @@ export class AppComponent {
 
   notificationTimer = interval(5000);
   notifications: Notification[]=[];
+  loggedUser;
   
 
   constructor(private router: Router, private notificationService: NotificationService, private auth: AuthService) {
@@ -33,7 +34,9 @@ export class AppComponent {
    }
    notificationTimerStart(){
      this.notificationTimer.subscribe(()=>{
-
+        if(this.router.url == "/login" || this.router.url == "/register"){
+          return;
+        }
       this.notificationService.getNotifications().subscribe((notifications =>{
         this.notifications = notifications;
         let el = document.getElementById('notificationIcon');
