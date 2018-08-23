@@ -1,0 +1,24 @@
+<div id="slotscontainer">
+  <span class="error" *ngIf="showError">{{ errorMessage }}</span>
+  <div *ngFor ="let rentSlot of rentSlots">
+      <div class="rentslot"> 
+          <div  class="menu" *ngIf="rentSlot.renter == null">
+              <img  (click)="showOptions(rentSlot.id)" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/add-button-sign-basic-math-calculation-plus-3b4fe8b38b910691-512x512.png">
+              <ul id="slotoptions{{rentSlot.id}}" class="list hidden">
+                  <li class="listitem" (click) ="joinSlotButtonClick(rentSlot)">Join</li>
+              </ul> 
+          </div>
+          <div  class="menu"  *ngIf="rentSlot.renter !== null" >
+            <img (click)="showOptions(rentSlot.id)" *ngIf='rentSlot.renter.pictures.length == 0' src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png">
+            <img (click)="showOptions(rentSlot.id)" *ngIf='rentSlot.renter.pictures.length > 0' src="/api/media/uploads/profiles/{{rentSlot.renter.id}}/{{rentSlot.renter.pictures[0].path}} ">
+            <ul *ngIf="rentSlot.renter.id == user.id" id="slotoptions{{rentSlot.id}}" class="list hidden">
+                <li class="listitem" (click) = "leaveSlotButtonClick(rentSlot)">Leave</li>
+            </ul>
+            <ul *ngIf="rentSlot.renter.id !== user.id" id="slotoptions{{rentSlot.id}}" class="list hidden">
+                <li class="listitem" routerLink = "/profile/{{rentSlot.renter.id}}">View profile</li>
+                <li class="listitem" (click) = "kickUserFromSlotButtonClick(rentSlot)">Kick user</li>
+            </ul>
+          </div>
+      </div>
+  </div>
+</div>

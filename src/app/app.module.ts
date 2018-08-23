@@ -48,6 +48,7 @@ import { AdvertisementFilterComponent } from './advertisement-filter/advertiseme
 import { InboxComponent } from './inbox/inbox.component';
 import { SentMessagesComponent } from './sent-messages/sent-messages.component';
 import { PaypalComponent } from './paypal/paypal.component';
+import { RentslotseditComponent } from './rentslotsedit/rentslotsedit.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { PaypalComponent } from './paypal/paypal.component';
     AdvertisementFilterComponent,
     SentMessagesComponent,
     InboxComponent,
-    PaypalComponent
+    PaypalComponent,
+    RentslotseditComponent
   ],
   imports: [
     GoogleApiModule.forRoot({

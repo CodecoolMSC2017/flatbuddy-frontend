@@ -26,4 +26,8 @@ export class RentSlotsService {
   inviteSlot(slotId, userId){
     return this.http.post('/api/user/advertisementslots/invite/'+slotId+'/'+userId,null);
   }
+
+  kickUserFromSlot(slotId, userId): Observable<any>{
+    return this.http.put('/api/user/advertisementslots/kick/'+slotId+'/'+userId,null);
+  }
 }
