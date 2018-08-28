@@ -1,4 +1,62 @@
-<p>
-  admin-user-edit works!
-</p>
-<strong>{{user.firstName}} {{user.lastName}}</strong>
+<div *ngIf = "user">
+  <div class="container">
+    <h1>{{user.firstName}} {{user.lastName}}</h1>
+    <h2>Personal information</h2>
+    <div class="row">
+      <div class="col-25">
+        <label for="firstname">Firstname</label>
+      </div>
+      <div class="col-75">
+        <input type="text" placeholder="John" [(ngModel)]="user.firstName"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lastname">Lastname</label>
+      </div>
+      <div class="col-75">
+        <input type="text" placeholder="Brown" [(ngModel)]="user.lastName"/>
+      </div>
+    </div>  
+    <div class="row">
+      <div class="col-25">
+        <label for="description">Description</label>
+      </div>
+      <div class="col-75">
+        <textarea maxlength="500" rows="10" cols="50" [(ngModel)]="user.description" placeholder="(max. 500 characters)"></textarea>      
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="destination">Destination</label>
+      </div>
+      <div class="col-75">
+        <input type="text" placeholder="Budapest" [(ngModel)]="user.destination">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="showinpeople">Show in people</label>
+      </div>
+      <div class="col-75">
+        <input id="showPeopleInput" type="checkbox" [(ngModel)]="user.flatmate">      
+      </div>
+    </div>
+    <input type="button" (click)="save()"value = "Save">
+  </div>
+</div>
+  <div class = "container">
+<div class = "row">
+    <div id = "picturescontainer" class="col-75">
+        <div *ngFor="let number of [0,1,2,3]">
+          <div class ="uploadButton" *ngIf="user.pictures.length &lt; number+1">
+            <img src="https://static.umotive.com/img/product_image_thumbnail_placeholder.png">
+          </div>
+          <div class ="uploadButton" *ngIf="user.pictures[number] != null">
+            <img src="/api/media/uploads/profiles/{{user.id}}/{{user.pictures[number].path}}" id="userimg" >
+            <img src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-coloricon/21/19-512.png" (click)="onDeleteButtonClick(user.pictures[number])" id="deleteimg">
+          </div>
+        </div>     
+    </div>
+</div>
+</div>

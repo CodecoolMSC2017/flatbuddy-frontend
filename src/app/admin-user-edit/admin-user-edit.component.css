@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+}
+
+input[type=text], select, textarea,input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=button] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left:30%;
+
+}
+
+input[type=button]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-bottom: 30px;
+    width:80%;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+.error{
+    color: red;
+    float: none;
+}
+#picturescontainer {
+    height: 100px;
+}
+
+.uploadButton {
+    float: left;
+    margin-left: 19px;
+    margin-right: 19px;
+    width: 14.5%;
+    height: 100px;
+    position: relative;
+    background-color: gray;
+    border: 2px solid darkslategrey;
+}
+
+.uploadButton img {
+    max-width: 100%;
+    height: 100%;
+    margin:auto;
+    display: block;
+}
+
+#deleteimg {
+    position: absolute;
+    right:4px;
+    top:2px;
+    width: 20px;
+    height:20px;
+    border:none;
+}
+
+#userimg {
+    position: relative;
+    top: 0;
+    left: 0;
+    
+}
+
+#userimg:hover {
+    cursor: auto;
+}

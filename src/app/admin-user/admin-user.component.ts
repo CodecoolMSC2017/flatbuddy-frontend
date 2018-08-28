@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminUserService } from '../admin-user.service';
 import { User } from '../user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-user',
@@ -11,10 +12,16 @@ export class AdminUserComponent implements OnInit {
 
   users: User[] = [];
 
-  constructor(private adminService: AdminUserService) { }
+  constructor(private adminService: AdminUserService, private router: Router) { }
 
   ngOnInit() {
-    this.adminService.getUsers().subscribe(users => this.users = users);
+    this.adminService.getUsers().subscribe((users) => {this.users = users},
+    (error) =>{
+      if(error.status == 403){
+        this.router.navigate(['advertisements']);
+      }
+    });
+    
   }
 
 }

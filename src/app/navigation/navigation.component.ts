@@ -32,7 +32,6 @@ export class NavigationComponent implements OnInit {
     });
     this.authService.getAuth().subscribe(user =>{
         this.user = user
-        console.log(user);
       });
    }
 
