@@ -42,21 +42,20 @@
         <input id="showPeopleInput" type="checkbox" [(ngModel)]="user.flatmate">      
       </div>
     </div>
-    <input type="button" (click)="save()"value = "Save">
+    <input type="button" (click)="saveUser(user)"value = "Save">
   </div>
-</div>
   <div class = "container">
-<div class = "row">
-    <div id = "picturescontainer" class="col-75">
-        <div *ngFor="let number of [0,1,2,3]">
-          <div class ="uploadButton" *ngIf="user.pictures.length &lt; number+1">
-            <img src="https://static.umotive.com/img/product_image_thumbnail_placeholder.png">
-          </div>
-          <div class ="uploadButton" *ngIf="user.pictures[number] != null">
-            <img src="/api/media/uploads/profiles/{{user.id}}/{{user.pictures[number].path}}" id="userimg" >
-            <img src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-coloricon/21/19-512.png" (click)="onDeleteButtonClick(user.pictures[number])" id="deleteimg">
-          </div>
-        </div>     
-    </div>
-</div>
+    <div class = "row">
+        <div id = "picturescontainer" class="col-75">
+            <div *ngFor="let number of [0,1,2,3]">
+              <div class ="uploadButton" *ngIf="user.pictures.length &lt; number+1">
+                <img src="https://static.umotive.com/img/product_image_thumbnail_placeholder.png">
+              </div>
+              <div class ="uploadButton" *ngIf="user.pictures[number] != null">
+                <img src="/api/media/uploads/profiles/{{user.id}}/{{user.pictures[number].path}}" id="userimg" >
+                <img src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-coloricon/21/19-512.png" (click)="onDeleteButtonClick(user.pictures[number])" id="deleteimg">
+              </div>
+            </div>     
+        </div>
+  </div>
 </div>

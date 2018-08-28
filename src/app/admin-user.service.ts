@@ -14,4 +14,13 @@ export class AdminUserService {
     return this.http.get<User[]>('/api/admin/users');
   }
   
+  saveUser(user: User){
+    return this.http.post<void>('/api/admin/user/edit/'+user.id, {
+      id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      description: user.description,
+      isFlatmate: user.flatmate
+    });
+  }
 }
