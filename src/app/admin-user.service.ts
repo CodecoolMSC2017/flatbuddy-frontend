@@ -13,7 +13,7 @@ export class AdminUserService {
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>('/api/admin/users');
   }
-  
+
   saveUser(user: User){
     return this.http.post<void>('/api/admin/user/edit/'+user.id, {
       id: user.id,
@@ -22,5 +22,8 @@ export class AdminUserService {
       description: user.description,
       isFlatmate: user.flatmate
     });
+  }
+  deleteUser(user: User){
+    return this.http.delete<void>('/api/admin/user/delete/'+user.id);
   }
 }

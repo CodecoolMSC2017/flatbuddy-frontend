@@ -35,4 +35,8 @@ export class AdminUserEditComponent implements OnInit {
     this.adminService.saveUser(user).subscribe();
   }
 
+  deleteUser(user: User){
+    this.adminService.deleteUser(user).subscribe();
+  }
+
 }

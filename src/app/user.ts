@@ -8,7 +8,7 @@ export class User {
     gender: string;
     description: string;
     destination: string;
-    isEnabled: boolean;
+    enabled: boolean;
     authorities: String[] = [];
     pictures: Object[]=[];
 }

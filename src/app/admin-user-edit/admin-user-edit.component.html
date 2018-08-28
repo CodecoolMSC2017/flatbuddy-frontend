@@ -43,6 +43,7 @@
       </div>
     </div>
     <input type="button" (click)="saveUser(user)"value = "Save">
+    <input type="button" (click)="deleteUser(user)"value = "Delete user" *ngIf = "user.enabled">
   </div>
   <div class = "container">
     <div class = "row">
