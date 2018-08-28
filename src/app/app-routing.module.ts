@@ -27,8 +27,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'mymatches', component: MatchesComponent, canActivate: [LoginGuard]},
   {path: 'match/:id', component: MatchDetailsComponent, canActivate: [LoginGuard]},
-  {path: 'advertisements',component: RentAdsComponent,canActivate: [LoginGuard]},
-  {path: 'advertisement/:id',component: RentAdDetailsComponent,canActivate: [LoginGuard]},
+  {path: 'advertisements',component: RentAdsComponent},
+  {path: 'advertisement/:id',component: RentAdDetailsComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profile/:id', component: UserDetailsComponent, canActivate: [LoginGuard]},
   {path: 'myprofile', component: UserProfileComponent, canActivate: [LoginGuard]},
@@ -41,7 +41,7 @@ const routes: Routes = [
   {path: 'newmessage', component: MessageComponent, canActivate: [LoginGuard]},
   {path: 'sentmessages', component: SentMessagesComponent, canActivate: [LoginGuard]},
   {path: 'inbox', component: InboxComponent, canActivate: [LoginGuard]},
-  {path: 'paypaldone', component: PaypalComponent},
+  {path: 'paypaldone', component: PaypalComponent, canActivate: [LoginGuard]},
   {path: '**', redirectTo: '/advertisements' ,pathMatch:'full'}
 ];
 

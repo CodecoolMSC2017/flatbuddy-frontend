@@ -2,7 +2,7 @@
 <nav *ngIf="notifications">
 <div class='swanky'>
   <div class='swanky_wrapper'>
-    <label routerLink = "myprofile" for='profile'>
+    <label *ngIf="user.authorities[0] != 'ROLE_ADMIN' " routerLink = "myprofile" for='profile'>
       <i class="material-icons">person_pin</i>
       <span>Profile</span>
       <div class='bar'></div>
@@ -22,12 +22,13 @@
         <ul>
           <li routerLink="inbox">Inbox</li>
           <li routerLink="sentmessages">Outbox</li>
-          <li routerLink="newmessage">New message</li>
+          <li *ngIf="user.authorities[0] != 'ROLE_ADMIN' " routerLink="newmessage">New message</li>
+          <li *ngIf="user.authorities[0] == 'ROLE_ADMIN' " routerLink="newadminmessage">New message</li>
         </ul>
       </div>
     </label>
-    <input id='Matches' name='radio' type='radio' value = 1 (click)='resetRadio($event)'>
-    <label for='Matches'>
+    <input *ngIf="user.authorities[0] != 'ROLE_ADMIN' " id='Matches' name='radio' type='radio' value = 1 (click)='resetRadio($event)'>
+    <label *ngIf="user.authorities[0] != 'ROLE_ADMIN' " for='Matches'>
       <i class="material-icons">group</i>
       <span>Matches</span>
       <div class='lil_arrow'></div>
@@ -40,8 +41,8 @@
         </ul>
       </div>
     </label>
-    <input id='Advertisements' name='radio' type='radio' value = 1 (click)='resetRadio($event)'>
-    <label for='Advertisements'>
+    <input *ngIf="user.authorities[0] != 'ROLE_ADMIN' " id='Advertisements' name='radio' type='radio' value = 1 (click)='resetRadio($event)'>
+    <label *ngIf="user.authorities[0] != 'ROLE_ADMIN' " for='Advertisements'>
       <i class="material-icons">local_hotel</i>
       <span>Advertisements</span>
       <div class='lil_arrow'></div>
@@ -53,6 +54,16 @@
           <li routerLink ="myadvertisements">My advertisements</li>
         </ul>
       </div>
+    </label>
+    <label *ngIf="user.authorities[0] == 'ROLE_ADMIN' " routerLink = "advertisements">
+      <i class="material-icons">local_hotel</i>
+      <span> Advertisements</span>
+      <div class='bar'></div>
+    </label>
+    <label *ngIf="user.authorities[0] == 'ROLE_ADMIN' " routerLink = "users">
+      <i class="material-icons">group</i>
+      <span> People</span>
+      <div class='bar'></div>
     </label>
     
     
