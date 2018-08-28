@@ -51,6 +51,7 @@ import { PaypalComponent } from './paypal/paypal.component';
 import { RentslotseditComponent } from './rentslotsedit/rentslotsedit.component';
 import { AdminUserComponent } from './admin-user/admin-user.component';
 import { AdminUserEditComponent } from './admin-user-edit/admin-user-edit.component';
+import { AdminAdEditComponent } from './admin-ad-edit/admin-ad-edit.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { AdminUserEditComponent } from './admin-user-edit/admin-user-edit.compon
     PaypalComponent,
     RentslotseditComponent,
     AdminUserComponent,
-    AdminUserEditComponent
+    AdminUserEditComponent,
+    AdminAdEditComponent
   ],
   imports: [
     GoogleApiModule.forRoot({

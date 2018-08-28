@@ -5,7 +5,7 @@
     <div id="adminbuttons" *ngIf="user.authorities[0] == 'ROLE_ADMIN'">
       <input *ngIf="active == true" type="button" id="redbutton" value="Set inactive" (click)="onSetAdVisibilityClick(rentAd$.id)">
       <input *ngIf="active == false" type="button" id="notvisible" value="Set active" (click)="onSetAdVisibilityClick(rentAd$.id)">
-      <input  type="button" value="Edit" (click)="onEditAdButtonClick(rentAd$.id)">
+      <input  type="button" value="Edit" routerLink="/admin/advertisement/edit/{{rentAd$.id}}">
       <input  *ngIf="!confirm" type="button" id="redbutton" value="Delete" (click)="onDeleteAdButtonClick()">
       <input  *ngIf="confirm" type="button" id="redbutton" value="Confirm delete" (click)="onConfirmDeleteAdButtonClick(rentAd$.id)">
     </div>

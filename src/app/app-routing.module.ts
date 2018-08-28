@@ -23,6 +23,7 @@ import { InboxComponent } from './inbox/inbox.component';
 import { PaypalComponent } from './paypal/paypal.component';
 import { AdminUserComponent } from './admin-user/admin-user.component';
 import { AdminUserEditComponent } from './admin-user-edit/admin-user-edit.component';
+import { AdminAdEditComponent } from './admin-ad-edit/admin-ad-edit.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,7 @@ const routes: Routes = [
   {path: 'paypaldone', component: PaypalComponent, canActivate: [LoginGuard]},
   {path: 'admin/users', component: AdminUserComponent, canActivate: [LoginGuard]},
   {path: 'admin/user/edit/:id', component: AdminUserEditComponent, canActivate: [LoginGuard]},
+  {path: 'admin/advertisement/edit/:id', component: AdminAdEditComponent, canActivate: [LoginGuard]},
   {path: '**', redirectTo: '/advertisements' ,pathMatch:'full'}
 ];
 
