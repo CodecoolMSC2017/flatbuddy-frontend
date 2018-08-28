@@ -1,0 +1,27 @@
+<div *ngFor="let user of users">
+  <a >
+    <div id="usercontainer" >
+      <div class="wrapper" routerLink = "/admin/user/edit/{{user.id}}">
+          <div class="card" data-effect="color">
+            <div class="ribbon ribbon-top-right">
+              <span *ngIf="user.gender == 'Male'" [ngStyle]="{'background-color':user.gender == 'Male'? '#2980b9' : '#dd22ae'}">Male</span>
+              <span *ngIf="user.gender == 'Female'" [ngStyle]="{'background-color': user.gender == 'Male'? '#2980b9' : '#dd22ae'}">Female</span>
+            </div>
+            <figure  class="card__image">
+              <img src="https://media.defense.gov/2017/Sep/06/2001803826/-1/-1/0/170621-F-LL945-0001.JPG" alt="Short description">
+            </figure>
+            <div class="card__header">
+              <figure class="card__profile" >
+                  <img *ngIf='user.pictures.length == 0'  src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png" >
+                  <img *ngIf='user.pictures.length > 0'  src="/api/media/uploads/profiles/{{user.id}}/{{user.pictures[0].path}}">
+              </figure>
+            </div>
+            <div class="card__body">
+              <h3 class="card__name">{{user.firstName}}, {{user.age}}</h3>
+              <p class="card__bio">{{user.destination}}<br> {{user.description}}</p>
+            </div>
+          </div>
+        </div>
+    </div>  
+  </a>
+</div>

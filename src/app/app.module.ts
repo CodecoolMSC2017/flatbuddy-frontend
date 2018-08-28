@@ -49,6 +49,8 @@ import { InboxComponent } from './inbox/inbox.component';
 import { SentMessagesComponent } from './sent-messages/sent-messages.component';
 import { PaypalComponent } from './paypal/paypal.component';
 import { RentslotseditComponent } from './rentslotsedit/rentslotsedit.component';
+import { AdminUserComponent } from './admin-user/admin-user.component';
+import { AdminUserEditComponent } from './admin-user-edit/admin-user-edit.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +80,9 @@ import { RentslotseditComponent } from './rentslotsedit/rentslotsedit.component'
     SentMessagesComponent,
     InboxComponent,
     PaypalComponent,
-    RentslotseditComponent
+    RentslotseditComponent,
+    AdminUserComponent,
+    AdminUserEditComponent
   ],
   imports: [
     GoogleApiModule.forRoot({

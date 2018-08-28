@@ -21,6 +21,8 @@ import { MessageComponent } from './message/message.component';
 import { SentMessagesComponent } from './sent-messages/sent-messages.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { PaypalComponent } from './paypal/paypal.component';
+import { AdminUserComponent } from './admin-user/admin-user.component';
+import { AdminUserEditComponent } from './admin-user-edit/admin-user-edit.component';
 
 
 const routes: Routes = [
@@ -42,6 +44,8 @@ const routes: Routes = [
   {path: 'sentmessages', component: SentMessagesComponent, canActivate: [LoginGuard]},
   {path: 'inbox', component: InboxComponent, canActivate: [LoginGuard]},
   {path: 'paypaldone', component: PaypalComponent, canActivate: [LoginGuard]},
+  {path: 'admin/users', component: AdminUserComponent, canActivate: [LoginGuard]},
+  {path: 'admin/user/edit/:id', component: AdminUserEditComponent, canActivate: [LoginGuard]},
   {path: '**', redirectTo: '/advertisements' ,pathMatch:'full'}
 ];
 
