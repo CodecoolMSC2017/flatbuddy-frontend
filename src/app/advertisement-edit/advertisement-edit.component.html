@@ -2,7 +2,7 @@
 <div id="slots" >
   <div class="row">
     <div class="col-25">
-      <label for="visible">People in your advertisement</label>
+      <label >People in your advertisement</label>
     </div>
     <div class="col-75">
       <app-rentslotsedit [rentAdId]="selectedAd"></app-rentslotsedit>
@@ -13,7 +13,7 @@
   <form action="/action_page.php">
     <div class="row">
       <div class="col-25">
-        <label for="visible">Activate/deactivate advertisement(visible for people)</label>
+        <label>Activate/deactivate advertisement(visible for people)</label>
       </div>
       <div class="col-75">
         <input *ngIf="active == true" type="button" id="visible" value="Set inactive" (click)="onSetAdVisibilityClick(rentAd.id)">

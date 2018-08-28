@@ -34,3 +34,22 @@
     width:40%;
 
 }
+
+#error {
+    color: red;
+}
+
+input[type=button]{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 120px;
+    margin-right:10px; 
+}
+
+#redbutton {
+    background-color: red;
+}

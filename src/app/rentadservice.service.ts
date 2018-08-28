@@ -69,5 +69,9 @@ export class RentadserviceService {
     return this.http.put('/api/user/advertisement/setactivity/'+advertisementId,null);
   }
 
+  deleteAd(adId): any {
+    return this.http.delete('/api/admin/deletead/' + adId);
+  }
+
   
 }
