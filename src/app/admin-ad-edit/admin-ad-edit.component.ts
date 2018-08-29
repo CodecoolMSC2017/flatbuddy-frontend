@@ -28,11 +28,10 @@ export class AdminAdEditComponent implements OnInit {
       .subscribe(
         rentads => {this.rentAd = rentads,
         this.pictures = this.rentAd.adPictures,
-        this.active = this.rentAd.enabled,
+        this.active = this.rentAd.enabled},
         (error) => {
-          //.alert(error.error.message)
           this.router.navigate(['advertisements']);
-        }});
+        });
     
   }
 
