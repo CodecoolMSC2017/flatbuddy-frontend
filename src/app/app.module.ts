@@ -52,6 +52,8 @@ import { RentslotseditComponent } from './rentslotsedit/rentslotsedit.component'
 import { AdminUserComponent } from './admin-user/admin-user.component';
 import { AdminUserEditComponent } from './admin-user-edit/admin-user-edit.component';
 import { AdminAdEditComponent } from './admin-ad-edit/admin-ad-edit.component';
+import { ShareButtonModule } from '@ngx-share/button';
+
 
 @NgModule({
   declarations: [
@@ -94,7 +96,8 @@ import { AdminAdEditComponent } from './admin-ad-edit/admin-ad-edit.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ShareButtonModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
