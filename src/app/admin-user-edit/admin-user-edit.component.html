@@ -44,6 +44,8 @@
     </div>
     <input type="button" (click)="saveUser(user)"value = "Save">
     <input type="button" (click)="deleteUser(user)"value = "Delete user" *ngIf = "user.enabled">
+    <br>
+    <span class="error" *ngIf="showError">{{ errorMsg }}</span>
   </div>
   <div class = "container">
     <div class = "row">

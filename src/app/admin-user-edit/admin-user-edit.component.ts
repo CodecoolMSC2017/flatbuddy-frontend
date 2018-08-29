@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../user-service.service';
 import { User } from '../user';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserProfileService } from '../user-profile.service';
 import { UserAdvertisementsComponent } from '../user-advertisements/user-advertisements.component';
 import { HttpBackend, HttpClient } from '@angular/common/http';
@@ -16,8 +16,11 @@ export class AdminUserEditComponent implements OnInit {
 
   user:User;
   userID: number;
+  showError = false;
 
-  constructor(private route: ActivatedRoute ,private userService:UserServiceService, private userProfileService: UserProfileService, private adminService: AdminUserService) { }
+  errorMsg: string;
+
+  constructor(private route: ActivatedRoute ,private userService:UserServiceService, private userProfileService: UserProfileService, private adminService: AdminUserService, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -32,11 +35,20 @@ export class AdminUserEditComponent implements OnInit {
   }
 
   saveUser(user: User){
-    this.adminService.saveUser(user).subscribe();
+    this.adminService.saveUser(user).subscribe(() => {
+      this.router.navigate(['admin/users']);
+    });
   }
 
   deleteUser(user: User){
-    this.adminService.deleteUser(user).subscribe();
+    this.showError = false;
+    this.adminService.deleteUser(user).subscribe(()=>{
+      this.router.navigate(['admin/users']);
+    },
+  (error)=>{
+    this.showError = true;
+    this.errorMsg = error.error.message;
+  });
   }
 
 }
