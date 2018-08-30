@@ -17,11 +17,13 @@ export class RentAdDetailsComponent implements OnInit {
   error: String;
   active:boolean;
   confirm:boolean = false;
+  currentPage:String;
 
   constructor(private authService: AuthService,private route:ActivatedRoute, private rentads:RentadserviceService) { 
     this.route.params.subscribe(params => {
       this.rentAdId = params.id;
       this.rentAdId2 = params.id;
+      this.currentPage = window.location.href;
     });
 
   }
