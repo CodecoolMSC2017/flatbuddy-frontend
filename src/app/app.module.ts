@@ -53,6 +53,7 @@ import { AdminUserComponent } from './admin-user/admin-user.component';
 import { AdminUserEditComponent } from './admin-user-edit/admin-user-edit.component';
 import { AdminAdEditComponent } from './admin-ad-edit/admin-ad-edit.component';
 import { ShareButtonModule } from '@ngx-share/button';
+import { AdvertisementCommentsComponent } from './advertisement-comments/advertisement-comments.component';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import { ShareButtonModule } from '@ngx-share/button';
     RentslotseditComponent,
     AdminUserComponent,
     AdminUserEditComponent,
-    AdminAdEditComponent
+    AdminAdEditComponent,
+    AdvertisementCommentsComponent
   ],
   imports: [
     GoogleApiModule.forRoot({

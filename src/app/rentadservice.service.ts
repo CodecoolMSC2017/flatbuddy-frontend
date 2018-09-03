@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Advertisement } from './advertisement';
+import { Adcomment } from './adcomment';
 
 
 @Injectable({
@@ -71,6 +72,10 @@ export class RentadserviceService {
 
   deleteAd(adId): any {
     return this.http.delete('/api/admin/deletead/' + adId);
+  }
+
+  getComments(adId): Observable<Adcomment[]>{
+    return this.http.get<Adcomment[]>('/api/advertisement/comments/'+adId)
   }
 
   

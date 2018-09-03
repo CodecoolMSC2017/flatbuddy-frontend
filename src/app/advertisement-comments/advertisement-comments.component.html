@@ -1,0 +1,9 @@
+<div id = "userComments">
+  <div id = "commentDiv" *ngFor="let comment of comments">
+    <img *ngIf='comment.user.pictures.length == 0'  src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png" >
+    <img *ngIf='comment.user.pictures.length > 0'  src="/api/media/uploads/profiles/{{user.id}}/{{user.pictures[0].path}}">
+    <p>{{comment.comment}}</p>
+    <span class="time-right">{{comment.date | date:'y-MM-dd hh:mm'}}</span>
+  </div>
+</div>
+
