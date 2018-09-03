@@ -27,7 +27,7 @@
 
   </form>
   
-  <div [class.showModal]="showMessageModal" id="myModal" class="modal">
+  <div *ngIf="message" [class.showModal]="showMessageModal" id="myModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
           <span class="close" (click)="onMessageCloseClick()">&times;</span>
