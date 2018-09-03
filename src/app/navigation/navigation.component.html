@@ -1,3 +1,23 @@
+<nav *ngIf="!notifications">
+  <div class='swanky'>
+    <div class='swanky_wrapper'>
+      <input *ngIf="user.authorities[0] != 'ROLE_ADMIN' " id='Advertisements' name='radio' type='radio' value = 1 (click)='resetRadio($event)'>
+      <label routerLink = "advertisements">
+        <i class="material-icons">local_hotel</i>
+        <span> Advertisements</span>
+        <div class='bar'></div>
+      </label>
+      <label routerLink = "login" id=login>
+        <i class="material-icons">how_to_reg</i>
+        <span>Login</span>
+      </label>
+      <label routerLink = "register" id=login>
+        <i class="material-icons">person_add</i>
+        <span>Register</span>
+      </label>
+    </div>
+  </div>
+</nav>
 
 <nav *ngIf="notifications">
 <div class='swanky'>
