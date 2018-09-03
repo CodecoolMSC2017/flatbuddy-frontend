@@ -1,5 +1,39 @@
+* {
+    font-family: Helvetica, Arial, sans-serif;
+
+}
+
 .topcontainer {
-    width:100%;
+    width:1200px;
+}
+
+.bottomcontainer {
+    width:1200px;
+}
+
+#topcontainer-rightsection {
+    float:right;
+    background-color:white;
+    height:560px;
+    width: 710px;
+    border-radius: 5px 5px;
+}
+
+#contact {
+    float: left;
+    width:290px;
+    
+}
+
+#contact li {
+    background-color: #f1f1f1 !important;
+    border-top:solid 1px darkslategray;
+    border-bottom:solid 1px darkslategray;
+    overflow-y: auto;
+}
+
+#advertiser {
+    text-align: center;
 }
 
 .rentadslots {
@@ -7,32 +41,59 @@
     height:230px;
     width:58%;
     background-color: white;
-    border-radius: 20px 25px;
     align-content: center;
+    border-left: solid 1px gray;
+    margin-top: 5px;
+
 }
 
 #rentaddesc {
     margin-top: 5px;
     float:right;
-    height:230px;
+    height:330px;
     width:58%;
-    background-color: #2d2e2e;
-    border-radius: 20px 25px;
+    border-left: solid 1px gray;
+    overflow-y:scroll;
     
+}
 
+#rentaddesc::-webkit-scrollbar { 
+    display: none; 
 }
 
 #rentaddesc p {
     margin:15px;
     font-weight: bold;
-    color:white;
+    color:black;
 }
 
 #rentaddetailslist {
-    clear: both;
+    float: left;
     margin-top:15px;
-    width:40%;
+    width:485px;
+    background-color:white;
+    border-radius: 5px 5px;
+}
 
+#rentaddetailslist ul li {
+    background-color: #f1f1f1 !important;
+    border-top:solid 1px darkslategray;
+    border-bottom:solid 1px darkslategray;
+}
+
+#comments {
+    margin-top: 10px;
+    float: right;
+    width:710px;
+    height:800px;
+    background-color: white;
+    border-radius: 5px 5px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+
+#comments::-webkit-scrollbar { 
+    display: none; 
 }
 
 #error {
@@ -54,8 +115,20 @@ input[type=button]{
     background-color: red;
 }
 
-#rentSlotsGuest {
+#rentSlotsGuest,#contactguest {
     background-color: lightgreen;
     text-align: center;
     font-size: 2em;
+}
+
+#ownerimg {
+    width: 70px;
+    height:70px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+}
+
+li p {
+    margin:0px;
 }

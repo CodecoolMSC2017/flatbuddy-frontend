@@ -1,7 +1,7 @@
 .rentadgallery {
     float:left;
-    width: 40%;
-    height: 30vw;
+    width: 485px;
+    height: 470px;
     border-radius: 5px 10px;
     background-color: lightgrey;
 
@@ -26,18 +26,22 @@
 .rentadthumbnails {
     width:100%;
     height:20%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
 }
 .rentadthumbnail {
     margin-top:2px;
-    max-width:20%;
+    max-width:90px;
     height:100%;
     margin:1px;
-    float:left;
+    display: inline-block;
 }
 
 .rentadthumbnail .userimg {
     height:100%;
-    max-width: 80%;
+    max-width: 94%;
 }
 
 .userimg {

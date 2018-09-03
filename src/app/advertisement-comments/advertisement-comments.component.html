@@ -1,9 +1,14 @@
 <div id = "userComments">
   <div id = "commentDiv" *ngFor="let comment of comments">
     <img *ngIf='comment.user.pictures.length == 0'  src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png" >
-    <img *ngIf='comment.user.pictures.length > 0'  src="/api/media/uploads/profiles/{{user.id}}/{{user.pictures[0].path}}">
+    <img *ngIf='comment.user.pictures.length > 0'  src="/api/media/uploads/profiles/{{comment.user.id}}/{{comment.user.pictures[0].path}}">
     <p>{{comment.comment}}</p>
     <span class="time-right">{{comment.date | date:'y-MM-dd hh:mm'}}</span>
+  </div>
+  <div>
+    <textarea rows="4" cols="83">
+      At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+    </textarea>
   </div>
 </div>
 

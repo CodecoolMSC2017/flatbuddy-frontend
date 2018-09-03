@@ -2,13 +2,6 @@
 <div *ngIf="user">
   <div *ngIf="rentAd$.enabled || user.id == rentAd$.user.id || user.authorities[0] == 'ROLE_ADMIN' ">
     <h1>{{ rentAd$.city }} {{rentAd$.district}} {{rentAd$.street}} </h1>
-    <div id="adminbuttons" *ngIf="user.authorities[0] == 'ROLE_ADMIN'">
-      <input *ngIf="active == true" type="button" id="redbutton" value="Set inactive" (click)="onSetAdVisibilityClick(rentAd$.id)">
-      <input *ngIf="active == false" type="button" id="notvisible" value="Set active" (click)="onSetAdVisibilityClick(rentAd$.id)">
-      <input  type="button" value="Edit" routerLink="/admin/advertisement/edit/{{rentAd$.id}}">
-      <input  *ngIf="!confirm" type="button" id="redbutton" value="Delete" (click)="onDeleteAdButtonClick()">
-      <input  *ngIf="confirm" type="button" id="redbutton" value="Confirm delete" (click)="onConfirmDeleteAdButtonClick(rentAd$.id)">
-    </div>
     <share-button 
         text="Facebook Share" 
         [theme]="'modern-dark'"
@@ -18,29 +11,56 @@
         [showIcon]="false"
         [size]="-2"
         [url]="currentPage"></share-button>
+    <div id="adminbuttons" *ngIf="user.authorities[0] == 'ROLE_ADMIN'">
+      <input *ngIf="active == true" type="button" id="redbutton" value="Set inactive" (click)="onSetAdVisibilityClick(rentAd$.id)">
+      <input *ngIf="active == false" type="button" id="notvisible" value="Set active" (click)="onSetAdVisibilityClick(rentAd$.id)">
+      <input  type="button" value="Edit" routerLink="/admin/advertisement/edit/{{rentAd$.id}}">
+      <input  *ngIf="!confirm" type="button" id="redbutton" value="Delete" (click)="onDeleteAdButtonClick()">
+      <input  *ngIf="confirm" type="button" id="redbutton" value="Confirm delete" (click)="onConfirmDeleteAdButtonClick(rentAd$.id)">
+    </div>
     <div class="topcontainer">
     <app-image-viewer [rentAdId2]="rentAdId2"></app-image-viewer>
-      <div class="rentadslots">
-        <app-rent-slots *ngIf="user.authorities[0] != 'ROLE_GUEST'" [rentAdId]="rentAdId"></app-rent-slots>
-        <div id="rentSlotsGuest" *ngIf="user.authorities[0] == 'ROLE_GUEST'" >Log in to see this part</div>
+      <div id="topcontainer-rightsection">
+        <div id="contact">Contact: 
+          <div *ngIf="user.authorities[0] == 'ROLE_GUEST'" id="contactguest">Log in to see this part</div>
+          <ul *ngIf="user.authorities[0] != 'ROLE_GUEST'">
+            <li id="advertiser" *ngIf="rentAd$.user.flatmate">Advertiser:<br>
+              <img id="ownerimg" *ngIf="rentAd$.user.pictures.length == 0" src="https://eliaslealblog.files.wordpress.com/2014/03/user-200.png">
+              <img id="ownerimg" *ngIf="rentAd$.user.pictures.length > 0" src="/api/media/uploads/profiles/{{rentAd$.user.id}}/{{rentAd$.user.pictures[0].path}}">
+              <p>{{rentAd$.user.firstName}} {{rentAd$.user.lastName}}</p>
+            </li>
+            <li>city: {{rentAd$.user.destination}}</li>
+            <li >email: {{rentAd$.user.email}}</li>
+          </ul>
+        </div>
+        <div class="rentadslots"> Slots:
+          <app-rent-slots *ngIf="user.authorities[0] != 'ROLE_GUEST'" [rentAdId]="rentAdId"></app-rent-slots>
+          <div id="rentSlotsGuest" *ngIf="user.authorities[0] == 'ROLE_GUEST'" >Log in to see this part</div>
+        </div>
+        <div id="rentaddesc">Description: <p>{{ rentAd$.description }}</p></div>
       </div>
-      <div id="rentaddesc"> <p>{{ rentAd$.description }}</p></div>
     </div>
 
-    <div id="rentaddetailslist">
-      <ul>
-        <li><strong>Rent state:</strong> {{ rentAd$.state }}</li>
-        <li><strong>Rent city:</strong> {{ rentAd$.city }}</li>
-        <li><strong>Rent district:</strong> {{ rentAd$.district }}</li>
-        <li><strong>Rent street:</strong> {{ rentAd$.street }}</li>
-        <li><strong>Rent cost:</strong> {{ rentAd$.cost }}</li>
-        <li><strong>Rent size:</strong> {{ rentAd$.size }}</li>
-        <li><strong>Rent type:</strong> {{ rentAd$.type }}</li>
-        <li *ngIf="rentAd$.furnitured"><strong>Is it furnitured:</strong> Yes</li>
-        <li *ngIf="!rentAd$.furnitured"><strong>Is it furnitured:</strong> No</li>
-        <li><strong>Rooms avaiable:</strong> {{ rentAd$.roomsAvailable }}</li>
-      </ul>
+    <div class="bottomcontainer">
+      <div id="rentaddetailslist">
+        <ul>
+          <li><strong>Rent state:</strong> {{ rentAd$.state }}</li>
+          <li><strong>Rent city:</strong> {{ rentAd$.city }}</li>
+          <li><strong>Rent district:</strong> {{ rentAd$.district }}</li>
+          <li><strong>Rent street:</strong> {{ rentAd$.street }}</li>
+          <li><strong>Rent cost:</strong> {{ rentAd$.cost }}</li>
+          <li><strong>Rent size:</strong> {{ rentAd$.size }} m<sup>2</sup></li>
+          <li><strong>Rent type:</strong> {{ rentAd$.type }}</li>
+          <li *ngIf="rentAd$.furnitured"><strong>Is it furnitured:</strong> Yes</li>
+          <li *ngIf="!rentAd$.furnitured"><strong>Is it furnitured:</strong> No</li>
+          <li><strong>Rooms avaiable:</strong> {{ rentAd$.roomsAvailable }}</li>
+        </ul>
+      </div>
+      <div id="comments">
+        <h3>Comments on the advertisement: </h3>
+        <app-advertisement-comments></app-advertisement-comments></div>
     </div>
-    <app-advertisement-comments></app-advertisement-comments>
+    
   </div>
+  
 </div>
