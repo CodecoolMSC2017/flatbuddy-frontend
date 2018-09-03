@@ -32,7 +32,10 @@ export class RentAdDetailsComponent implements OnInit {
     this.rentads.getAdById(this.rentAdId).subscribe(rentads => { 
       this.rentAd$ = rentads;
       this.active = this.rentAd$.enabled;
-      this.authService.getAuth().subscribe(user => this.user = user);
+      this.authService.getAuth().subscribe(user => {this.user = user},(error)=> { 
+        this.user = new User();
+        this.user.authorities[0]= "ROLE_GUEST";
+      });
     },(error) => this.error = error.error.message);
   }
 

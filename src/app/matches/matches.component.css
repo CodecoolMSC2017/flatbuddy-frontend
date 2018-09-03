@@ -173,6 +173,7 @@
     transition-duration: 1s;
     overflow: hidden;
     max-height: 54px;
+    min-height:54px;
   }
   
   .card:hover .card__bio {

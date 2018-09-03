@@ -13,10 +13,10 @@ export class RentadserviceService {
   constructor(private http: HttpClient) { }
 
   getAds(): Observable<Advertisement[]>{
-    return this.http.get<Advertisement[]>('/api/user/advertisements');
+    return this.http.get<Advertisement[]>('/api/advertisements');
   }
   getAdById(rentAdId){
-    return this.http.get('/api/user/advertisement/'+rentAdId);
+    return this.http.get('/api/advertisement/'+rentAdId);
   }
   getMyAdById(rentAdId){
     return this.http.get('/api/user/myadvertisement/'+rentAdId);
@@ -62,7 +62,7 @@ export class RentadserviceService {
   }
 
   getFilteredAds(filter): Observable<Advertisement[]>{
-    return this.http.get<Advertisement[]>('/api/user/advertisements/search/'+filter);
+    return this.http.get<Advertisement[]>('/api/advertisements/search/'+filter);
   }
 
   setAdVisibility(advertisementId): Observable<any>{

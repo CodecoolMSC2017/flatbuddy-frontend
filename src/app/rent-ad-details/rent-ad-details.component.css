@@ -53,3 +53,9 @@ input[type=button]{
 #redbutton {
     background-color: red;
 }
+
+#rentSlotsGuest {
+    background-color: lightgreen;
+    text-align: center;
+    font-size: 2em;
+}
