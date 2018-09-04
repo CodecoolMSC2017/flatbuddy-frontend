@@ -4,15 +4,15 @@
 
 body {
     margin: 0;
-    background: #f2f2f2;
+    background: #e9ebee;
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
 
-    background: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/SsLYSh45lizrfzvep/videoblocks-young-caucasian-man-and-woman-moving-in-the-new-flat-and-bringing-a-lot-of-packed-boxes-and-home-stuff-inside_bxgiyaarpg_thumbnail-full01.png) no-repeat center center fixed !important; 
+    /* background: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/SsLYSh45lizrfzvep/videoblocks-young-caucasian-man-and-woman-moving-in-the-new-flat-and-bringing-a-lot-of-packed-boxes-and-home-stuff-inside_bxgiyaarpg_thumbnail-full01.png) no-repeat center center fixed !important; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; */
 /*     overflow: hidden;
  */  }
   #container {

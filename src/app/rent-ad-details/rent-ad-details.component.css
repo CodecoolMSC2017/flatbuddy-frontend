@@ -5,6 +5,7 @@
 
 .topcontainer {
     width:1200px;
+    
 }
 
 .bottomcontainer {
@@ -17,6 +18,8 @@
     height:560px;
     width: 710px;
     border-radius: 5px 5px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+
 }
 
 #contact {
@@ -73,6 +76,8 @@
     width:485px;
     background-color:white;
     border-radius: 5px 5px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+
 }
 
 #rentaddetailslist ul li {
@@ -90,6 +95,8 @@
     border-radius: 5px 5px;
     overflow-y:scroll;
     overflow-x:hidden;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+
 }
 
 #comments::-webkit-scrollbar { 
