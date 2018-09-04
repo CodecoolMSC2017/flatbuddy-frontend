@@ -12,7 +12,6 @@ import { interval } from 'rxjs';
 export class NotificationsComponent implements OnInit {
 
   notifications: Notification[]=[];
-  requestTimer = interval(5000);
   constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {

@@ -25,7 +25,7 @@ export class AdvertisementEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.adService.getMyAdById(this.rentAd)
+    this.adService.getMyAdById(this.selectedAd)
       .subscribe(
         rentads => {this.rentAd = rentads,
         this.pictures = this.rentAd.adPictures,
@@ -51,7 +51,10 @@ export class AdvertisementEditComponent implements OnInit {
   }
 
   onUpload() {
-    this.adService.uploadPicture(this.rentAd.id).subscribe();
+    this.adService.uploadPicture(this.rentAd.id).subscribe(()=>{this.ngOnInit()},(error) => {
+      this.showError = true;
+      this.errorMessage = error.error.message;
+    });
   }
 
   onDeleteButtonClick(picture) {
